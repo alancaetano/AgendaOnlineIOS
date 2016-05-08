@@ -108,7 +108,6 @@ class SecondViewController: UIViewController,UITextFieldDelegate, UITableViewDel
                     self.mensagens.addObject(Mensagem(Id: "", IdUsuario: self.IdUsuario, IdConversa: self.conversa.Id, Texto: msg, DtEnvio: NSDate()))
                     self.tvMensagens.reloadData()
                 })
-                
             })
             
             tvMensagens.setContentOffset(CGPoint(x: 0, y: CGFloat.max), animated: false)
