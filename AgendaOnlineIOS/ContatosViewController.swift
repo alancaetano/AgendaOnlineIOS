@@ -25,7 +25,7 @@ class ContatosViewController: UIViewController, UITableViewDelegate, UITableView
     
     let defaults = NSUserDefaults.standardUserDefaults()
     
-    var parent:FirstViewController!
+    var parent:ConversaViewController!
         
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.contatos.count

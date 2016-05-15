@@ -78,7 +78,7 @@
         <!--Lista de Mensagens-->
         <scene sceneID="jU0-ee-AJu">
             <objects>
-                <tableViewController title="Lista de Mensagens" id="2g7-Wn-p3e" customClass="FirstViewController" customModule="AgendaOnline" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Lista de Mensagens" id="2g7-Wn-p3e" customClass="ConversaViewController" customModule="AgendaOnline" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="71" sectionHeaderHeight="28" sectionFooterHeight="28" id="vdZ-hL-kxR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -140,7 +140,7 @@
         <!--NomePessoa-->
         <scene sceneID="z9i-Ew-fwp">
             <objects>
-                <viewController id="rdb-rQ-5Ld" customClass="SecondViewController" customModule="AgendaOnline" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="rdb-rQ-5Ld" customClass="MensagemViewController" customModule="AgendaOnline" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="a8h-Op-5en"/>
                         <viewControllerLayoutGuide type="bottom" id="SLY-93-D72"/>
@@ -223,7 +223,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fcP-kD-Fm0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="888" y="162"/>
+            <point key="canvasLocation" x="876" y="838"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SNX-Ce-bkY">
@@ -289,7 +289,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="elj-zQ-f78" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="479" y="783"/>
+            <point key="canvasLocation" x="75" y="737"/>
         </scene>
     </scenes>
 </document>

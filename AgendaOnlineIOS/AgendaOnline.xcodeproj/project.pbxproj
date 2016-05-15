@@ -9,13 +9,11 @@
 /* Begin PBXBuildFile section */
 		C700020A1CCD3922000A03E3 /* Constantes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70002091CCD3922000A03E3 /* Constantes.swift */; };
 		C72A51DE1C8FC37C00CAF507 /* MensagemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72A51DD1C8FC37C00CAF507 /* MensagemCell.swift */; };
-		C72A51EA1C9A58D300CAF507 /* balaodestinatario.png in Resources */ = {isa = PBXBuildFile; fileRef = C72A51E81C9A58D300CAF507 /* balaodestinatario.png */; };
-		C72A51EB1C9A58D300CAF507 /* balaousuario.png in Resources */ = {isa = PBXBuildFile; fileRef = C72A51E91C9A58D300CAF507 /* balaousuario.png */; };
 		C72DA19B1CAA421800F50407 /* ContatosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72DA19A1CAA421800F50407 /* ContatosViewController.swift */; };
 		C761E2BB1CA7CE070035C0E5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C761E2BA1CA7CE070035C0E5 /* LoginViewController.swift */; };
 		E573D6E11C66E1220092E95D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E573D6E01C66E1220092E95D /* AppDelegate.swift */; };
-		E573D6E31C66E1220092E95D /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E573D6E21C66E1220092E95D /* FirstViewController.swift */; };
-		E573D6E51C66E1220092E95D /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E573D6E41C66E1220092E95D /* SecondViewController.swift */; };
+		E573D6E31C66E1220092E95D /* ConversaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E573D6E21C66E1220092E95D /* ConversaViewController.swift */; };
+		E573D6E51C66E1220092E95D /* MensagemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E573D6E41C66E1220092E95D /* MensagemViewController.swift */; };
 		E573D6E81C66E1220092E95D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E573D6E61C66E1220092E95D /* Main.storyboard */; };
 		E573D6EA1C66E1220092E95D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E573D6E91C66E1220092E95D /* Assets.xcassets */; };
 		E573D6ED1C66E1220092E95D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E573D6EB1C66E1220092E95D /* LaunchScreen.storyboard */; };
@@ -29,14 +27,12 @@
 /* Begin PBXFileReference section */
 		C70002091CCD3922000A03E3 /* Constantes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constantes.swift; sourceTree = "<group>"; };
 		C72A51DD1C8FC37C00CAF507 /* MensagemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MensagemCell.swift; sourceTree = "<group>"; };
-		C72A51E81C9A58D300CAF507 /* balaodestinatario.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = balaodestinatario.png; sourceTree = "<group>"; };
-		C72A51E91C9A58D300CAF507 /* balaousuario.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = balaousuario.png; sourceTree = "<group>"; };
 		C72DA19A1CAA421800F50407 /* ContatosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContatosViewController.swift; sourceTree = "<group>"; };
 		C761E2BA1CA7CE070035C0E5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E573D6DD1C66E1220092E95D /* AgendaOnline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AgendaOnline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E573D6E01C66E1220092E95D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = AgendaOnline/AppDelegate.swift; sourceTree = "<group>"; };
-		E573D6E21C66E1220092E95D /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirstViewController.swift; path = AgendaOnline/FirstViewController.swift; sourceTree = "<group>"; };
-		E573D6E41C66E1220092E95D /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SecondViewController.swift; path = AgendaOnline/SecondViewController.swift; sourceTree = "<group>"; };
+		E573D6E21C66E1220092E95D /* ConversaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConversaViewController.swift; path = AgendaOnline/ConversaViewController.swift; sourceTree = "<group>"; };
+		E573D6E41C66E1220092E95D /* MensagemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MensagemViewController.swift; path = AgendaOnline/MensagemViewController.swift; sourceTree = "<group>"; };
 		E573D6E71C66E1220092E95D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E573D6E91C66E1220092E95D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E573D6EC1C66E1220092E95D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,15 +55,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C72A51E11C90FB8C00CAF507 /* recursos */ = {
-			isa = PBXGroup;
-			children = (
-				C72A51E81C9A58D300CAF507 /* balaodestinatario.png */,
-				C72A51E91C9A58D300CAF507 /* balaousuario.png */,
-			);
-			name = recursos;
-			sourceTree = "<group>";
-		};
 		E573D6D41C66E1220092E95D = {
 			isa = PBXGroup;
 			children = (
@@ -87,7 +74,6 @@
 		E573D6DF1C66E1220092E95D /* AgendaOnline */ = {
 			isa = PBXGroup;
 			children = (
-				C72A51E11C90FB8C00CAF507 /* recursos */,
 				E573D6F61C66E18E0092E95D /* controllers */,
 				E573D6F51C66E1880092E95D /* models */,
 				E573D6F41C66E1710092E95D /* views */,
@@ -124,8 +110,8 @@
 		E573D6F61C66E18E0092E95D /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E573D6E41C66E1220092E95D /* SecondViewController.swift */,
-				E573D6E21C66E1220092E95D /* FirstViewController.swift */,
+				E573D6E41C66E1220092E95D /* MensagemViewController.swift */,
+				E573D6E21C66E1220092E95D /* ConversaViewController.swift */,
 				E573D6E01C66E1220092E95D /* AppDelegate.swift */,
 				C72A51DD1C8FC37C00CAF507 /* MensagemCell.swift */,
 				C761E2BA1CA7CE070035C0E5 /* LoginViewController.swift */,
@@ -195,9 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E573D6ED1C66E1220092E95D /* LaunchScreen.storyboard in Resources */,
-				C72A51EB1C9A58D300CAF507 /* balaousuario.png in Resources */,
 				E573D6EA1C66E1220092E95D /* Assets.xcassets in Resources */,
-				C72A51EA1C9A58D300CAF507 /* balaodestinatario.png in Resources */,
 				E573D6E81C66E1220092E95D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,12 +199,12 @@
 				C72A51DE1C8FC37C00CAF507 /* MensagemCell.swift in Sources */,
 				E573D7001C66E8D10092E95D /* Conversa.swift in Sources */,
 				C700020A1CCD3922000A03E3 /* Constantes.swift in Sources */,
-				E573D6E51C66E1220092E95D /* SecondViewController.swift in Sources */,
+				E573D6E51C66E1220092E95D /* MensagemViewController.swift in Sources */,
 				E573D6FC1C66E8AF0092E95D /* Aluno.swift in Sources */,
 				E573D6E11C66E1220092E95D /* AppDelegate.swift in Sources */,
 				E573D6FE1C66E8C50092E95D /* UsuarioConversa.swift in Sources */,
 				C761E2BB1CA7CE070035C0E5 /* LoginViewController.swift in Sources */,
-				E573D6E31C66E1220092E95D /* FirstViewController.swift in Sources */,
+				E573D6E31C66E1220092E95D /* ConversaViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,14 +1,8 @@
-//
-//  FirstViewController.swift
-//  AgendaOnline
-//
-//  Created by João Fabio Lourenço dos Santos on 07/02/16.
-//  Copyright © 2016 Agenda Online. All rights reserved.
-//
+
 
 import UIKit
 
-class FirstViewController: UITableViewController{
+class ConversaViewController: UITableViewController{
 
     @IBOutlet var tvConversas: UITableView!
     
@@ -80,7 +74,7 @@ class FirstViewController: UITableViewController{
                 conversaSelecionada = conversas![indexPath.row] as! Conversa
             }
 
-            let tblViewController = segue.destinationViewController as! SecondViewController
+            let tblViewController = segue.destinationViewController as! MensagemViewController
             tblViewController.conversa = conversaSelecionada
         }
         

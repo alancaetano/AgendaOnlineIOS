@@ -1,28 +1,23 @@
-//
-//  SecondViewController.swift
-//  AgendaOnline
-//
-//  Created by João Fabio Lourenço dos Santos on 07/02/16.
-//  Copyright © 2016 Agenda Online. All rights reserved.
-//
+
 
 import UIKit
 import Foundation
 
-class SecondViewController: UIViewController,UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
+class MensagemViewController: UIViewController,UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
 
-    var conversa:Conversa!
-    
     @IBOutlet var tvMensagens: UITableView!
     
     @IBOutlet weak var tecladoBaseConstraint: NSLayoutConstraint!
-    var mensagens: NSMutableArray! = []
     
     @IBOutlet weak var textViewDigitarMensagem: UITextField!
     
     @IBOutlet var viewBase: UIView!
     
     @IBOutlet weak var alturaTableView: NSLayoutConstraint!
+    
+    var mensagens: NSMutableArray! = []
+    
+    var conversa:Conversa!
     
     var IdUsuario: String! = ""
     
@@ -231,8 +226,8 @@ class SecondViewController: UIViewController,UITextFieldDelegate, UITableViewDel
         let info = sender.userInfo!
         let duration: NSTimeInterval = (info[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
         let tamTeclado = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue().height
-        tecladoBaseConstraint.constant = tamTeclado - bottomLayoutGuide.length + 10
         
+        tecladoBaseConstraint.constant = tamTeclado - bottomLayoutGuide.length + 10
         alturaTableView.constant = alturaTableView.constant - tamTeclado
         
         UIView.animateWithDuration(duration) { self.view.layoutIfNeeded() }
@@ -241,9 +236,9 @@ class SecondViewController: UIViewController,UITextFieldDelegate, UITableViewDel
     func keyboardWillHide(sender: NSNotification) {
         let info = sender.userInfo!
         let duration: NSTimeInterval = (info[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
-        tecladoBaseConstraint.constant = 10
-        
         let tamTeclado = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue().height
+        
+        tecladoBaseConstraint.constant = 10
         alturaTableView.constant = alturaTableView.constant + tamTeclado
         
         UIView.animateWithDuration(duration) { self.view.layoutIfNeeded() }
