@@ -9,14 +9,8 @@
 import UIKit
 
 class MensagemCell: UITableViewCell {
-    @IBOutlet weak var Texto:UILabel! = UILabel()
+    @IBOutlet weak var TextoUsuario:UILabel! = UILabel()
+    @IBOutlet weak var TextoDestinatario:UILabel! = UILabel()
     @IBOutlet weak var Data:UILabel! = UILabel()
-    
-    func MensagemCell(texto:String!, data:NSDate!){
-        Texto.text = texto
-        Data.text = ""
-    
-    }
-    
     
 }

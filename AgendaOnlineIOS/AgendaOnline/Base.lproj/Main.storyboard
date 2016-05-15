@@ -165,23 +165,36 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MpX-Xz-6bj">
-                                                    <rect key="frame" x="51" y="12" width="312" height="40"/>
+                                                <label identifier="TextoDestinatario" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="TextoDestinatario" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MpX-Xz-6bj" userLabel="TextoDestinatario">
+                                                    <rect key="frame" x="28" y="12" width="300" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="300" id="rl7-r0-qpE"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label identifier="TextoUsuario" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="TextoUsuario" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3a-ZQ-7nj" userLabel="TextoUsuario">
+                                                    <rect key="frame" x="94" y="12" width="300" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="300" id="fHz-JD-kcm"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="MpX-Xz-6bj" secondAttribute="bottom" constant="13" id="7QR-4O-VsB"/>
-                                                <constraint firstItem="MpX-Xz-6bj" firstAttribute="top" secondItem="mTy-qM-gkt" secondAttribute="topMargin" constant="4" id="FKT-FD-YJf"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="MpX-Xz-6bj" secondAttribute="trailing" constant="43" id="V2n-bi-flZ"/>
-                                                <constraint firstItem="MpX-Xz-6bj" firstAttribute="leading" secondItem="mTy-qM-gkt" secondAttribute="leadingMargin" constant="43" id="zpl-x9-zlJ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="f3a-ZQ-7nj" secondAttribute="bottom" constant="4" id="cul-Ty-zBs"/>
+                                                <constraint firstItem="f3a-ZQ-7nj" firstAttribute="top" secondItem="mTy-qM-gkt" secondAttribute="topMargin" constant="4" id="glq-6J-IwY"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="MpX-Xz-6bj" secondAttribute="bottom" constant="4" id="mGX-f3-p6u"/>
+                                                <constraint firstItem="MpX-Xz-6bj" firstAttribute="top" secondItem="mTy-qM-gkt" secondAttribute="topMargin" constant="4" id="zCt-6k-o3Q"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
                                         <connections>
-                                            <outlet property="Texto" destination="MpX-Xz-6bj" id="AWJ-v5-VYL"/>
+                                            <outlet property="TextoDestinatario" destination="MpX-Xz-6bj" id="kL2-BF-6fe"/>
+                                            <outlet property="TextoUsuario" destination="f3a-ZQ-7nj" id="gj8-po-Qia"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

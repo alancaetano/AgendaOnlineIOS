@@ -91,11 +91,6 @@ class ContatosViewController: UIViewController, UITableViewDelegate, UITableView
             }
         });
         
-        /*let contato:Usuario = Usuario(Id: "", Nome: "Professor", Email:"", Senha:"", Tipo:"")
-        self.contatos.addObject(contato)*/
-        
-        dispatch_async(dispatch_get_main_queue(), {self.tvContatos.reloadData()})
-        dispatch_async(dispatch_get_main_queue(), {self.indicator.stopAnimating()})
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

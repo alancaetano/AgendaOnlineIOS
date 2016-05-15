@@ -19,9 +19,11 @@ class SecondViewController: UIViewController,UITextFieldDelegate, UITableViewDel
     var mensagens: NSMutableArray! = []
     
     @IBOutlet weak var textViewDigitarMensagem: UITextField!
-    var IdUsuario: String! = ""
     
     @IBOutlet var viewBase: UIView!
+    
+    
+    var IdUsuario: String! = ""
     
     var indicator:UIActivityIndicatorView! = nil
     
@@ -63,7 +65,7 @@ class SecondViewController: UIViewController,UITextFieldDelegate, UITableViewDel
         do{
             let idAluno = "B5C486CA-9537-4D34-BDC7-8FFFED0DCC2C"
             
-            let url = NSURL(string: "\(Constantes.API_ENVIARNOVACONVERSA)?idUsuarioProfessor=\(conversa.IdProfessor)&idUsuarioResponsavel=\(IdUsuario)&idAluno=\(idAluno)&tipo=\(Constantes.TIPOCONVERSA_CONVERSA)")
+            let url = NSURL(string: "\(Constantes.API_ENVIARNOVACONVERSA)?idUsuarioProfessor=\(conversa.IdProfessor)&idUsuarioResponsavel=\(IdUsuario)&idAluno=\(idAluno)&TipoConversa=\(Constantes.TIPOCONVERSA_CONVERSA)")
             
             let request = NSMutableURLRequest(URL: url!)
             
@@ -91,7 +93,7 @@ class SecondViewController: UIViewController,UITextFieldDelegate, UITableViewDel
         do{
             let url = NSURL(string: Constantes.API_ENVIARMENSAGEM)
         
-            let json = [ "IdUsuario":self.IdUsuario, "IdConversa": self.conversa.Id, "Texto":msg ]
+            let json = [ "IdUsuario":self.IdUsuario, "IdConversa": self.conversa.Id, "Texto":msg]
             let jsonData = try NSJSONSerialization.dataWithJSONObject(json, options: .PrettyPrinted)
             let request = NSMutableURLRequest(URL: url!)
             
@@ -188,31 +190,40 @@ class SecondViewController: UIViewController,UITextFieldDelegate, UITableViewDel
             msgCell = cell as! MensagemCell
         }
         
-        msgCell.Texto.text = msg.Texto
-        
-        let formato:NSDateFormatter = NSDateFormatter()
-        formato.dateFormat = "hh:mm"
-        //msgCell.Data.text = formato.stringFromDate(msg.DtEnvio)
-        
-        if(msg.IdUsuario == IdUsuario){
-            let imageView:UIImageView = UIImageView(image: UIImage(named: "balaousuario.png")!)
-            msgCell.backgroundView = imageView
-        }else{
-            let imageView:UIImageView = UIImageView(image: UIImage(named: "balaodestinatario.png")!)
-            msgCell.backgroundView = imageView
-        }
-        
-        msgCell.Texto.numberOfLines = 0
-        msgCell.Texto.sizeToFit()
-        msgCell.sizeToFit()
-        
+        formatarMensagem(msgCell, msgDoUsuario: self.IdUsuario == msg.IdUsuario, texto: msg.Texto)
+
         if(!fezScroll){
             tvMensagens.setContentOffset(CGPoint(x: 0, y: CGFloat.max), animated: false)
             fezScroll = true
         }
         
         return msgCell
+    }
+    
+    func formatarMensagem(cell:MensagemCell, msgDoUsuario:Bool, texto:String!){
+        if(msgDoUsuario){
+            let imageView:UIImageView = UIImageView(image: UIImage(named: "balaousuario.png")!)
+            cell.backgroundView = imageView
+            cell.TextoUsuario.text = texto
+            cell.TextoUsuario.numberOfLines = 0
+            cell.TextoUsuario.sizeToFit()
+            
+            cell.TextoDestinatario.text = ""
+        }else{
+            let imageView:UIImageView = UIImageView(image: UIImage(named: "balaodestinatario.png")!)
+            cell.backgroundView = imageView
+            cell.TextoDestinatario.text = texto
+            cell.TextoDestinatario.numberOfLines = 0
+            cell.TextoDestinatario.sizeToFit()
+            
+            cell.TextoUsuario.text = ""
+        }
         
+        cell.sizeToFit()
+        
+        /*let formato:NSDateFormatter = NSDateFormatter()
+        formato.dateFormat = "hh:mm"
+        msgCell.Data.text = formato.stringFromDate(msg.DtEnvio)*/
     }
     
     func keyboardWillShow(sender: NSNotification) {

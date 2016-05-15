@@ -12,7 +12,6 @@
 		C72A51EA1C9A58D300CAF507 /* balaodestinatario.png in Resources */ = {isa = PBXBuildFile; fileRef = C72A51E81C9A58D300CAF507 /* balaodestinatario.png */; };
 		C72A51EB1C9A58D300CAF507 /* balaousuario.png in Resources */ = {isa = PBXBuildFile; fileRef = C72A51E91C9A58D300CAF507 /* balaousuario.png */; };
 		C72DA19B1CAA421800F50407 /* ContatosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72DA19A1CAA421800F50407 /* ContatosViewController.swift */; };
-		C73E0ED21CDFFD0900C8C920 /* teste in Resources */ = {isa = PBXBuildFile; fileRef = C73E0ED11CDFFD0900C8C920 /* teste */; };
 		C761E2BB1CA7CE070035C0E5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C761E2BA1CA7CE070035C0E5 /* LoginViewController.swift */; };
 		E573D6E11C66E1220092E95D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E573D6E01C66E1220092E95D /* AppDelegate.swift */; };
 		E573D6E31C66E1220092E95D /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E573D6E21C66E1220092E95D /* FirstViewController.swift */; };
@@ -33,7 +32,6 @@
 		C72A51E81C9A58D300CAF507 /* balaodestinatario.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = balaodestinatario.png; sourceTree = "<group>"; };
 		C72A51E91C9A58D300CAF507 /* balaousuario.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = balaousuario.png; sourceTree = "<group>"; };
 		C72DA19A1CAA421800F50407 /* ContatosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContatosViewController.swift; sourceTree = "<group>"; };
-		C73E0ED11CDFFD0900C8C920 /* teste */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = teste; sourceTree = "<group>"; };
 		C761E2BA1CA7CE070035C0E5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E573D6DD1C66E1220092E95D /* AgendaOnline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AgendaOnline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E573D6E01C66E1220092E95D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = AgendaOnline/AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,7 +93,6 @@
 				E573D6F41C66E1710092E95D /* views */,
 				E573D6E91C66E1220092E95D /* Assets.xcassets */,
 				E573D6EE1C66E1220092E95D /* Info.plist */,
-				C73E0ED11CDFFD0900C8C920 /* teste */,
 			);
 			path = AgendaOnline;
 			sourceTree = "<group>";
@@ -197,7 +194,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C73E0ED21CDFFD0900C8C920 /* teste in Resources */,
 				E573D6ED1C66E1220092E95D /* LaunchScreen.storyboard in Resources */,
 				C72A51EB1C9A58D300CAF507 /* balaousuario.png in Resources */,
 				E573D6EA1C66E1220092E95D /* Assets.xcassets in Resources */,
