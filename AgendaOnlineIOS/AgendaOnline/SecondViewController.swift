@@ -22,6 +22,7 @@ class SecondViewController: UIViewController,UITextFieldDelegate, UITableViewDel
     
     @IBOutlet var viewBase: UIView!
     
+    @IBOutlet weak var alturaTableView: NSLayoutConstraint!
     
     var IdUsuario: String! = ""
     
@@ -228,10 +229,11 @@ class SecondViewController: UIViewController,UITextFieldDelegate, UITableViewDel
     
     func keyboardWillShow(sender: NSNotification) {
         let info = sender.userInfo!
-        let keyboardSize = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue().height
-    tecladoBaseConstraint.constant = keyboardSize - bottomLayoutGuide.length + 10
-        
         let duration: NSTimeInterval = (info[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
+        let tamTeclado = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue().height
+        tecladoBaseConstraint.constant = tamTeclado - bottomLayoutGuide.length + 10
+        
+        alturaTableView.constant = alturaTableView.constant - tamTeclado
         
         UIView.animateWithDuration(duration) { self.view.layoutIfNeeded() }
     }
@@ -240,6 +242,9 @@ class SecondViewController: UIViewController,UITextFieldDelegate, UITableViewDel
         let info = sender.userInfo!
         let duration: NSTimeInterval = (info[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
         tecladoBaseConstraint.constant = 10
+        
+        let tamTeclado = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue().height
+        alturaTableView.constant = alturaTableView.constant + tamTeclado
         
         UIView.animateWithDuration(duration) { self.view.layoutIfNeeded() }
     }

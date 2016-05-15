@@ -157,6 +157,9 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="agg-nv-I6L">
                                 <rect key="frame" x="0.0" y="64" width="414" height="620"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="620" id="YfF-1G-L8F"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="msgcell" rowHeight="64" id="EXC-gC-Lv7" customClass="MensagemCell" customModule="AgendaOnline" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="64"/>
@@ -211,6 +214,7 @@
                     <navigationItem key="navigationItem" title="NomePessoa" id="QtZ-KN-xqN"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="alturaTableView" destination="YfF-1G-L8F" id="d7K-qu-Vos"/>
                         <outlet property="tecladoBaseConstraint" destination="476-DT-cpg" id="s86-Er-CiP"/>
                         <outlet property="textViewDigitarMensagem" destination="XTU-l9-eIh" id="e5g-Mh-KEW"/>
                         <outlet property="tvMensagens" destination="agg-nv-I6L" id="v9I-7c-Xsp"/>
