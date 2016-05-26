@@ -107,9 +107,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="rdb-rQ-5Ld" kind="push" identifier="segue" id="mnT-ee-XEY"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -131,6 +128,10 @@
                     <connections>
                         <outlet property="tvConversas" destination="vdZ-hL-kxR" id="9LO-d0-NXR"/>
                         <segue destination="0wC-jN-0lT" kind="presentation" identifier="loginmodal" id="kjg-qH-9YR"/>
+                        <segue destination="CTL-O9-s9e" kind="push" identifier="comunicadoSimplesSegue" id="FC6-K1-fvw"/>
+                        <segue destination="rdb-rQ-5Ld" kind="push" identifier="mensagemSegue" id="CK9-6J-4yP"/>
+                        <segue destination="Wg3-U1-KBp" kind="push" id="kcF-QV-pHE"/>
+                        <segue destination="h68-sP-pT1" kind="push" id="kka-9q-Z4l"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cxx-Uk-F4S" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -223,7 +224,109 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fcP-kD-Fm0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="876" y="838"/>
+            <point key="canvasLocation" x="466" y="914"/>
+        </scene>
+        <!--Comunicado Simples-->
+        <scene sceneID="z56-T8-fZw">
+            <objects>
+                <viewController id="CTL-O9-s9e" customClass="ComunicadoSimplesViewController" customModule="AgendaOnline" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5Rk-GK-r8N"/>
+                        <viewControllerLayoutGuide type="bottom" id="zlu-pQ-Ym1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fgV-Jo-uFY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pVr-U0-ZUz">
+                                <rect key="frame" x="20" y="72" width="280" height="129"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pVr-U0-ZUz" firstAttribute="top" secondItem="5Rk-GK-r8N" secondAttribute="bottom" constant="8" id="QQw-Oe-fhb"/>
+                            <constraint firstItem="pVr-U0-ZUz" firstAttribute="centerY" secondItem="fgV-Jo-uFY" secondAttribute="centerY" id="ofN-QZ-cKj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pVr-U0-ZUz" secondAttribute="trailing" id="qjO-gb-u1a"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="pVr-U0-ZUz" secondAttribute="leading" id="z9O-4V-H10"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Comunicado Simples" id="dBd-ZM-Lpr"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kHo-tg-KPb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="912" y="-538"/>
+        </scene>
+        <!--Comunicado Com Confirmacao-->
+        <scene sceneID="9en-kv-tns">
+            <objects>
+                <viewController id="Wg3-U1-KBp" userLabel="Comunicado Com Confirmacao" customClass="ComunicadoComConfirmacaoViewController" customModule="AgendaOnline" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eXG-ej-LWz"/>
+                        <viewControllerLayoutGuide type="bottom" id="N2S-G6-rIc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ftw-yv-nis">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jUh-sI-s7Y">
+                                <rect key="frame" x="20" y="72" width="280" height="129"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jUh-sI-s7Y" firstAttribute="top" secondItem="eXG-ej-LWz" secondAttribute="bottom" constant="8" id="Zps-4q-Zql"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="jUh-sI-s7Y" secondAttribute="leading" id="b13-dm-w1E"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jUh-sI-s7Y" secondAttribute="trailing" id="xlb-ok-jm9"/>
+                            <constraint firstItem="jUh-sI-s7Y" firstAttribute="centerY" secondItem="ftw-yv-nis" secondAttribute="centerY" id="z6h-RO-4gA"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Comunicado Com Confirmacao" id="vM3-AG-IBu"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Le-GL-Mod" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="912" y="93"/>
+        </scene>
+        <!--Comunicado Com Sim ou Nao-->
+        <scene sceneID="bZi-gA-KV2">
+            <objects>
+                <viewController id="h68-sP-pT1" userLabel="Comunicado Com Sim ou Nao" customClass="ComunicadoComSimOuNaoViewController" customModule="AgendaOnline" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VWZ-di-VMo"/>
+                        <viewControllerLayoutGuide type="bottom" id="Zcg-Tj-Nzs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qrz-ID-mVJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEx-z4-bLR">
+                                <rect key="frame" x="20" y="72" width="280" height="129"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="AEx-z4-bLR" secondAttribute="leading" id="C1E-Ud-Zcn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AEx-z4-bLR" secondAttribute="trailing" id="Gd9-hw-OnB"/>
+                            <constraint firstItem="AEx-z4-bLR" firstAttribute="top" secondItem="VWZ-di-VMo" secondAttribute="bottom" constant="8" id="fCI-kB-mi5"/>
+                            <constraint firstItem="AEx-z4-bLR" firstAttribute="centerY" secondItem="qrz-ID-mVJ" secondAttribute="centerY" id="wS1-3m-lCu"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Comunicado Com Sim ou Nao" id="cnu-qX-XY1"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K7a-UK-eeL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="912" y="730"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SNX-Ce-bkY">
@@ -289,7 +392,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="elj-zQ-f78" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="737"/>
+            <point key="canvasLocation" x="75" y="830"/>
         </scene>
     </scenes>
 </document>

@@ -11,6 +11,14 @@
 		C72A51DE1C8FC37C00CAF507 /* MensagemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72A51DD1C8FC37C00CAF507 /* MensagemCell.swift */; };
 		C72DA19B1CAA421800F50407 /* ContatosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72DA19A1CAA421800F50407 /* ContatosViewController.swift */; };
 		C761E2BB1CA7CE070035C0E5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C761E2BA1CA7CE070035C0E5 /* LoginViewController.swift */; };
+		C7736BBC1CE9597F00B11517 /* ComunicadoSimplesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7736BBB1CE9597F00B11517 /* ComunicadoSimplesViewController.swift */; };
+		C7736BBE1CE9610200B11517 /* ComunicadoComConfirmacao.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7736BBD1CE9610200B11517 /* ComunicadoComConfirmacao.swift */; };
+		C7736BC01CE9614B00B11517 /* ComunicadoComSimOuNao.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7736BBF1CE9614B00B11517 /* ComunicadoComSimOuNao.swift */; };
+		C7736BC21CEBF10D00B11517 /* DetalheConversaBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7736BC11CEBF10D00B11517 /* DetalheConversaBaseViewController.swift */; };
+		C7736BC41CF747D800B11517 /* Contexto.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7736BC31CF747D700B11517 /* Contexto.swift */; };
+		C7736BC71CF76D1700B11517 /* Alerta.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7736BC61CF76D1700B11517 /* Alerta.swift */; };
+		C7736BC91CF76F3A00B11517 /* Servico.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7736BC81CF76F3A00B11517 /* Servico.swift */; };
+		C7736BCB1CF76FA000B11517 /* Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7736BCA1CF76FA000B11517 /* Base64.swift */; };
 		E573D6E11C66E1220092E95D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E573D6E01C66E1220092E95D /* AppDelegate.swift */; };
 		E573D6E31C66E1220092E95D /* ConversaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E573D6E21C66E1220092E95D /* ConversaViewController.swift */; };
 		E573D6E51C66E1220092E95D /* MensagemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E573D6E41C66E1220092E95D /* MensagemViewController.swift */; };
@@ -29,6 +37,14 @@
 		C72A51DD1C8FC37C00CAF507 /* MensagemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MensagemCell.swift; sourceTree = "<group>"; };
 		C72DA19A1CAA421800F50407 /* ContatosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContatosViewController.swift; sourceTree = "<group>"; };
 		C761E2BA1CA7CE070035C0E5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C7736BBB1CE9597F00B11517 /* ComunicadoSimplesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComunicadoSimplesViewController.swift; sourceTree = "<group>"; };
+		C7736BBD1CE9610200B11517 /* ComunicadoComConfirmacao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComunicadoComConfirmacao.swift; sourceTree = "<group>"; };
+		C7736BBF1CE9614B00B11517 /* ComunicadoComSimOuNao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComunicadoComSimOuNao.swift; sourceTree = "<group>"; };
+		C7736BC11CEBF10D00B11517 /* DetalheConversaBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetalheConversaBaseViewController.swift; sourceTree = "<group>"; };
+		C7736BC31CF747D700B11517 /* Contexto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Contexto.swift; path = ../Contexto.swift; sourceTree = "<group>"; };
+		C7736BC61CF76D1700B11517 /* Alerta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerta.swift; sourceTree = "<group>"; };
+		C7736BC81CF76F3A00B11517 /* Servico.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Servico.swift; sourceTree = "<group>"; };
+		C7736BCA1CF76FA000B11517 /* Base64.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base64.swift; sourceTree = "<group>"; };
 		E573D6DD1C66E1220092E95D /* AgendaOnline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AgendaOnline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E573D6E01C66E1220092E95D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = AgendaOnline/AppDelegate.swift; sourceTree = "<group>"; };
 		E573D6E21C66E1220092E95D /* ConversaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConversaViewController.swift; path = AgendaOnline/ConversaViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +71,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C7736BC51CF76CFD00B11517 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				C7736BC61CF76D1700B11517 /* Alerta.swift */,
+				C7736BC31CF747D700B11517 /* Contexto.swift */,
+				C7736BC81CF76F3A00B11517 /* Servico.swift */,
+				C7736BCA1CF76FA000B11517 /* Base64.swift */,
+			);
+			name = util;
+			sourceTree = "<group>";
+		};
 		E573D6D41C66E1220092E95D = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +101,7 @@
 		E573D6DF1C66E1220092E95D /* AgendaOnline */ = {
 			isa = PBXGroup;
 			children = (
+				C7736BC51CF76CFD00B11517 /* util */,
 				E573D6F61C66E18E0092E95D /* controllers */,
 				E573D6F51C66E1880092E95D /* models */,
 				E573D6F41C66E1710092E95D /* views */,
@@ -116,6 +144,10 @@
 				C72A51DD1C8FC37C00CAF507 /* MensagemCell.swift */,
 				C761E2BA1CA7CE070035C0E5 /* LoginViewController.swift */,
 				C72DA19A1CAA421800F50407 /* ContatosViewController.swift */,
+				C7736BBB1CE9597F00B11517 /* ComunicadoSimplesViewController.swift */,
+				C7736BBD1CE9610200B11517 /* ComunicadoComConfirmacao.swift */,
+				C7736BBF1CE9614B00B11517 /* ComunicadoComSimOuNao.swift */,
+				C7736BC11CEBF10D00B11517 /* DetalheConversaBaseViewController.swift */,
 			);
 			name = controllers;
 			path = ..;
@@ -197,14 +229,22 @@
 				E573D6FA1C66E8960092E95D /* Mensagem.swift in Sources */,
 				E573D6F81C66E2670092E95D /* Usuario.swift in Sources */,
 				C72A51DE1C8FC37C00CAF507 /* MensagemCell.swift in Sources */,
+				C7736BC21CEBF10D00B11517 /* DetalheConversaBaseViewController.swift in Sources */,
 				E573D7001C66E8D10092E95D /* Conversa.swift in Sources */,
 				C700020A1CCD3922000A03E3 /* Constantes.swift in Sources */,
 				E573D6E51C66E1220092E95D /* MensagemViewController.swift in Sources */,
+				C7736BCB1CF76FA000B11517 /* Base64.swift in Sources */,
+				C7736BC41CF747D800B11517 /* Contexto.swift in Sources */,
 				E573D6FC1C66E8AF0092E95D /* Aluno.swift in Sources */,
+				C7736BC91CF76F3A00B11517 /* Servico.swift in Sources */,
 				E573D6E11C66E1220092E95D /* AppDelegate.swift in Sources */,
 				E573D6FE1C66E8C50092E95D /* UsuarioConversa.swift in Sources */,
 				C761E2BB1CA7CE070035C0E5 /* LoginViewController.swift in Sources */,
+				C7736BC01CE9614B00B11517 /* ComunicadoComSimOuNao.swift in Sources */,
 				E573D6E31C66E1220092E95D /* ConversaViewController.swift in Sources */,
+				C7736BBE1CE9610200B11517 /* ComunicadoComConfirmacao.swift in Sources */,
+				C7736BC71CF76D1700B11517 /* Alerta.swift in Sources */,
+				C7736BBC1CE9597F00B11517 /* ComunicadoSimplesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -96,7 +96,7 @@ class ContatosViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let usuario = self.contatos[indexPath.row] as? Usuario
         self.dismissViewControllerAnimated(false, completion: {() -> Void in
-            self.parent.performSegueWithIdentifier("segue", sender: usuario)
+            self.parent.performSegueWithIdentifier("mensagemSegue", sender: usuario)
             
         })
     }

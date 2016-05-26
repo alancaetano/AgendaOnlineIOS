@@ -10,13 +10,10 @@ import Foundation
 
 class Aluno	: NSObject {
 	
-	var Id:Int!
-	var Nome:String!
-	var IdUsuarioResponsavel:Int!
+    var Id:String = ""
+	var Nome:String = ""
+    var Observacao:String = ""
+    var Turma:String = ""
+    var Periodo:String = ""
 	
-	init (Id:Int, Nome:String, IdUsuarioResponsavel:Int) {
-		self.Id = Id
-		self.Nome = Nome
-		self.IdUsuarioResponsavel = IdUsuarioResponsavel
-	}
 }

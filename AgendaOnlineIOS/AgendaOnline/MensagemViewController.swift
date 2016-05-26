@@ -3,7 +3,7 @@
 import UIKit
 import Foundation
 
-class MensagemViewController: UIViewController,UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
+class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet var tvMensagens: UITableView!
     
@@ -16,8 +16,6 @@ class MensagemViewController: UIViewController,UITextFieldDelegate, UITableViewD
     @IBOutlet weak var alturaTableView: NSLayoutConstraint!
     
     var mensagens: NSMutableArray! = []
-    
-    var conversa:Conversa!
     
     var IdUsuario: String! = ""
     

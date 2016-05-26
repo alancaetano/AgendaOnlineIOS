@@ -12,8 +12,6 @@ class ConversaViewController: UITableViewController{
     
     var IdUsuario:String = ""
     
-    let defaults = NSUserDefaults.standardUserDefaults()
-    
     override func viewDidAppear(animated: Bool) {
         if(defaults.stringForKey("IdUsuario") != nil){
             iniciarTableView()
@@ -62,10 +60,37 @@ class ConversaViewController: UITableViewController{
         
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let conversaSelecionada = conversas![indexPath.row] as! Conversa
+        
+        switch(conversaSelecionada.Tipo){
+            case Constantes.TIPOCONVERSA_CONVERSA:
+                performSegueWithIdentifier("mensagemSegue", sender: tableView)
+                break
+            case Constantes.TIPOCONVERSA_COMUNICADO_SIMPLES:
+                performSegueWithIdentifier("comunicadoSimplesSegue", sender: tableView)
+                break
+            case Constantes.TIPOCONVERSA_COMUNICADO_CONFIRMACAO:
+                performSegueWithIdentifier("comunicadoConfirmacaoSegue", sender: tableView)
+                break
+            case Constantes.TIPOCONVERSA_COMUNICADO_SIMOUNAO:
+                performSegueWithIdentifier("comunicadoComSimOuNaoSegue", sender: tableView)
+                break
+            default: break
+        }
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if(segue.identifier == "segue"){
+        //tratando segue para a tela de contatos
+        if(segue.identifier == "contatosmodal"){
+            let tblViewController = segue.destinationViewController as! ContatosViewController
+            tblViewController.parent = self
+        }else{
+        //tratando segue para a tela de mensagens
             var conversaSelecionada:Conversa! = nil
             
+            //se o sender eh um usuario, entao eh uma nova conversa
+            //seao eh uma conversa ja criada
             if let usuario = sender as? Usuario
             {
                 conversaSelecionada = Conversa(Id: "", NomeProfessor: usuario.Nome, UltimaMensagem: "", IdProfessor: usuario.Id, Tipo: Constantes.TIPOCONVERSA_CONVERSA)
@@ -74,13 +99,8 @@ class ConversaViewController: UITableViewController{
                 conversaSelecionada = conversas![indexPath.row] as! Conversa
             }
 
-            let tblViewController = segue.destinationViewController as! MensagemViewController
+            let tblViewController = segue.destinationViewController as! DetalheConversaBaseViewController
             tblViewController.conversa = conversaSelecionada
-        }
-        
-        if(segue.identifier == "contatosmodal"){
-            let tblViewController = segue.destinationViewController as! ContatosViewController
-            tblViewController.parent = self
         }
     }
     
@@ -117,4 +137,3 @@ class ConversaViewController: UITableViewController{
         });
     }
 }
-
