@@ -10,20 +10,17 @@ import Foundation
 
 class Conversa: NSObject {
 	
-	var Id:String!
-	var Tipo:String!
-    var NomeProfessor:String!
-    var UltimaMensagem:String!
-    var IdProfessor:String!
+    static var TIPOCONVERSA_CONVERSA = "C"
+    static var TIPOCONVERSA_COMUNICADO_SIMPLES = "A"
+    static var TIPOCONVERSA_COMUNICADO_CONFIRMACAO = "L"
+    static var TIPOCONVERSA_COMUNICADO_SIMOUNAO = "R"
+    
+	var Id:String = ""
+	var Tipo:String = ""
+    var NomeProfessor:String = ""
+    var UltimaMensagem:String = ""
+    var IdProfessor:String = ""
 	
-    init(Id:String, NomeProfessor:String, UltimaMensagem:String, IdProfessor: String, Tipo: String) {
-		self.Id = Id
-        self.NomeProfessor = NomeProfessor
-        self.UltimaMensagem = UltimaMensagem
-		self.Tipo = Tipo
-        self.IdProfessor = IdProfessor
-        
-	}
     
     
 }

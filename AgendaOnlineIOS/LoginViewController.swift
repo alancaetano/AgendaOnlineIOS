@@ -15,53 +15,65 @@ class LoginViewController: UIViewController{
     
     
     @IBAction func Entrar(sender: AnyObject) {
+
+        let str = "\(TextLogin.text!);\(TextSenha.text!)"
+        let base64 = Base64.Codificar(str)
+
+        Servico.ChamarServico(Servico.API_LOGIN + base64, httpMethod: Servico.HTTPMethod_GET, json:nil, callback: loginCallback)
+            
+    }
+    
+    func loginCallback(response:NSURLResponse?, data: NSData?, error: NSError?) -> Void
+    {
+        if(error != nil){
+            Alerta.MostrarAlerta("Erro", mensagem: "Ocorreu um problema ao realizar o login.", estilo: UIAlertControllerStyle.Alert, tituloAcao: "Ok", callback: {}, viewController: self)
+            return
+        }
+        
         do{
-            let str = TextLogin.text! + ";" + TextSenha.text!
-            let base64 = Base64.Codificar(str)
-
-            let url = NSURL(string: Constantes.API_LOGIN + base64)
-            let request = NSMutableURLRequest(URL: url!)
+    
+            let login: NSDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as! NSDictionary
+    
+            let autenticou:Bool = (login.valueForKey("Autenticado") as! Bool)
+            var idUsuario:String! = ""
             
-            var idUsuario:String = ""
-            
-            request.HTTPMethod = "GET"
-            
-            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{(response:NSURLResponse?, data: NSData?, error: NSError?) -> Void in
+            if(autenticou){
+                idUsuario = login.valueForKey("IdUsuario") as! String
                 
-                do{
-                    
-                    let usuario: NSDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as! NSDictionary
-
-                    idUsuario = usuario.valueForKey("id") as! String
-                    
-                    Contexto.Salvar(Contexto.CHAVE_ID_USUARIO, valor: idUsuario)
+                Contexto.Salvar(Contexto.CHAVE_ID_USUARIO, valor: idUsuario)
                 
-                }catch{
-                    dispatch_async(dispatch_get_main_queue(), {
-                        
-                    })
-                    print(error)
-                }
+                self.CarregarAlunos(idUsuario)
+                
+            }else{
+                Alerta.MostrarAlerta("Login incorreto", mensagem: "Login ou senha incorretos.", estilo: UIAlertControllerStyle.Alert, tituloAcao: "Ok", callback: {}, viewController: self)
+            }
 
-                })
-            
+    
         }catch{
-            print(error)
+            Alerta.MostrarAlerta("Erro", mensagem: "Ocorreu um problema ao realizar o login.", estilo: UIAlertControllerStyle.Alert, tituloAcao: "Ok", callback: {}, viewController: self)
         }
     }
     
-    func carregarAlunos(idUsuario:String){
-        let url: String =  Constantes.API_GETALUNOS + idUsuario
-        let request: NSMutableURLRequest = NSMutableURLRequest()
+    func CarregarAlunos(idUsuario:String){
+        let url: String =  "\(Servico.API_GETALUNOS)\(idUsuario)"
         
-        request.URL = NSURL(string: url)
-        request.HTTPMethod = "GET"
+        Servico.ChamarServico(url, httpMethod: Servico.HTTPMethod_GET, json:nil, callback: carregarAlunosCallback)
+    }
         
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse?, data: NSData?, error: NSError?) -> Void in
+    func carregarAlunosCallback(response:NSURLResponse?, data: NSData?, error: NSError?){
+        if(error != nil)
+        {
+            Alerta.MostrarAlerta("Erro", mensagem: "Ocorreu um problema ao recuperar os alunos.", estilo: UIAlertControllerStyle.Alert, tituloAcao: "Ok", callback: {}, viewController: self)
             
-            do{
-                let jsonResult: NSArray! = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as? NSArray
-                
+            return
+        }
+        
+        do{
+            Contexto.Limpar(Contexto.CHAVE_ALUNOS)
+            
+            let jsonResult: NSArray! = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as? NSArray
+            
+            if(jsonResult != nil && jsonResult.count > 0){
                 for item in jsonResult {
                     let obj = item as! NSDictionary
                     let aluno:Aluno = Aluno()
@@ -71,17 +83,14 @@ class LoginViewController: UIViewController{
                     aluno.Periodo = obj["Periodo"] as! String
                     aluno.Turma = obj["Turma"] as! String
                     
-                    Contexto.AdicionarNaLista(Contexto.CHAVE_ALUNOS, aluno)
-
+                    Contexto.AdicionarAluno(aluno)
                 }
-                
-                dispatch_async(dispatch_get_main_queue(), {self.dismissViewControllerAnimated(true, completion: nil)})
-                
-            }catch{
-                print(error)
             }
-            
-        });
+                
+            dispatch_async(dispatch_get_main_queue(), {self.dismissViewControllerAnimated(true, completion: nil)})
+                
+        }catch{
+            Alerta.MostrarAlerta("Erro", mensagem: "Ocorreu um problema ao realizar o login.", estilo: UIAlertControllerStyle.Alert, tituloAcao: "Ok", callback: {}, viewController: self)
+        }
     }
-    
 }

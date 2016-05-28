@@ -9,8 +9,8 @@
 import Foundation
 
 class Contexto{
-    static var CHAVE_ALUNOS = "alunos"
-    static var CHAVE_ID_USUARIO = "IdUsuario"
+    static let CHAVE_ALUNOS = "alunos"
+    static let CHAVE_ID_USUARIO = "IdUsuario"
     
     static func Salvar(chave:String!, valor:NSObject!){
         let defaults = NSUserDefaults.standardUserDefaults()
@@ -22,18 +22,37 @@ class Contexto{
         return defaults.valueForKey(chave)
     }
     
-    static func AdicionarNaLista(chave:String!, valor:NSObject!){
+    static func AdicionarAluno(aluno:Aluno!){
         let defaults = NSUserDefaults.standardUserDefaults()
 
-        var lista:NSMutableArray! = NSMutableArray()
+        var temp:NSMutableArray! = NSMutableArray()
         
-        let objeto = defaults.valueForKey(chave)
+        let objeto = defaults.valueForKey(Contexto.CHAVE_ALUNOS)
         if(objeto != nil){
-            lista = objeto as! NSMutableArray!
+            temp = NSMutableArray(array: (objeto as! NSArray!))
         }
         
-        lista.addObject(valor)
+        temp.addObject(aluno.toDictionary())
         
-        defaults.setObject(lista , forKey: chave)
+        let array:NSArray! = NSArray(array: temp)
+        
+        defaults.setObject(array , forKey: Contexto.CHAVE_ALUNOS)
+    }
+    
+    static func RecuperarAlunos()->NSArray{
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let array:NSArray! = defaults.valueForKey(Contexto.CHAVE_ALUNOS) as! NSArray!
+        let alunos:NSMutableArray! = NSMutableArray()
+        
+        for i in 0...array.count-1{
+            alunos.addObject(Aluno(dic: array[i] as! NSDictionary))
+        }
+        
+        return alunos
+    }
+    
+    static func Limpar(chave:String!){
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.removeObjectForKey(chave)
     }
 }

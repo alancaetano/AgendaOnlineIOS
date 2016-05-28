@@ -17,100 +17,90 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
     
     var mensagens: NSMutableArray! = []
     
-    var IdUsuario: String! = ""
-    
-    var indicator:UIActivityIndicatorView! = nil
+    var indicadorCarregamento:IndicadorCarregamento!
     
     var fezScroll:Bool = false
 
 	override func viewDidLoad() {
         
 		super.viewDidLoad()
-        let defaults = NSUserDefaults.standardUserDefaults()
-        IdUsuario = defaults.stringForKey("IdUsuario")!
         
         self.tvMensagens.tableFooterView = UIView()
-        
-        self.textViewDigitarMensagem.delegate = self;
         self.tvMensagens.dataSource = self
         self.tvMensagens.delegate = self
-		self.title = self.conversa.NomeProfessor
-        //self.tvMensagens.backgroundColor = UIColor.grayColor()
         self.tvMensagens.estimatedRowHeight = 80
         self.tvMensagens.rowHeight = UITableViewAutomaticDimension
         
+        self.textViewDigitarMensagem.delegate = self;
         
+		self.title = self.conversa.NomeProfessor
+
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
         
-        indicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
-        indicator.center = view.center
-        view.addSubview(indicator)
-        indicator.startAnimating()
+        self.indicadorCarregamento = IndicadorCarregamento(view: self.view)
         
         carregarMensagens()
-
     }
     
-    func enviarNovaConversa(msg:String){
-        do{
-            let idAluno = "B5C486CA-9537-4D34-BDC7-8FFFED0DCC2C"
-            
-            let url = NSURL(string: "\(Constantes.API_ENVIARNOVACONVERSA)?idUsuarioProfessor=\(conversa.IdProfessor)&idUsuarioResponsavel=\(IdUsuario)&idAluno=\(idAluno)&TipoConversa=\(Constantes.TIPOCONVERSA_CONVERSA)")
-            
-            let request = NSMutableURLRequest(URL: url!)
-            
-            request.HTTPMethod = "GET"
-            
-            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{(response:NSURLResponse?, data: NSData?, error: NSError?) -> Void in
-                if(error != nil){
-                    print(error!)
-                }
-                
-                let IdConversa = NSString(data: data!, encoding: NSUTF8StringEncoding)! as String
-                
-                self.conversa = Conversa(Id: IdConversa, NomeProfessor: "", UltimaMensagem: "", IdProfessor: "", Tipo: Constantes.TIPOCONVERSA_CONVERSA)
-                
-                self.enviarMensagem(msg)
-                
-            })
-            
-        }catch{
-            print(error)
-        }
-    }
-    
-    func enviarMensagem(msg:String){
-        do{
-            let url = NSURL(string: Constantes.API_ENVIARMENSAGEM)
+    func enviarNovaConversa(){
         
-            let json = [ "IdUsuario":self.IdUsuario, "IdConversa": self.conversa.Id, "Texto":msg]
-            let jsonData = try NSJSONSerialization.dataWithJSONObject(json, options: .PrettyPrinted)
-            let request = NSMutableURLRequest(URL: url!)
+        let idAluno = "B5C486CA-9537-4D34-BDC7-8FFFED0DCC2C"
             
-            request.HTTPMethod = "POST"
-            request.HTTPBody = jsonData
+        let idUsuario:String! = Contexto.Recuperar(Contexto.CHAVE_ID_USUARIO) as! String
+            
+        let url:String! = "\(Servico.API_ENVIARNOVACONVERSA)?idUsuarioProfessor=\(conversa.IdProfessor)&idUsuarioResponsavel=\(idUsuario)&idAluno=\(idAluno)&TipoConversa=\(Conversa.TIPOCONVERSA_CONVERSA)"
+            
+        Servico.ChamarServico(url, httpMethod: Servico.HTTPMethod_GET, json:nil, callback: enviarNovaConversaCallback)
+    }
     
-            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{(response:NSURLResponse?, data: NSData?, error: NSError?) -> Void in
-                if(error != nil){
-                    print(error!)
-                    return
-                }
-                
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.mensagens.addObject(Mensagem(Id: "", IdUsuario: self.IdUsuario, IdConversa: self.conversa.Id, Texto: msg, DtEnvio: NSDate()))
-                    self.tvMensagens.reloadData()
-                })
-            })
-            
-            tvMensagens.setContentOffset(CGPoint(x: 0, y: CGFloat.max), animated: false)
-            
-        }catch{
-            print(error)
+    func enviarNovaConversaCallback(response:NSURLResponse?, data: NSData?, error: NSError?){
+        if(error != nil){
+            self.indicadorCarregamento.Parar()
+            Alerta.MostrarAlerta("Erro", mensagem: "Ocorreu um problema ao consultar as mensagens.", estilo: UIAlertControllerStyle.Alert, tituloAcao: "Ok", callback: {}, viewController: self)
+            return
         }
+
+        let IdConversa = NSString(data: data!, encoding: NSUTF8StringEncoding)! as String
+        
+        self.conversa = Conversa()
+        self.conversa.Id = IdConversa
+        self.conversa.Tipo = Conversa.TIPOCONVERSA_CONVERSA
+        
+        self.enviarMensagem()
+    }
+    
+    func enviarMensagem(){
+        let idUsuario:String! = Contexto.Recuperar(Contexto.CHAVE_ID_USUARIO) as! String
+        let texto = textViewDigitarMensagem.text
+        let json:NSDictionary = [ "IdUsuario":idUsuario!, "IdConversa": self.conversa.Id, "Texto":texto!]
+        
+        Servico.ChamarServico(Servico.API_ENVIARMENSAGEM, httpMethod: Servico.HTTPMethod_POST, json: json, callback: enviarMensagemCallback)
+        
+        let msg:Mensagem = Mensagem()
+        msg.IdUsuario = idUsuario
+        msg.IdConversa = self.conversa.Id
+        msg.Texto = texto!
+        self.mensagens.addObject(msg)
+        
+        self.textViewDigitarMensagem.text = ""
+        
+        self.tvMensagens.reloadData()
+        
+        self.tvMensagens.setContentOffset(CGPoint(x: 0, y: CGFloat.max), animated: false)
+        
+    }
+    
+    func enviarMensagemCallback(response:NSURLResponse?, data: NSData?, error: NSError?){
+        if(error != nil){
+            Alerta.MostrarAlerta("Erro", mensagem: "Ocorreu um problema ao enviar mensagem.", estilo: UIAlertControllerStyle.Alert, tituloAcao: "Ok", callback: {}, viewController: self)
+            return
+        }
+        
+        //Verificar para notificar que foi enviado
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -118,55 +108,51 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
             return false
         }
         
-        let msg:String = textField.text!
-        
         if(self.conversa.Id == ""){
-            enviarNovaConversa(msg)
+            enviarNovaConversa()
         }else{
-            enviarMensagem(msg)
+            enviarMensagem()
         }
-        
-        textField.text = ""
-        
+
         return true
     }
     
+    
     func carregarMensagens(){
-        let url: String = Constantes.API_GETMENSAGENS + conversa.Id
-        let request: NSMutableURLRequest = NSMutableURLRequest()
-        request.URL = NSURL(string: url)
-        request.HTTPMethod = "GET"
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse?, data: NSData?, error: NSError?) -> Void in
-            
-            do{
-                let jsonResult: NSArray! = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as? NSArray
-                
-                if jsonResult != nil && jsonResult.count > 0{
-                    for item in jsonResult {
-                        let obj = item as! NSDictionary
-                        let msg:Mensagem = Mensagem(Id: obj["id"] as! String, IdUsuario: obj["id_usuario"] as! String, IdConversa: "", Texto: obj["texto"] as! String, DtEnvio: NSDate())
-                        self.mensagens.addObject(msg)
-                    }
-                }
-                
-                dispatch_async(dispatch_get_main_queue(), {self.tvMensagens.reloadData()})
-                dispatch_async(dispatch_get_main_queue(), {self.indicator.stopAnimating()})
-                
-            }catch{
-                print(error)
+        
+        self.indicadorCarregamento.Iniciar()
+        
+        let url:String = "\(Servico.API_GETMENSAGENS)\(conversa.Id)"
+        
+        Servico.ChamarServico(url, httpMethod: Servico.HTTPMethod_GET, json: nil, callback: carregarMensagensCallback)
+
+    }
+
+    func carregarMensagensCallback(response:NSURLResponse?, data: NSData?, error: NSError?){
+        
+        let jsonResult: NSArray? = try! NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as? NSArray
+        
+        if jsonResult != nil && jsonResult!.count > 0{
+            for item in jsonResult! {
+                let obj = item as! NSDictionary
+                let msg:Mensagem = Mensagem()
+                msg.Id = obj["id"] as! String
+                msg.IdUsuario = obj["id_usuario"] as! String
+                msg.Texto = obj["texto"] as! String
+                self.mensagens.addObject(msg)
             }
-            
-        });
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), {
+            self.tvMensagens.reloadData()
+            self.indicadorCarregamento.Parar()
+        })
     }
 
     func dismissKeyboard() {
         view.endEditing(true)
     }
 
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-	}
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.mensagens.count
     }
@@ -176,6 +162,8 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
         
         let msg:Mensagem = mensagens![indexPath.row] as! Mensagem
         
+        let idUsuarioLogado:String! = Contexto.Recuperar(Contexto.CHAVE_ID_USUARIO) as! String
+        
         var msgCell:MensagemCell
         
         if(cell == nil){
@@ -184,14 +172,18 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
             msgCell = cell as! MensagemCell
         }
         
-        formatarMensagem(msgCell, msgDoUsuario: self.IdUsuario == msg.IdUsuario, texto: msg.Texto)
+        formatarMensagem(msgCell, msgDoUsuario: idUsuarioLogado == msg.IdUsuario, texto: msg.Texto)
 
         if(!fezScroll){
-            tvMensagens.setContentOffset(CGPoint(x: 0, y: CGFloat.max), animated: false)
+            posicionarNaUltimaMensagem()
             fezScroll = true
         }
         
         return msgCell
+    }
+    
+    func posicionarNaUltimaMensagem(){
+        tvMensagens.setContentOffset(CGPoint(x: 0, y: CGFloat.max), animated: false)
     }
     
     func formatarMensagem(cell:MensagemCell, msgDoUsuario:Bool, texto:String!){
@@ -214,10 +206,7 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
         }
         
         cell.sizeToFit()
-        
-        /*let formato:NSDateFormatter = NSDateFormatter()
-        formato.dateFormat = "hh:mm"
-        msgCell.Data.text = formato.stringFromDate(msg.DtEnvio)*/
+
     }
     
     func keyboardWillShow(sender: NSNotification) {

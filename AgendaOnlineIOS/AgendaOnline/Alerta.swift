@@ -15,4 +15,5 @@ class Alerta{
         alert.addAction(UIAlertAction(title: tituloAcao, style: UIAlertActionStyle.Default, handler: nil))
         viewController.presentViewController(alert, animated: true, completion: callback)
     }
+    
 }

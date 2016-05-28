@@ -6,14 +6,12 @@ class ConversaViewController: UITableViewController{
 
     @IBOutlet var tvConversas: UITableView!
     
+    var indicadorCarregamento:IndicadorCarregamento!
     var conversas: NSMutableArray! = []
     
-    var indicator:UIActivityIndicatorView! = nil
-    
-    var IdUsuario:String = ""
-    
     override func viewDidAppear(animated: Bool) {
-        if(defaults.stringForKey("IdUsuario") != nil){
+        
+        if(Contexto.Recuperar(Contexto.CHAVE_ID_USUARIO) != nil){
             iniciarTableView()
         }
     }
@@ -21,21 +19,18 @@ class ConversaViewController: UITableViewController{
 	override func viewDidLoad() {
         super.viewDidLoad()
         
-        if(defaults.stringForKey("IdUsuario") == nil){
+        self.indicadorCarregamento = IndicadorCarregamento(view: self.view)
+        
+        if((Contexto.Recuperar(Contexto.CHAVE_ID_USUARIO)) == nil){
             performSegueWithIdentifier("loginmodal", sender: self)
         }
 	}
     
     func iniciarTableView(){
         
-        IdUsuario = defaults.stringForKey("IdUsuario")!
-        
         self.tvConversas.tableFooterView = UIView()
         
-        indicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
-        indicator.center = view.center
-        view.addSubview(indicator)
-        indicator.startAnimating()
+        self.indicadorCarregamento.Iniciar()
         
         carregarConversas()
     }
@@ -64,16 +59,16 @@ class ConversaViewController: UITableViewController{
         let conversaSelecionada = conversas![indexPath.row] as! Conversa
         
         switch(conversaSelecionada.Tipo){
-            case Constantes.TIPOCONVERSA_CONVERSA:
+            case Conversa.TIPOCONVERSA_CONVERSA:
                 performSegueWithIdentifier("mensagemSegue", sender: tableView)
                 break
-            case Constantes.TIPOCONVERSA_COMUNICADO_SIMPLES:
+            case Conversa.TIPOCONVERSA_COMUNICADO_SIMPLES:
                 performSegueWithIdentifier("comunicadoSimplesSegue", sender: tableView)
                 break
-            case Constantes.TIPOCONVERSA_COMUNICADO_CONFIRMACAO:
+            case Conversa.TIPOCONVERSA_COMUNICADO_CONFIRMACAO:
                 performSegueWithIdentifier("comunicadoConfirmacaoSegue", sender: tableView)
                 break
-            case Constantes.TIPOCONVERSA_COMUNICADO_SIMOUNAO:
+            case Conversa.TIPOCONVERSA_COMUNICADO_SIMOUNAO:
                 performSegueWithIdentifier("comunicadoComSimOuNaoSegue", sender: tableView)
                 break
             default: break
@@ -81,6 +76,10 @@ class ConversaViewController: UITableViewController{
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        //tratando segue para a tela de login
+        if(segue.identifier == "loginmodal"){
+            return
+        }
         //tratando segue para a tela de contatos
         if(segue.identifier == "contatosmodal"){
             let tblViewController = segue.destinationViewController as! ContatosViewController
@@ -93,7 +92,10 @@ class ConversaViewController: UITableViewController{
             //seao eh uma conversa ja criada
             if let usuario = sender as? Usuario
             {
-                conversaSelecionada = Conversa(Id: "", NomeProfessor: usuario.Nome, UltimaMensagem: "", IdProfessor: usuario.Id, Tipo: Constantes.TIPOCONVERSA_CONVERSA)
+                conversaSelecionada = Conversa()
+                conversaSelecionada.NomeProfessor = usuario.Nome
+                conversaSelecionada.IdProfessor = usuario.Id
+                conversaSelecionada.Tipo = Conversa.TIPOCONVERSA_CONVERSA
             }else{
                 let indexPath:NSIndexPath = self.tvConversas.indexPathForSelectedRow!
                 conversaSelecionada = conversas![indexPath.row] as! Conversa
@@ -107,33 +109,46 @@ class ConversaViewController: UITableViewController{
     func carregarConversas(){
         self.conversas = []
         self.tvConversas.allowsSelection = false
-        let url: String =  Constantes.API_GETCONVERSAS + IdUsuario
-        let request: NSMutableURLRequest = NSMutableURLRequest()
-        request.URL = NSURL(string: url)
-        request.HTTPMethod = "GET"
+        let url: String =  Servico.API_GETCONVERSAS + (Contexto.Recuperar(Contexto.CHAVE_ID_USUARIO) as! String)
         
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse?, data: NSData?, error: NSError?) -> Void in
+        Servico.ChamarServico(url, httpMethod: Servico.HTTPMethod_GET, json:nil, callback: carregarConversasCallback)
+    }
+    
+    func carregarConversasCallback(response:NSURLResponse?, data: NSData?, error: NSError?){
+        if(error != nil){
+            self.indicadorCarregamento.Parar()
+            Alerta.MostrarAlerta("Erro", mensagem: "Ocorreu um problema ao realizar o consultar as conversas.", estilo: UIAlertControllerStyle.Alert, tituloAcao: "Tentar novamente", callback: {
+                self.carregarConversas()
+                }, viewController: self)
+            return
+        }
+        do{
+            let jsonResult: NSArray! = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as? NSArray
             
-            do{
-                let jsonResult: NSArray! = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as? NSArray
+            for item in jsonResult {
+                let obj = item as! NSDictionary
                 
-                for item in jsonResult {
-                    let obj = item as! NSDictionary
-                    let conv:Conversa = Conversa(Id: obj["IdConversa"] as! String, NomeProfessor: obj["NomeProfessor"] as! String, UltimaMensagem: obj["UltimaMensagemTexto"] as! String, IdProfessor:"", Tipo: obj["Tipo"] as! String)
-                    self.conversas.addObject(conv)
-                }
+                let conv:Conversa = Conversa()
+                conv.Id = obj["IdConversa"] as! String
+                conv.NomeProfessor = obj["NomeProfessor"] as! String
+                conv.UltimaMensagem = obj["UltimaMensagemTexto"] as! String
+                conv.Tipo = obj["Tipo"] as! String
                 
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.tvConversas.allowsSelection = true
-                    self.tableView.reloadData()
-                    self.indicator.stopAnimating()
-                    
-                })
-            }catch{
-                dispatch_async(dispatch_get_main_queue(), {self.indicator.stopAnimating()})
-                print(error)
+                self.conversas.addObject(conv)
             }
             
-        });
+            dispatch_async(dispatch_get_main_queue(), {
+                self.tvConversas.reloadData()
+                self.tvConversas.allowsSelection = true
+                self.indicadorCarregamento.Parar()
+            })
+        }catch{
+            self.indicadorCarregamento.Parar()
+            Alerta.MostrarAlerta("Erro", mensagem: "Ocorreu um problema ao realizar o consultar as conversas.", estilo: UIAlertControllerStyle.Alert, tituloAcao: "Tentar novamente", callback: {
+                    self.carregarConversas()
+                }, viewController: self)
+        }
     }
+    
+    
 }

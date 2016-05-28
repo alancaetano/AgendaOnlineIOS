@@ -11,10 +11,7 @@ import Foundation
 
 class Constantes{
 
-    static var TIPOCONVERSA_CONVERSA = "C"
-    static var TIPOCONVERSA_COMUNICADO_SIMPLES = "A"
-    static var TIPOCONVERSA_COMUNICADO_CONFIRMACAO = "L"
-    static var TIPOCONVERSA_COMUNICADO_SIMOUNAO = "R"
+
     
     static var API_HOST = "http://agendaonlinerestapi.azurewebsites.net/"
     static var WEBAPP_HOST = "http://agendaonlinewebapp.azurewebsites.net/"

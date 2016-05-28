@@ -19,9 +19,7 @@ class ContatosViewController: UIViewController, UITableViewDelegate, UITableView
     
     var contatos: NSMutableArray! = []
     
-    var indicator:UIActivityIndicatorView! = nil
-    
-    var IdUsuario:String = ""
+    var indicadorCarregamento:IndicadorCarregamento!
     
     let defaults = NSUserDefaults.standardUserDefaults()
     
@@ -42,14 +40,9 @@ class ContatosViewController: UIViewController, UITableViewDelegate, UITableView
     
     func iniciarTableView(){
         
-        IdUsuario = defaults.stringForKey("IdUsuario")!
-        
         self.tvContatos.tableFooterView = UIView()
         
-        indicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
-        indicator.center = view.center
-        view.addSubview(indicator)
-        indicator.startAnimating()
+        self.indicadorCarregamento = IndicadorCarregamento(view: self.view)
         
         carregarContatos()
     }
@@ -65,32 +58,39 @@ class ContatosViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func carregarContatos(){
+        self.indicadorCarregamento.Iniciar()
+        
         self.contatos = []
-        let url: String = Constantes.API_GETCONTATOSESCOLA + IdUsuario
-        let request: NSMutableURLRequest = NSMutableURLRequest()
-        request.URL = NSURL(string: url)
-        request.HTTPMethod = "GET"
         
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse?, data: NSData?, error: NSError?) -> Void in
-            
-            do{
-                let jsonResult: NSArray! = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as? NSArray
+        let url: String = "\(Servico.API_GETCONTATOSESCOLA)\(Contexto.Recuperar(Contexto.CHAVE_ID_USUARIO))"
+        
+        Servico.ChamarServico(url, httpMethod: Servico.HTTPMethod_GET, json: nil, callback: carregarContatosCallback)
+        
+        
+    }
+    
+    func carregarContatosCallback(response:NSURLResponse?, data: NSData?, error: NSError?){
+        if(error != nil){
+            Alerta.MostrarAlerta("Erro", mensagem: "Ocorreu um problema ao recuperar os contatos da escola.", estilo: UIAlertControllerStyle.Alert, tituloAcao: "Ok", callback: {}, viewController: self)
+        }
+        
+        let jsonResult: NSArray? = try! NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as? NSArray
+        
+        if(jsonResult != nil && jsonResult!.count > 0){
+            for item in jsonResult! {
+                let obj = item as! NSDictionary
                 
-                for item in jsonResult {
-                    let obj = item as! NSDictionary
-                    let contato:Usuario = Usuario(Id: obj["Id"] as! String, Nome: obj["NomeProfessor"] as! String, Email:"", Senha:"", Tipo:"")
-                        self.contatos.addObject(contato)
-                }
-                
-                dispatch_async(dispatch_get_main_queue(), {self.tvContatos.reloadData()})
-                dispatch_async(dispatch_get_main_queue(), {self.indicator.stopAnimating()})
-                
-            }catch{
-                dispatch_async(dispatch_get_main_queue(), {self.indicator.stopAnimating()})
-                print(error)
+                let contato:Usuario = Usuario()
+                contato.Id = obj["Id"] as! String
+                contato.Nome = obj["NomeProfessor"] as! String
+                self.contatos.addObject(contato)
             }
-        });
+        }
         
+        dispatch_async(dispatch_get_main_queue(), {
+            self.tvContatos.reloadData()
+            self.indicadorCarregamento.Parar()
+        })
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
