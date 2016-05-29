@@ -19,7 +19,7 @@ class Conversa: NSObject {
 	var Tipo:String = ""
     var NomeProfessor:String = ""
     var NomeAluno:String = ""
-    var DataUltimaMensagem:String = ""
+    var DataUltimaMensagem:NSDate = NSDate()
     var TextoUltimaMensagem:String = ""
     var IdProfessor:String = ""
 	

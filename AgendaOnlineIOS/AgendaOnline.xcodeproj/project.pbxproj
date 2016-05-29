@@ -20,6 +20,7 @@
 		C7736BCB1CF76FA000B11517 /* Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7736BCA1CF76FA000B11517 /* Base64.swift */; };
 		C7736BCD1CF7814900B11517 /* IndicadorCarregamento.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7736BCC1CF7814900B11517 /* IndicadorCarregamento.swift */; };
 		C792A9DA1CF956790062D7D0 /* ConversaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C792A9D91CF956790062D7D0 /* ConversaCell.swift */; };
+		C792A9DC1CFAB8DF0062D7D0 /* FormatacaoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C792A9DB1CFAB8DF0062D7D0 /* FormatacaoData.swift */; };
 		E573D6E11C66E1220092E95D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E573D6E01C66E1220092E95D /* AppDelegate.swift */; };
 		E573D6E31C66E1220092E95D /* ConversaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E573D6E21C66E1220092E95D /* ConversaViewController.swift */; };
 		E573D6E51C66E1220092E95D /* MensagemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E573D6E41C66E1220092E95D /* MensagemViewController.swift */; };
@@ -47,6 +48,7 @@
 		C7736BCA1CF76FA000B11517 /* Base64.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base64.swift; sourceTree = "<group>"; };
 		C7736BCC1CF7814900B11517 /* IndicadorCarregamento.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicadorCarregamento.swift; sourceTree = "<group>"; };
 		C792A9D91CF956790062D7D0 /* ConversaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversaCell.swift; sourceTree = "<group>"; };
+		C792A9DB1CFAB8DF0062D7D0 /* FormatacaoData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatacaoData.swift; sourceTree = "<group>"; };
 		E573D6DD1C66E1220092E95D /* AgendaOnline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AgendaOnline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E573D6E01C66E1220092E95D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = AgendaOnline/AppDelegate.swift; sourceTree = "<group>"; };
 		E573D6E21C66E1220092E95D /* ConversaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConversaViewController.swift; path = AgendaOnline/ConversaViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				C7736BC81CF76F3A00B11517 /* Servico.swift */,
 				C7736BCA1CF76FA000B11517 /* Base64.swift */,
 				C7736BCC1CF7814900B11517 /* IndicadorCarregamento.swift */,
+				C792A9DB1CFAB8DF0062D7D0 /* FormatacaoData.swift */,
 			);
 			name = util;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				E573D6FA1C66E8960092E95D /* Mensagem.swift in Sources */,
 				E573D6F81C66E2670092E95D /* Usuario.swift in Sources */,
 				C7736BCD1CF7814900B11517 /* IndicadorCarregamento.swift in Sources */,
+				C792A9DC1CFAB8DF0062D7D0 /* FormatacaoData.swift in Sources */,
 				C72A51DE1C8FC37C00CAF507 /* MensagemCell.swift in Sources */,
 				C7736BC21CEBF10D00B11517 /* DetalheConversaBaseViewController.swift in Sources */,
 				E573D7001C66E8D10092E95D /* Conversa.swift in Sources */,

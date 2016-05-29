@@ -9,7 +9,7 @@
 import Foundation
 
 class Base64{
-    static func Codificar(texto:String) -> String {
+    static func Codificar(texto:String) -> String{
         let utf8str = texto.dataUsingEncoding(NSUTF8StringEncoding)
         return utf8str!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
     }

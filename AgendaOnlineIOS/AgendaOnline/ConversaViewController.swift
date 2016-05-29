@@ -50,7 +50,7 @@ class ConversaViewController: UITableViewController{
         let conv:Conversa = conversas![indexPath.row] as! Conversa
         cell.NomeProfessor.text = conv.NomeProfessor
         cell.NomeAluno.text = conv.NomeAluno
-        cell.DataUltimaMensagem.text = conv.DataUltimaMensagem
+        cell.DataUltimaMensagem.text = FormatacaoData.Formatar(conv.DataUltimaMensagem)
         cell.TextoUltimaMensagem.text = conv.TextoUltimaMensagem
         
         return cell
@@ -134,7 +134,7 @@ class ConversaViewController: UITableViewController{
                 conv.Id = obj["IdConversa"] as! String
                 conv.NomeProfessor = obj["NomeProfessor"] as! String
                 conv.NomeAluno = obj["NomeAluno"] as! String
-                conv.DataUltimaMensagem = obj["UltimaMensagemDataEnvio"] as! String
+                conv.DataUltimaMensagem = FormatacaoData.StringParaData(obj["UltimaMensagemDataEnvio"] as! String)
                 conv.TextoUltimaMensagem = obj["UltimaMensagemTexto"] as! String
                 conv.Tipo = obj["Tipo"] as! String
                 
