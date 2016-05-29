@@ -16,8 +16,16 @@ class ConversaViewController: UITableViewController{
         }
     }
     
+    func configurarEstilo(){
+        self.navigationController?.navigationBar.barStyle = UIBarStyle.BlackTranslucent
+        self.navigationController?.navigationBar.barTintColor = Cor.COR_BARRA_DE_TITULO
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+    }
+    
 	override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configurarEstilo()
         
         self.indicadorCarregamento = IndicadorCarregamento(view: self.view)
         
@@ -27,24 +35,24 @@ class ConversaViewController: UITableViewController{
 	}
     
     func iniciarTableView(){
-        
-        self.tvConversas.tableFooterView = UIView()
-        
         self.indicadorCarregamento.Iniciar()
         
         carregarConversas()
     }
-
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
-	}
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if(conversas == nil || conversas!.count == 0){
+            return 0
+        }
+        
         return self.conversas.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell  {
+        if(conversas == nil || conversas!.count == 0){
+            return UITableViewCell()
+        }
+        
         let cell:ConversaCell = self.tvConversas.dequeueReusableCellWithIdentifier("cell")! as! ConversaCell
         
         let conv:Conversa = conversas![indexPath.row] as! Conversa
@@ -153,6 +161,4 @@ class ConversaViewController: UITableViewController{
                 }, viewController: self)
         }
     }
-    
-    
 }

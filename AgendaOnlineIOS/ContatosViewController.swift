@@ -17,6 +17,10 @@ class ContatosViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet var tvContatos: UITableView!
     
+    @IBOutlet weak var labelContatos: UILabel!
+    
+    @IBOutlet weak var botaoCancelar: UIButton!
+    
     var contatos: NSMutableArray! = []
     
     var indicadorCarregamento:IndicadorCarregamento!
@@ -31,11 +35,22 @@ class ContatosViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell  {
         let cell:UITableViewCell = self.tvContatos.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
-        
+
         let usuario:Usuario = contatos![indexPath.row] as! Usuario
         cell.textLabel?.text = usuario.Nome
         
         return cell
+    }
+    
+    func configurarEstilo(){
+        labelContatos.backgroundColor = Cor.COR_BARRA_DE_TITULO
+        
+        view.backgroundColor = Cor.COR_BARRA_DE_TITULO
+
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
     }
     
     func iniciarTableView(){
@@ -49,6 +64,8 @@ class ContatosViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configurarEstilo()
         
         self.tvContatos.dataSource = self
         self.tvContatos.delegate = self
