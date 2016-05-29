@@ -16,7 +16,7 @@ class Servico{
     static let API_HOST = "http://agendaonlinerestapi.azurewebsites.net/"
     static let WEBAPP_HOST = "http://agendaonlinewebapp.azurewebsites.net/"
     
-    static let API_GETCONVERSAS = API_HOST + "api/Conversas/GetConversas/"
+    static let API_GETCONVERSAS = API_HOST + "api/Conversas/GetConversasResponsavel/"
     static let API_GETALUNOS = API_HOST + "api/Alunos/GetAlunos/"
     static let API_GETCONTATOSESCOLA = API_HOST + "api/Usuarios/GetContatosEscola/"
     static let API_GETMENSAGENS = API_HOST + "api/Mensagens/GetMensagens/"

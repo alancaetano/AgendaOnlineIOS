@@ -45,11 +45,13 @@ class ConversaViewController: UITableViewController{
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell  {
-        let cell:UITableViewCell = self.tvConversas.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
+        let cell:ConversaCell = self.tvConversas.dequeueReusableCellWithIdentifier("cell")! as! ConversaCell
         
         let conv:Conversa = conversas![indexPath.row] as! Conversa
-        cell.textLabel?.text = conv.NomeProfessor
-        cell.detailTextLabel?.text = conv.UltimaMensagem
+        cell.NomeProfessor.text = conv.NomeProfessor
+        cell.NomeAluno.text = conv.NomeAluno
+        cell.DataUltimaMensagem.text = conv.DataUltimaMensagem
+        cell.TextoUltimaMensagem.text = conv.TextoUltimaMensagem
         
         return cell
         
@@ -131,7 +133,9 @@ class ConversaViewController: UITableViewController{
                 let conv:Conversa = Conversa()
                 conv.Id = obj["IdConversa"] as! String
                 conv.NomeProfessor = obj["NomeProfessor"] as! String
-                conv.UltimaMensagem = obj["UltimaMensagemTexto"] as! String
+                conv.NomeAluno = obj["NomeAluno"] as! String
+                conv.DataUltimaMensagem = obj["UltimaMensagemDataEnvio"] as! String
+                conv.TextoUltimaMensagem = obj["UltimaMensagemTexto"] as! String
                 conv.Tipo = obj["Tipo"] as! String
                 
                 self.conversas.addObject(conv)

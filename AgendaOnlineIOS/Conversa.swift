@@ -18,7 +18,9 @@ class Conversa: NSObject {
 	var Id:String = ""
 	var Tipo:String = ""
     var NomeProfessor:String = ""
-    var UltimaMensagem:String = ""
+    var NomeAluno:String = ""
+    var DataUltimaMensagem:String = ""
+    var TextoUltimaMensagem:String = ""
     var IdProfessor:String = ""
 	
     
