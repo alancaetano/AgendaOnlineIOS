@@ -22,6 +22,7 @@
 		C792A9DA1CF956790062D7D0 /* ConversaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C792A9D91CF956790062D7D0 /* ConversaCell.swift */; };
 		C792A9DC1CFAB8DF0062D7D0 /* FormatacaoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C792A9DB1CFAB8DF0062D7D0 /* FormatacaoData.swift */; };
 		C792A9DE1CFB78020062D7D0 /* Cor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C792A9DD1CFB78020062D7D0 /* Cor.swift */; };
+		C792A9E01CFE62C80062D7D0 /* Recursos.swift in Sources */ = {isa = PBXBuildFile; fileRef = C792A9DF1CFE62C80062D7D0 /* Recursos.swift */; };
 		E573D6E11C66E1220092E95D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E573D6E01C66E1220092E95D /* AppDelegate.swift */; };
 		E573D6E31C66E1220092E95D /* ConversaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E573D6E21C66E1220092E95D /* ConversaViewController.swift */; };
 		E573D6E51C66E1220092E95D /* MensagemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E573D6E41C66E1220092E95D /* MensagemViewController.swift */; };
@@ -51,6 +52,7 @@
 		C792A9D91CF956790062D7D0 /* ConversaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversaCell.swift; sourceTree = "<group>"; };
 		C792A9DB1CFAB8DF0062D7D0 /* FormatacaoData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatacaoData.swift; sourceTree = "<group>"; };
 		C792A9DD1CFB78020062D7D0 /* Cor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cor.swift; sourceTree = "<group>"; };
+		C792A9DF1CFE62C80062D7D0 /* Recursos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recursos.swift; sourceTree = "<group>"; };
 		E573D6DD1C66E1220092E95D /* AgendaOnline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AgendaOnline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E573D6E01C66E1220092E95D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = AgendaOnline/AppDelegate.swift; sourceTree = "<group>"; };
 		E573D6E21C66E1220092E95D /* ConversaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConversaViewController.swift; path = AgendaOnline/ConversaViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				C7736BCC1CF7814900B11517 /* IndicadorCarregamento.swift */,
 				C792A9DB1CFAB8DF0062D7D0 /* FormatacaoData.swift */,
 				C792A9DD1CFB78020062D7D0 /* Cor.swift */,
+				C792A9DF1CFE62C80062D7D0 /* Recursos.swift */,
 			);
 			name = util;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				C7736BBE1CE9610200B11517 /* ComunicadoComConfirmacao.swift in Sources */,
 				C7736BC71CF76D1700B11517 /* Alerta.swift in Sources */,
 				C7736BBC1CE9597F00B11517 /* ComunicadoSimplesViewController.swift in Sources */,
+				C792A9E01CFE62C80062D7D0 /* Recursos.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

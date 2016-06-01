@@ -14,5 +14,6 @@ class ConversaCell: UITableViewCell {
     @IBOutlet weak var TextoUltimaMensagem:UILabel! = UILabel()
     @IBOutlet weak var DataUltimaMensagem:UILabel! = UILabel()
     
+    @IBOutlet weak var Icone: UIImageView!
 }
 

@@ -20,6 +20,8 @@ class ConversaViewController: UITableViewController{
         self.navigationController?.navigationBar.barStyle = UIBarStyle.BlackTranslucent
         self.navigationController?.navigationBar.barTintColor = Cor.COR_BARRA_DE_TITULO
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        
+        self.tvConversas.backgroundColor = UIColor.lightGrayColor()
     }
     
 	override func viewDidLoad() {
@@ -60,6 +62,14 @@ class ConversaViewController: UITableViewController{
         cell.NomeAluno.text = conv.NomeAluno
         cell.DataUltimaMensagem.text = FormatacaoData.Formatar(conv.DataUltimaMensagem)
         cell.TextoUltimaMensagem.text = conv.TextoUltimaMensagem
+        
+        switch(conv.Tipo){
+            case Conversa.TIPOCONVERSA_CONVERSA: cell.Icone.image = UIImage(named: Recursos.IMAGEM_CONVERSA)
+            case Conversa.TIPOCONVERSA_COMUNICADO_SIMPLES: cell.Icone.image = UIImage(named: Recursos.IMAGEM_CONVERSA)
+            case Conversa.TIPOCONVERSA_COMUNICADO_SIMOUNAO: cell.Icone.image = UIImage(named: Recursos.IMAGEM_COMUNICADO_SIM_NAO)
+            case Conversa.TIPOCONVERSA_COMUNICADO_CONFIRMACAO: cell.Icone.image = UIImage(named: Recursos.IMAGEM_COMUNICADO_CONFIRMACAO)
+            default: break
+        }
         
         return cell
         

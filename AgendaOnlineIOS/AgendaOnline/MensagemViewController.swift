@@ -188,7 +188,7 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
     
     func formatarMensagem(cell:MensagemCell, msgDoUsuario:Bool, texto:String!){
         if(msgDoUsuario){
-            let imageView:UIImageView = UIImageView(image: UIImage(named: "balaousuario.png")!)
+            let imageView:UIImageView = UIImageView(image: UIImage(named: Recursos.IMAGEM_BALAO_USUARIO)!)
             cell.backgroundView = imageView
             cell.TextoUsuario.text = texto
             cell.TextoUsuario.numberOfLines = 0
@@ -196,7 +196,7 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
             
             cell.TextoDestinatario.text = ""
         }else{
-            let imageView:UIImageView = UIImageView(image: UIImage(named: "balaodestinatario.png")!)
+            let imageView:UIImageView = UIImageView(image: UIImage(named: Recursos.IMAGEM_BALAO_DESTINATARIO)!)
             cell.backgroundView = imageView
             cell.TextoDestinatario.text = texto
             cell.TextoDestinatario.numberOfLines = 0

@@ -83,7 +83,7 @@
         <scene sceneID="jU0-ee-AJu">
             <objects>
                 <tableViewController title="Lista de Mensagens" id="2g7-Wn-p3e" customClass="ConversaViewController" customModule="AgendaOnline" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="71" sectionHeaderHeight="28" sectionFooterHeight="28" id="vdZ-hL-kxR">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="71" sectionHeaderHeight="28" sectionFooterHeight="28" id="vdZ-hL-kxR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -95,17 +95,20 @@
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Nome Professor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="feg-5j-T1q">
-                                            <rect key="frame" x="158" y="8" width="121" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nome Aluno" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pnm-j5-wjc">
+                                            <rect key="frame" x="83" y="8" width="121" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Ultima mensagem" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8A-uO-YsG">
-                                            <rect key="frame" x="8" y="37" width="195" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="195" id="Bep-Xe-Rb4"/>
-                                            </constraints>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Nome Professor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="feg-5j-T1q">
+                                            <rect key="frame" x="158" y="8" width="121" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ultima mensagem" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8A-uO-YsG">
+                                            <rect key="frame" x="83" y="37" width="126" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -116,24 +119,18 @@
                                             <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Nome Aluno" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pnm-j5-wjc">
-                                            <rect key="frame" x="8" y="8" width="175" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="AppIcon" translatesAutoresizingMaskIntoConstraints="NO" id="1VW-Lr-gcF">
+                                            <rect key="frame" x="20" y="17" width="35" height="35"/>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="leadingMargin" secondItem="Pnm-j5-wjc" secondAttribute="leading" id="Dbt-7S-yGx"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="NsA-nK-mAF" secondAttribute="trailing" id="IrA-Wv-5Ro"/>
-                                        <constraint firstAttribute="leadingMargin" secondItem="x8A-uO-YsG" secondAttribute="leading" id="gB5-UT-hp0"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="NsA-nK-mAF" secondAttribute="trailing" id="oge-aC-osO"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="feg-5j-T1q" secondAttribute="trailing" id="zyG-Af-Fen"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="feg-5j-T1q" secondAttribute="trailing" constant="41" id="BPb-wc-kKl"/>
-                                </constraints>
                                 <connections>
                                     <outlet property="DataUltimaMensagem" destination="NsA-nK-mAF" id="wtS-on-obO"/>
+                                    <outlet property="Icone" destination="1VW-Lr-gcF" id="BRS-hh-wkE"/>
                                     <outlet property="NomeAluno" destination="Pnm-j5-wjc" id="AAR-hE-D3F"/>
                                     <outlet property="NomeProfessor" destination="feg-5j-T1q" id="OIQ-eN-fwo"/>
                                     <outlet property="TextoUltimaMensagem" destination="x8A-uO-YsG" id="Q6D-BQ-ffa"/>
@@ -427,4 +424,7 @@
             <point key="canvasLocation" x="75" y="830"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="AppIcon" width="128" height="128"/>
+    </resources>
 </document>
