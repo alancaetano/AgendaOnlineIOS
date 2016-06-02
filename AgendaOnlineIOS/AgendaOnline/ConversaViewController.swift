@@ -65,7 +65,7 @@ class ConversaViewController: UITableViewController{
         
         switch(conv.Tipo){
             case Conversa.TIPOCONVERSA_CONVERSA: cell.Icone.image = UIImage(named: Recursos.IMAGEM_CONVERSA)
-            case Conversa.TIPOCONVERSA_COMUNICADO_SIMPLES: cell.Icone.image = UIImage(named: Recursos.IMAGEM_CONVERSA)
+            case Conversa.TIPOCONVERSA_COMUNICADO_SIMPLES: cell.Icone.image = UIImage(named: Recursos.IMAGEM_COMUNICADO_SIMPLES)
             case Conversa.TIPOCONVERSA_COMUNICADO_SIMOUNAO: cell.Icone.image = UIImage(named: Recursos.IMAGEM_COMUNICADO_SIM_NAO)
             case Conversa.TIPOCONVERSA_COMUNICADO_CONFIRMACAO: cell.Icone.image = UIImage(named: Recursos.IMAGEM_COMUNICADO_CONFIRMACAO)
             default: break

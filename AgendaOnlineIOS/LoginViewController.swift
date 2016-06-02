@@ -13,7 +13,6 @@ class LoginViewController: UIViewController{
     
     @IBOutlet weak var TextSenha: UITextField!
     
-    
     @IBAction func Entrar(sender: AnyObject) {
 
         let str = "\(TextLogin.text!);\(TextSenha.text!)"
