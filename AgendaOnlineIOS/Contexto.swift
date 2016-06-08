@@ -10,7 +10,14 @@ import Foundation
 
 class Contexto{
     static let CHAVE_ALUNOS = "alunos"
+    
     static let CHAVE_ID_USUARIO = "IdUsuario"
+    static let CHAVE_NOME_USUARIO = "NomeUsuario"
+    static let CHAVE_SENHA_USUARIO = "SenhaUsuario"
+    
+    static let CHAVE_ACCESS_TOKEN = "acess_token"
+    static let CHAVE_TOKEN_TYPE = "token_type"
+    static let CHAVE_EXPIRES_IN = "expires_in"
     
     static func Salvar(chave:String!, valor:NSObject!){
         let defaults = NSUserDefaults.standardUserDefaults()

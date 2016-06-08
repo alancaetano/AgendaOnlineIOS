@@ -21,7 +21,7 @@ class ConversaViewController: UITableViewController{
         self.navigationController?.navigationBar.barTintColor = Cor.COR_BARRA_DE_TITULO
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
-        self.tvConversas.backgroundColor = UIColor.lightGrayColor()
+        //self.tvConversas.backgroundColor = UIColor.lightGrayColor()
     }
     
 	override func viewDidLoad() {

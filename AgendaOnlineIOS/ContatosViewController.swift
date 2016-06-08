@@ -9,14 +9,12 @@
 import UIKit
 
 
-class ContatosViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ContatosViewController: UIViewController {
     
     @IBAction func Cancelar(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    @IBOutlet var tvContatos: UITableView!
-    
+
     @IBOutlet weak var labelContatos: UILabel!
     
     @IBOutlet weak var botaoCancelar: UIButton!
@@ -25,41 +23,16 @@ class ContatosViewController: UIViewController, UITableViewDelegate, UITableView
     
     var indicadorCarregamento:IndicadorCarregamento!
     
-    let defaults = NSUserDefaults.standardUserDefaults()
-    
     var parent:ConversaViewController!
-        
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.contatos.count
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell  {
-        let cell:UITableViewCell = self.tvContatos.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
-
-        let usuario:Usuario = contatos![indexPath.row] as! Usuario
-        cell.textLabel?.text = usuario.Nome
-        
-        return cell
-    }
     
     func configurarEstilo(){
         labelContatos.backgroundColor = Cor.COR_BARRA_DE_TITULO
         
         view.backgroundColor = Cor.COR_BARRA_DE_TITULO
-
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
-    }
-    
-    func iniciarTableView(){
-        
-        self.tvContatos.tableFooterView = UIView()
-        
-        self.indicadorCarregamento = IndicadorCarregamento(view: self.view)
-        
-        carregarContatos()
     }
     
     override func viewDidLoad() {
@@ -67,10 +40,9 @@ class ContatosViewController: UIViewController, UITableViewDelegate, UITableView
         
         configurarEstilo()
         
-        self.tvContatos.dataSource = self
-        self.tvContatos.delegate = self
+        self.indicadorCarregamento = IndicadorCarregamento(view: self.view)
         
-        iniciarTableView()
+        carregarContatos()
         
     }
     
@@ -82,8 +54,6 @@ class ContatosViewController: UIViewController, UITableViewDelegate, UITableView
         let url: String = "\(Servico.API_GETCONTATOSESCOLA)\(Contexto.Recuperar(Contexto.CHAVE_ID_USUARIO))"
         
         Servico.ChamarServico(url, httpMethod: Servico.HTTPMethod_GET, json: nil, callback: carregarContatosCallback)
-        
-        
     }
     
     func carregarContatosCallback(response:NSURLResponse?, data: NSData?, error: NSError?){
@@ -105,16 +75,14 @@ class ContatosViewController: UIViewController, UITableViewDelegate, UITableView
         }
         
         dispatch_async(dispatch_get_main_queue(), {
-            self.tvContatos.reloadData()
+            
             self.indicadorCarregamento.Parar()
         })
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let usuario = self.contatos[indexPath.row] as? Usuario
+    func tableView() {
+        /*let usuario = self.contatos[] as? Usuario
         self.dismissViewControllerAnimated(false, completion: {() -> Void in
-            self.parent.performSegueWithIdentifier("mensagemSegue", sender: usuario)
-            
-        })
+            self.parent.performSegueWithIdentifier("mensagemSegue", sender: usuario)*/
     }
 }

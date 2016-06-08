@@ -3,6 +3,25 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "SecondViewController.tableView(UITableView, willDisplayCell : UITableViewCell, forRowAtIndexPath : NSIndexPath) -&gt; ():SecondViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "indexPath.row">
+            </PersistentString>
+            <PersistentString
+               value = "self.tvMensagens.visibleCells.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static Servico.ChamarServico(String, httpMethod : String, json : AnyObject?, callback : (response : NSURLResponse?, data : NSData?, error : NSError?) -&gt; ()) -&gt; ():Servico.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Contexto.Recuperar(Contexto.CHAVE_ACCESS_TOKEN) as! String!">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "LoginViewController.(Entrar(LoginViewController) -&gt; (AnyObject) -&gt; ()).(closure #1):LoginViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -11,13 +30,13 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "SecondViewController.tableView(UITableView, willDisplayCell : UITableViewCell, forRowAtIndexPath : NSIndexPath) -&gt; ():SecondViewController.swift">
+         contextName = "static Servico.Autenticar() -&gt; ():Servico.swift">
          <PersistentStrings>
             <PersistentString
-               value = "indexPath.row">
+               value = "request.HTTPBody!.valueForKey(forKey:&quot;grant_type&quot;)">
             </PersistentString>
             <PersistentString
-               value = "self.tvMensagens.visibleCells.count">
+               value = "request.allHTTPHeaderFields">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
