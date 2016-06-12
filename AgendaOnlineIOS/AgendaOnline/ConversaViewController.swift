@@ -153,7 +153,13 @@ class ConversaViewController: UITableViewController{
                 conv.NomeProfessor = obj["NomeProfessor"] as! String
                 conv.NomeAluno = obj["NomeAluno"] as! String
                 conv.DataUltimaMensagem = FormatacaoData.StringParaData(obj["UltimaMensagemDataEnvio"] as! String)
-                conv.TextoUltimaMensagem = obj["UltimaMensagemTexto"] as! String
+                
+                if let msgTxt = obj["UltimaMensagemTexto"] as? String  {
+                    conv.TextoUltimaMensagem = msgTxt
+                }else{
+                    conv.TextoUltimaMensagem = ""
+                }
+                
                 conv.Tipo = obj["Tipo"] as! String
                 
                 self.conversas.addObject(conv)
