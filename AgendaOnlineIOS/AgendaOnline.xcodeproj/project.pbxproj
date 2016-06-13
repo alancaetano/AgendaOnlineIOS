@@ -19,6 +19,8 @@
 		C7736BC91CF76F3A00B11517 /* Servico.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7736BC81CF76F3A00B11517 /* Servico.swift */; };
 		C7736BCB1CF76FA000B11517 /* Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7736BCA1CF76FA000B11517 /* Base64.swift */; };
 		C7736BCD1CF7814900B11517 /* IndicadorCarregamento.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7736BCC1CF7814900B11517 /* IndicadorCarregamento.swift */; };
+		C7803C6C1D0DA4EF00CB1D47 /* SelecionarAlunoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7803C6B1D0DA4EF00CB1D47 /* SelecionarAlunoViewController.swift */; };
+		C7803C731D0EC4AF00CB1D47 /* DropdownDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7803C721D0EC4AF00CB1D47 /* DropdownDelegate.swift */; };
 		C792A9DA1CF956790062D7D0 /* ConversaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C792A9D91CF956790062D7D0 /* ConversaCell.swift */; };
 		C792A9DC1CFAB8DF0062D7D0 /* FormatacaoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C792A9DB1CFAB8DF0062D7D0 /* FormatacaoData.swift */; };
 		C792A9DE1CFB78020062D7D0 /* Cor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C792A9DD1CFB78020062D7D0 /* Cor.swift */; };
@@ -49,6 +51,8 @@
 		C7736BC81CF76F3A00B11517 /* Servico.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Servico.swift; sourceTree = "<group>"; };
 		C7736BCA1CF76FA000B11517 /* Base64.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base64.swift; sourceTree = "<group>"; };
 		C7736BCC1CF7814900B11517 /* IndicadorCarregamento.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicadorCarregamento.swift; sourceTree = "<group>"; };
+		C7803C6B1D0DA4EF00CB1D47 /* SelecionarAlunoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelecionarAlunoViewController.swift; sourceTree = "<group>"; };
+		C7803C721D0EC4AF00CB1D47 /* DropdownDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropdownDelegate.swift; sourceTree = "<group>"; };
 		C792A9D91CF956790062D7D0 /* ConversaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversaCell.swift; sourceTree = "<group>"; };
 		C792A9DB1CFAB8DF0062D7D0 /* FormatacaoData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatacaoData.swift; sourceTree = "<group>"; };
 		C792A9DD1CFB78020062D7D0 /* Cor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cor.swift; sourceTree = "<group>"; };
@@ -94,6 +98,14 @@
 			name = util;
 			sourceTree = "<group>";
 		};
+		C7803C6D1D0DF6ED00CB1D47 /* delegates */ = {
+			isa = PBXGroup;
+			children = (
+				C7803C721D0EC4AF00CB1D47 /* DropdownDelegate.swift */,
+			);
+			name = delegates;
+			sourceTree = "<group>";
+		};
 		C792A9D81CF956400062D7D0 /* TemplateCelula */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +134,7 @@
 		E573D6DF1C66E1220092E95D /* AgendaOnline */ = {
 			isa = PBXGroup;
 			children = (
+				C7803C6D1D0DF6ED00CB1D47 /* delegates */,
 				C7736BC51CF76CFD00B11517 /* util */,
 				E573D6F61C66E18E0092E95D /* controllers */,
 				E573D6F51C66E1880092E95D /* models */,
@@ -168,6 +181,7 @@
 				C7736BBD1CE9610200B11517 /* ComunicadoComConfirmacao.swift */,
 				C7736BBF1CE9614B00B11517 /* ComunicadoComSimOuNao.swift */,
 				C7736BC11CEBF10D00B11517 /* DetalheConversaBaseViewController.swift */,
+				C7803C6B1D0DA4EF00CB1D47 /* SelecionarAlunoViewController.swift */,
 			);
 			name = controllers;
 			path = ..;
@@ -250,6 +264,7 @@
 				E573D6F81C66E2670092E95D /* Usuario.swift in Sources */,
 				C7736BCD1CF7814900B11517 /* IndicadorCarregamento.swift in Sources */,
 				C792A9DC1CFAB8DF0062D7D0 /* FormatacaoData.swift in Sources */,
+				C7803C731D0EC4AF00CB1D47 /* DropdownDelegate.swift in Sources */,
 				C792A9DE1CFB78020062D7D0 /* Cor.swift in Sources */,
 				C72A51DE1C8FC37C00CAF507 /* MensagemCell.swift in Sources */,
 				C7736BC21CEBF10D00B11517 /* DetalheConversaBaseViewController.swift in Sources */,
@@ -265,6 +280,7 @@
 				C761E2BB1CA7CE070035C0E5 /* LoginViewController.swift in Sources */,
 				C7736BC01CE9614B00B11517 /* ComunicadoComSimOuNao.swift in Sources */,
 				E573D6E31C66E1220092E95D /* ConversaViewController.swift in Sources */,
+				C7803C6C1D0DA4EF00CB1D47 /* SelecionarAlunoViewController.swift in Sources */,
 				C7736BBE1CE9610200B11517 /* ComunicadoComConfirmacao.swift in Sources */,
 				C7736BC71CF76D1700B11517 /* Alerta.swift in Sources */,
 				C7736BBC1CE9597F00B11517 /* ComunicadoSimplesViewController.swift in Sources */,

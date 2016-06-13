@@ -2,10 +2,15 @@
 
 import UIKit
 
-class ConversaViewController: UITableViewController{
+class ConversaViewController: UITableViewController, UIPopoverPresentationControllerDelegate{
 
     @IBOutlet var tvConversas: UITableView!
     
+    @IBAction func abrirNovaConversa(sender: AnyObject) {
+        abrirDropdown()
+    }
+    
+    var dropdown:SelecionarAlunoViewController! = SelecionarAlunoViewController()
     var indicadorCarregamento:IndicadorCarregamento!
     var conversas: NSMutableArray! = []
     
@@ -34,6 +39,10 @@ class ConversaViewController: UITableViewController{
         if((Contexto.Recuperar(Contexto.CHAVE_ID_USUARIO)) == nil){
             performSegueWithIdentifier("loginmodal", sender: self)
         }
+        
+        dropdown.modalPresentationStyle = .Popover
+        //dropdown.tableView.delegate = self
+        
 	}
     
     func iniciarTableView(){
@@ -177,4 +186,18 @@ class ConversaViewController: UITableViewController{
                 }, viewController: self)
         }
     }
+    
+    func abrirDropdown(){
+        let presentationController = dropdown.presentationController as! UIPopoverPresentationController
+        presentationController.barButtonItem = navigationItem.rightBarButtonItem
+        presentationController.backgroundColor = UIColor.whiteColor()
+        presentationController.delegate = self
+        presentViewController(dropdown, animated: true, completion: nil)
+    }
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .None
+    }
+    
+    
 }
