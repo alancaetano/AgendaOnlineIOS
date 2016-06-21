@@ -47,12 +47,10 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
     }
     
     func enviarNovaConversa(){
-        
-        let idAluno = "B5C486CA-9537-4D34-BDC7-8FFFED0DCC2C"
             
         let idUsuario:String! = Contexto.Recuperar(Contexto.CHAVE_ID_USUARIO) as! String
             
-        let url:String! = "\(Servico.API_ENVIARNOVACONVERSA)?idUsuarioProfessor=\(conversa.IdProfessor)&idUsuarioResponsavel=\(idUsuario)&idAluno=\(idAluno)&TipoConversa=\(Conversa.TIPOCONVERSA_CONVERSA)"
+        let url:String! = "\(Servico.API_ENVIARNOVACONVERSA)?idUsuarioProfessor=\(conversa.IdProfessor)&idUsuarioResponsavel=\(idUsuario)&idAluno=\(conversa.IdAluno)&TipoConversa=\(Conversa.TIPOCONVERSA_CONVERSA)"
             
         Servico.ChamarServico(url, httpMethod: Servico.HTTPMethod_GET, json:nil, callback: enviarNovaConversaCallback)
     }
@@ -85,10 +83,9 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
         msg.IdConversa = self.conversa.Id
         msg.Texto = texto!
         self.mensagens.addObject(msg)
+        self.tvMensagens.reloadData()
         
         self.textViewDigitarMensagem.text = ""
-        
-        self.tvMensagens.reloadData()
         
         self.tvMensagens.setContentOffset(CGPoint(x: 0, y: CGFloat.max), animated: false)
         

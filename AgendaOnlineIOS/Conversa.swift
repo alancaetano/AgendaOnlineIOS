@@ -22,6 +22,7 @@ class Conversa: NSObject {
     var DataUltimaMensagem:NSDate = NSDate()
     var TextoUltimaMensagem:String = ""
     var IdProfessor:String = ""
+    var IdAluno:String = ""
 	
     
     

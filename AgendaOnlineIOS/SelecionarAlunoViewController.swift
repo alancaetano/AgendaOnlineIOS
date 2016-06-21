@@ -14,6 +14,7 @@ class SelecionarAlunoViewController:UITableViewController{
     @IBOutlet var tvAlunos: UITableView!
     
     var alunos:NSArray! = []
+    var viewControllerPai: ConversaViewController?
     
     override func viewDidLoad() {
         alunos = Contexto.RecuperarAlunos()
@@ -43,7 +44,7 @@ class SelecionarAlunoViewController:UITableViewController{
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(alunos == nil || alunos.count == 0){
+        if(self.alunos == nil){
             return 0
         }
         
@@ -51,8 +52,8 @@ class SelecionarAlunoViewController:UITableViewController{
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        Alerta.MostrarAlerta("teste", mensagem: "Selecionou \(indexPath.row)", estilo: UIAlertControllerStyle.Alert, tituloAcao: "Ok", callback: {}, viewController: self)
+        self.dismissViewControllerAnimated(true, completion: {
+            self.viewControllerPai?.abrirContatosModal(self.alunos[indexPath.row] as! Aluno)
+        })
     }
-    
-    
 }

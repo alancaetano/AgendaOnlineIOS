@@ -7,10 +7,16 @@ class ConversaViewController: UITableViewController, UIPopoverPresentationContro
     @IBOutlet var tvConversas: UITableView!
     
     @IBAction func abrirNovaConversa(sender: AnyObject) {
-        abrirDropdown()
+        let alunos:NSArray! = Contexto.RecuperarAlunos()
+        
+        if(alunos.count == 1){
+            performSegueWithIdentifier("contatosmodal", sender: (alunos[0] as! Aluno))
+        }else{
+            abrirDropdown()
+        }
     }
     
-    var dropdown:SelecionarAlunoViewController! = SelecionarAlunoViewController()
+    var dropdown:SelecionarAlunoViewController!
     var indicadorCarregamento:IndicadorCarregamento!
     var conversas: NSMutableArray! = []
     
@@ -25,8 +31,7 @@ class ConversaViewController: UITableViewController, UIPopoverPresentationContro
         self.navigationController?.navigationBar.barStyle = UIBarStyle.BlackTranslucent
         self.navigationController?.navigationBar.barTintColor = Cor.COR_BARRA_DE_TITULO
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        
-        //self.tvConversas.backgroundColor = UIColor.lightGrayColor()
+
     }
     
 	override func viewDidLoad() {
@@ -39,10 +44,6 @@ class ConversaViewController: UITableViewController, UIPopoverPresentationContro
         if((Contexto.Recuperar(Contexto.CHAVE_ID_USUARIO)) == nil){
             performSegueWithIdentifier("loginmodal", sender: self)
         }
-        
-        dropdown.modalPresentationStyle = .Popover
-        //dropdown.tableView.delegate = self
-        
 	}
     
     func iniciarTableView(){
@@ -105,40 +106,34 @@ class ConversaViewController: UITableViewController, UIPopoverPresentationContro
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        //tratando segue para a tela de login
+        
         if(segue.identifier == "loginmodal"){
             return
         }
-        //tratando segue para a tela de contatos
+        
         if(segue.identifier == "contatosmodal"){
             let tblViewController = segue.destinationViewController as! ContatosViewController
-            tblViewController.parent = self
-        }else{
-        //tratando segue para a tela de mensagens
-            var conversaSelecionada:Conversa! = nil
+            tblViewController.aluno = sender as! Aluno
+            tblViewController.viewControllerPai = self
             
-            //se o sender eh um usuario, entao eh uma nova conversa
-            //seao eh uma conversa ja criada
-            if let usuario = sender as? Usuario
-            {
-                conversaSelecionada = Conversa()
-                conversaSelecionada.NomeProfessor = usuario.Nome
-                conversaSelecionada.IdProfessor = usuario.Id
-                conversaSelecionada.Tipo = Conversa.TIPOCONVERSA_CONVERSA
-            }else{
-                let indexPath:NSIndexPath = self.tvConversas.indexPathForSelectedRow!
-                conversaSelecionada = conversas![indexPath.row] as! Conversa
-            }
-
-            let tblViewController = segue.destinationViewController as! DetalheConversaBaseViewController
-            tblViewController.conversa = conversaSelecionada
+            return
         }
+        
+        let tblViewController = segue.destinationViewController as! DetalheConversaBaseViewController
+        
+        if(self.tvConversas.indexPathForSelectedRow == nil){
+            let conversaNova = sender as! Conversa!
+            tblViewController.conversa = conversaNova
+        }else{
+            tblViewController.conversa = conversas![self.tvConversas.indexPathForSelectedRow!.row] as! Conversa
+        }
+
     }
     
     func carregarConversas(){
         self.conversas = []
         self.tvConversas.allowsSelection = false
-        let url: String =  Servico.API_GETCONVERSAS + (Contexto.Recuperar(Contexto.CHAVE_ID_USUARIO) as! String)
+        let url: String =  "\(Servico.API_GETCONVERSAS)\(Contexto.Recuperar(Contexto.CHAVE_ID_USUARIO) as! String)/"
         
         Servico.ChamarServico(url, httpMethod: Servico.HTTPMethod_GET, json:nil, callback: carregarConversasCallback)
     }
@@ -161,7 +156,10 @@ class ConversaViewController: UITableViewController, UIPopoverPresentationContro
                 conv.Id = obj["IdConversa"] as! String
                 conv.NomeProfessor = obj["NomeProfessor"] as! String
                 conv.NomeAluno = obj["NomeAluno"] as! String
-                conv.DataUltimaMensagem = FormatacaoData.StringParaData(obj["UltimaMensagemDataEnvio"] as! String)
+                
+                if let dataUltimaMensagem = obj["UltimaMensagemDataEnvio"] as? String{
+                    conv.DataUltimaMensagem = FormatacaoData.StringParaData(dataUltimaMensagem as String)
+                }
                 
                 if let msgTxt = obj["UltimaMensagemTexto"] as? String  {
                     conv.TextoUltimaMensagem = msgTxt
@@ -188,16 +186,24 @@ class ConversaViewController: UITableViewController, UIPopoverPresentationContro
     }
     
     func abrirDropdown(){
+        dropdown = SelecionarAlunoViewController()
+        dropdown.modalPresentationStyle = .Popover
+        dropdown.viewControllerPai = self
+        
         let presentationController = dropdown.presentationController as! UIPopoverPresentationController
         presentationController.barButtonItem = navigationItem.rightBarButtonItem
         presentationController.backgroundColor = UIColor.whiteColor()
         presentationController.delegate = self
+        
         presentViewController(dropdown, animated: true, completion: nil)
+    }
+    
+    func abrirContatosModal(alunoSelecionado: Aluno){
+        self.performSegueWithIdentifier("contatosmodal", sender: alunoSelecionado)
     }
     
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return .None
     }
-    
-    
 }
+    

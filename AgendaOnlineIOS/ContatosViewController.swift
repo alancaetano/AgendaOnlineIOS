@@ -9,7 +9,7 @@
 import UIKit
 
 
-class ContatosViewController: UIViewController {
+class ContatosViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBAction func Cancelar(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -19,11 +19,15 @@ class ContatosViewController: UIViewController {
     
     @IBOutlet weak var botaoCancelar: UIButton!
     
+    @IBOutlet weak var tvContatos: UITableView!
+    
     var contatos: NSMutableArray! = []
     
     var indicadorCarregamento:IndicadorCarregamento!
     
-    var parent:ConversaViewController!
+    var aluno:Aluno!
+    
+    var viewControllerPai:ConversaViewController!
     
     func configurarEstilo(){
         labelContatos.backgroundColor = Cor.COR_BARRA_DE_TITULO
@@ -38,12 +42,14 @@ class ContatosViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tvContatos.delegate = self
+        self.tvContatos.dataSource = self
+        
         configurarEstilo()
         
         self.indicadorCarregamento = IndicadorCarregamento(view: self.view)
         
         carregarContatos()
-        
     }
     
     func carregarContatos(){
@@ -51,7 +57,7 @@ class ContatosViewController: UIViewController {
         
         self.contatos = []
         
-        let url: String = "\(Servico.API_GETCONTATOSESCOLA)\(Contexto.Recuperar(Contexto.CHAVE_ID_USUARIO))"
+        let url: String = "\(Servico.API_GETCONTATOSESCOLA)\(aluno.Id)"
         
         Servico.ChamarServico(url, httpMethod: Servico.HTTPMethod_GET, json: nil, callback: carregarContatosCallback)
     }
@@ -75,14 +81,49 @@ class ContatosViewController: UIViewController {
         }
         
         dispatch_async(dispatch_get_main_queue(), {
-            
+            self.tvContatos.reloadData()
             self.indicadorCarregamento.Parar()
+            
         })
     }
     
-    func tableView() {
-        /*let usuario = self.contatos[] as? Usuario
-        self.dismissViewControllerAnimated(false, completion: {() -> Void in
-            self.parent.performSegueWithIdentifier("mensagemSegue", sender: usuario)*/
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if(contatos == nil || contatos.count==0){
+            return UITableViewCell()
+        }
+        
+        let contato:Usuario = contatos[indexPath.row] as! Usuario
+        
+        var cell:UITableViewCell? = self.tvContatos.dequeueReusableCellWithIdentifier("cell") as UITableViewCell?
+        
+        if(cell == nil){
+            cell = UITableViewCell()
+        }
+        
+        cell!.textLabel?.text = contato.Nome
+        
+        return cell!
     }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if(self.contatos == nil){
+            return 0
+        }
+        
+        return self.contatos.count
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.dismissViewControllerAnimated(true, completion: {
+            let conversa = Conversa()
+            conversa.IdProfessor = (self.contatos[indexPath.row] as! Usuario).Id
+            conversa.IdAluno = (self.aluno.Id)
+            conversa.NomeAluno = self.aluno.Nome
+            conversa.NomeProfessor = (self.contatos[indexPath.row] as! Usuario).Nome
+            conversa.Tipo = Conversa.TIPOCONVERSA_CONVERSA
+            
+            self.viewControllerPai?.performSegueWithIdentifier("mensagemSegue", sender: conversa)
+        })
+    }
+    
 }
