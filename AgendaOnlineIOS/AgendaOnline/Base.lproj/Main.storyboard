@@ -286,13 +286,12 @@
                             <constraint firstAttribute="leadingMargin" secondItem="XTU-l9-eIh" secondAttribute="leading" id="0gr-I8-vee"/>
                             <constraint firstAttribute="bottomMargin" secondItem="XTU-l9-eIh" secondAttribute="bottom" constant="11" id="476-DT-cpg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="XTU-l9-eIh" secondAttribute="trailing" id="CBs-0W-heQ"/>
-                            <constraint firstItem="XTU-l9-eIh" firstAttribute="top" secondItem="agg-nv-I6L" secondAttribute="bottom" constant="13" id="tc1-83-zID"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="NomePessoa" id="QtZ-KN-xqN"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <outlet property="alturaTableView" destination="YfF-1G-L8F" id="d7K-qu-Vos"/>
+                        <outlet property="alturaTabela" destination="YfF-1G-L8F" id="W0U-yi-uCd"/>
                         <outlet property="tecladoBaseConstraint" destination="476-DT-cpg" id="s86-Er-CiP"/>
                         <outlet property="textViewDigitarMensagem" destination="XTU-l9-eIh" id="e5g-Mh-KEW"/>
                         <outlet property="tvMensagens" destination="agg-nv-I6L" id="v9I-7c-Xsp"/>

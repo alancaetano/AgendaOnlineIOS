@@ -12,8 +12,8 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
     @IBOutlet weak var textViewDigitarMensagem: UITextField!
     
     @IBOutlet var viewBase: UIView!
-    
-    @IBOutlet weak var alturaTableView: NSLayoutConstraint!
+
+    @IBOutlet weak var alturaTabela: NSLayoutConstraint!
     
     var mensagens: NSMutableArray! = []
     
@@ -35,7 +35,7 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
         
 		self.title = self.conversa.NomeProfessor
 
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardDidShow:", name: UIKeyboardDidShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
@@ -87,7 +87,7 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
         
         self.textViewDigitarMensagem.text = ""
         
-        self.tvMensagens.setContentOffset(CGPoint(x: 0, y: CGFloat.max), animated: false)
+        posicionarNaUltimaMensagem(false)
         
     }
     
@@ -172,15 +172,15 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
         formatarMensagem(msgCell, msgDoUsuario: idUsuarioLogado == msg.IdUsuario, texto: msg.Texto)
 
         if(!fezScroll){
-            posicionarNaUltimaMensagem()
+            posicionarNaUltimaMensagem(false)
             fezScroll = true
         }
         
         return msgCell
     }
     
-    func posicionarNaUltimaMensagem(){
-        tvMensagens.setContentOffset(CGPoint(x: 0, y: CGFloat.max), animated: false)
+    func posicionarNaUltimaMensagem(animated:Bool){
+        tvMensagens.setContentOffset(CGPoint(x: 0, y: CGFloat.max), animated: animated)
     }
     
     func formatarMensagem(cell:MensagemCell, msgDoUsuario:Bool, texto:String!){
@@ -206,26 +206,24 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
 
     }
     
-    func keyboardWillShow(sender: NSNotification) {
+    func keyboardDidShow(sender: NSNotification) {
         let info = sender.userInfo!
-        let duration: NSTimeInterval = (info[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
         let tamTeclado = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue().height
         
         tecladoBaseConstraint.constant = tamTeclado - bottomLayoutGuide.length + 10
-        alturaTableView.constant = alturaTableView.constant - tamTeclado
+        alturaTabela.constant = alturaTabela.constant - tamTeclado
         
-        UIView.animateWithDuration(duration) { self.view.layoutIfNeeded() }
+        self.posicionarNaUltimaMensagem(false)
     }
     
     func keyboardWillHide(sender: NSNotification) {
         let info = sender.userInfo!
-        let duration: NSTimeInterval = (info[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
+    
         let tamTeclado = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue().height
         
         tecladoBaseConstraint.constant = 10
-        alturaTableView.constant = alturaTableView.constant + tamTeclado
-        
-        UIView.animateWithDuration(duration) { self.view.layoutIfNeeded() }
+        alturaTabela.constant = alturaTabela.constant + tamTeclado
+
     }
 }
 
