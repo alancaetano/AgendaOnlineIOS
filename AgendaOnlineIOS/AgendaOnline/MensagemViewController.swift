@@ -87,7 +87,9 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
         
         self.textViewDigitarMensagem.text = ""
         
-        posicionarNaUltimaMensagem(false)
+        dispatch_async(dispatch_get_main_queue(), {
+            self.posicionarNaUltimaMensagem(self.tvMensagens.contentSize.height - self.tvMensagens.frame.size.height)
+        })
         
     }
     
@@ -172,15 +174,15 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
         formatarMensagem(msgCell, msgDoUsuario: idUsuarioLogado == msg.IdUsuario, texto: msg.Texto)
 
         if(!fezScroll){
-            posicionarNaUltimaMensagem(false)
+            posicionarNaUltimaMensagem(tvMensagens.contentSize.height - tvMensagens.frame.size.height)
             fezScroll = true
         }
         
         return msgCell
     }
     
-    func posicionarNaUltimaMensagem(animated:Bool){
-        tvMensagens.setContentOffset(CGPoint(x: 0, y: CGFloat.max), animated: animated)
+    func posicionarNaUltimaMensagem(y:CGFloat){
+        tvMensagens.setContentOffset(CGPoint(x: 0, y: y), animated: false)
     }
     
     func formatarMensagem(cell:MensagemCell, msgDoUsuario:Bool, texto:String!){
@@ -213,7 +215,7 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
         tecladoBaseConstraint.constant = tamTeclado - bottomLayoutGuide.length + 10
         alturaTabela.constant = alturaTabela.constant - tamTeclado
         
-        self.posicionarNaUltimaMensagem(false)
+        self.posicionarNaUltimaMensagem(tvMensagens.contentSize.height - tvMensagens.frame.size.height + tamTeclado)
     }
     
     func keyboardWillHide(sender: NSNotification) {
