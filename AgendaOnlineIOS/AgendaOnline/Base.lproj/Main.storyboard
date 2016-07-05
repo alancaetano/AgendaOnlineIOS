@@ -256,7 +256,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label identifier="TextoUsuario" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="TextoUsuario" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3a-ZQ-7nj" userLabel="TextoUsuario">
-                                                    <rect key="frame" x="94" y="12" width="300" height="40"/>
+                                                    <rect key="frame" x="77" y="12" width="300" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="300" id="fHz-JD-kcm"/>
                                                     </constraints>

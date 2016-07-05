@@ -124,7 +124,6 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
         let url:String = "\(Servico.API_GETMENSAGENS)\(conversa.Id)"
         
         Servico.ChamarServico(url, httpMethod: Servico.HTTPMethod_GET, json: nil, callback: carregarMensagensCallback)
-
     }
 
     func carregarMensagensCallback(response:NSURLResponse?, data: NSData?, error: NSError?){
@@ -205,7 +204,6 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
         }
         
         cell.sizeToFit()
-
     }
     
     func keyboardDidShow(sender: NSNotification) {
