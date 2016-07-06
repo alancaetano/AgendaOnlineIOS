@@ -24,6 +24,4 @@ class Conversa: NSObject {
     var IdProfessor:String = ""
     var IdAluno:String = ""
 	
-    
-    
 }

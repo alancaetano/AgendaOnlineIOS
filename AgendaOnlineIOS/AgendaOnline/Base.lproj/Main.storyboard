@@ -26,7 +26,7 @@
                                             <rect key="frame" x="15" y="0.0" width="290" height="43"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -96,7 +96,7 @@
                                                             <rect key="frame" x="15" y="0.0" width="274" height="43"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -162,15 +162,15 @@
                                             <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="conversa" translatesAutoresizingMaskIntoConstraints="NO" id="1VW-Lr-gcF">
-                                            <rect key="frame" x="20" y="17" width="35" height="35"/>
-                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NsA-nK-mAF">
                                             <rect key="frame" x="237" y="37" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="conversa" translatesAutoresizingMaskIntoConstraints="NO" id="1VW-Lr-gcF">
+                                            <rect key="frame" x="20" y="17" width="35" height="35"/>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailingMargin" secondItem="NsA-nK-mAF" secondAttribute="trailing" id="oge-aC-osO"/>
@@ -204,16 +204,14 @@
                     <connections>
                         <outlet property="tvConversas" destination="vdZ-hL-kxR" id="9LO-d0-NXR"/>
                         <segue destination="0wC-jN-0lT" kind="presentation" identifier="loginmodal" id="kjg-qH-9YR"/>
-                        <segue destination="CTL-O9-s9e" kind="push" identifier="comunicadoSimplesSegue" id="FC6-K1-fvw"/>
                         <segue destination="rdb-rQ-5Ld" kind="push" identifier="mensagemSegue" id="CK9-6J-4yP"/>
-                        <segue destination="Wg3-U1-KBp" kind="push" identifier="comunicadoConfirmacaoSegue" id="kcF-QV-pHE"/>
-                        <segue destination="h68-sP-pT1" kind="push" identifier="comunicadoComSimOuNaoSegue" id="kka-9q-Z4l"/>
                         <segue destination="LQB-rX-Nis" kind="presentation" identifier="contatosmodal" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="DJy-i5-3Ep"/>
+                        <segue destination="IFa-Xx-ioH" kind="push" identifier="comunicadoSimplesSegue" id="L29-7g-p5d"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cxx-Uk-F4S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="474" y="122"/>
+            <point key="canvasLocation" x="540" y="78"/>
         </scene>
         <!--NomePessoa-->
         <scene sceneID="z9i-Ew-fwp">
@@ -246,19 +244,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label identifier="TextoDestinatario" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="TextoDestinatario" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MpX-Xz-6bj" userLabel="TextoDestinatario">
-                                                    <rect key="frame" x="28" y="12" width="300" height="40"/>
+                                                <label identifier="TextoUsuario" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TextoUsuario" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3a-ZQ-7nj" userLabel="TextoUsuario">
+                                                    <rect key="frame" x="96" y="12" width="270" height="40"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="300" id="rl7-r0-qpE"/>
+                                                        <constraint firstAttribute="width" constant="270" id="fHz-JD-kcm"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label identifier="TextoUsuario" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="TextoUsuario" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3a-ZQ-7nj" userLabel="TextoUsuario">
-                                                    <rect key="frame" x="77" y="12" width="300" height="40"/>
+                                                <label identifier="TextoDestinatario" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TextoDestinatario" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MpX-Xz-6bj" userLabel="TextoDestinatario">
+                                                    <rect key="frame" x="48" y="12" width="270" height="40"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="300" id="fHz-JD-kcm"/>
+                                                        <constraint firstAttribute="width" constant="270" id="rl7-r0-qpE"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -266,9 +264,11 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="MpX-Xz-6bj" firstAttribute="leading" secondItem="mTy-qM-gkt" secondAttribute="leadingMargin" constant="40" id="ADO-SV-Deo"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="f3a-ZQ-7nj" secondAttribute="bottom" constant="4" id="cul-Ty-zBs"/>
                                                 <constraint firstItem="f3a-ZQ-7nj" firstAttribute="top" secondItem="mTy-qM-gkt" secondAttribute="topMargin" constant="4" id="glq-6J-IwY"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="MpX-Xz-6bj" secondAttribute="bottom" constant="4" id="mGX-f3-p6u"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="f3a-ZQ-7nj" secondAttribute="trailing" constant="40" id="qkn-8W-5bT"/>
                                                 <constraint firstItem="MpX-Xz-6bj" firstAttribute="top" secondItem="mTy-qM-gkt" secondAttribute="topMargin" constant="4" id="zCt-6k-o3Q"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -300,109 +300,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fcP-kD-Fm0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="466" y="914"/>
-        </scene>
-        <!--Comunicado Simples-->
-        <scene sceneID="z56-T8-fZw">
-            <objects>
-                <viewController id="CTL-O9-s9e" customClass="ComunicadoSimplesViewController" customModule="AgendaOnline" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="5Rk-GK-r8N"/>
-                        <viewControllerLayoutGuide type="bottom" id="zlu-pQ-Ym1"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="fgV-Jo-uFY">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pVr-U0-ZUz">
-                                <rect key="frame" x="20" y="72" width="280" height="129"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="pVr-U0-ZUz" firstAttribute="top" secondItem="5Rk-GK-r8N" secondAttribute="bottom" constant="8" id="QQw-Oe-fhb"/>
-                            <constraint firstItem="pVr-U0-ZUz" firstAttribute="centerY" secondItem="fgV-Jo-uFY" secondAttribute="centerY" id="ofN-QZ-cKj"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="pVr-U0-ZUz" secondAttribute="trailing" id="qjO-gb-u1a"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="pVr-U0-ZUz" secondAttribute="leading" id="z9O-4V-H10"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Comunicado Simples" id="dBd-ZM-Lpr"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kHo-tg-KPb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="912" y="-538"/>
-        </scene>
-        <!--Comunicado Com Confirmacao-->
-        <scene sceneID="9en-kv-tns">
-            <objects>
-                <viewController id="Wg3-U1-KBp" userLabel="Comunicado Com Confirmacao" customClass="ComunicadoComConfirmacaoViewController" customModule="AgendaOnline" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="eXG-ej-LWz"/>
-                        <viewControllerLayoutGuide type="bottom" id="N2S-G6-rIc"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ftw-yv-nis">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jUh-sI-s7Y">
-                                <rect key="frame" x="20" y="72" width="280" height="129"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="jUh-sI-s7Y" firstAttribute="top" secondItem="eXG-ej-LWz" secondAttribute="bottom" constant="8" id="Zps-4q-Zql"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="jUh-sI-s7Y" secondAttribute="leading" id="b13-dm-w1E"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="jUh-sI-s7Y" secondAttribute="trailing" id="xlb-ok-jm9"/>
-                            <constraint firstItem="jUh-sI-s7Y" firstAttribute="centerY" secondItem="ftw-yv-nis" secondAttribute="centerY" id="z6h-RO-4gA"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Comunicado Com Confirmacao" id="vM3-AG-IBu"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1Le-GL-Mod" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="912" y="93"/>
-        </scene>
-        <!--Comunicado Com Sim ou Nao-->
-        <scene sceneID="bZi-gA-KV2">
-            <objects>
-                <viewController id="h68-sP-pT1" userLabel="Comunicado Com Sim ou Nao" customClass="ComunicadoComSimOuNaoViewController" customModule="AgendaOnline" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="VWZ-di-VMo"/>
-                        <viewControllerLayoutGuide type="bottom" id="Zcg-Tj-Nzs"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="qrz-ID-mVJ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEx-z4-bLR">
-                                <rect key="frame" x="20" y="72" width="280" height="129"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="leadingMargin" secondItem="AEx-z4-bLR" secondAttribute="leading" id="C1E-Ud-Zcn"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="AEx-z4-bLR" secondAttribute="trailing" id="Gd9-hw-OnB"/>
-                            <constraint firstItem="AEx-z4-bLR" firstAttribute="top" secondItem="VWZ-di-VMo" secondAttribute="bottom" constant="8" id="fCI-kB-mi5"/>
-                            <constraint firstItem="AEx-z4-bLR" firstAttribute="centerY" secondItem="qrz-ID-mVJ" secondAttribute="centerY" id="wS1-3m-lCu"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Comunicado Com Sim ou Nao" id="cnu-qX-XY1"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="K7a-UK-eeL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="912" y="730"/>
+            <point key="canvasLocation" x="493" y="914"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SNX-Ce-bkY">
@@ -484,6 +382,68 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="elj-zQ-f78" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="830"/>
+        </scene>
+        <!--NomePessoa-->
+        <scene sceneID="xIE-6j-kui">
+            <objects>
+                <viewController id="IFa-Xx-ioH" customClass="ComunicadoSimplesViewController" customModule="AgendaOnline" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DMk-dW-shy"/>
+                        <viewControllerLayoutGuide type="bottom" id="YQz-0H-RWq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oIu-6A-M2K">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zsI-cP-8ee">
+                                <rect key="frame" x="0.0" y="64" width="414" height="620"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="620" id="aCr-6W-odf"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="msgcell" rowHeight="64" id="Az7-le-ie5" customClass="MensagemCell" customModule="AgendaOnline" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="414" height="64"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Az7-le-ie5" id="YiI-ox-TMg">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label identifier="TextoDestinatario" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TextoDestinatario" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKB-lC-P6Y" userLabel="TextoDestinatario">
+                                                    <rect key="frame" x="48" y="12" width="270" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="270" id="08P-fP-KZD"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="cKB-lC-P6Y" firstAttribute="top" secondItem="YiI-ox-TMg" secondAttribute="topMargin" constant="4" id="RkU-W8-8tP"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="cKB-lC-P6Y" secondAttribute="bottom" constant="4" id="YOC-tr-PO3"/>
+                                                <constraint firstItem="cKB-lC-P6Y" firstAttribute="leading" secondItem="YiI-ox-TMg" secondAttribute="leadingMargin" constant="40" id="kik-bA-Ddu"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
+                                        <connections>
+                                            <outlet property="TextoDestinatario" destination="cKB-lC-P6Y" id="dv2-1t-RzR"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="NomePessoa" id="EEk-nL-jfD"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="tvMensagens" destination="zsI-cP-8ee" id="w2z-B7-dZK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Acv-wD-FdP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="974" y="914"/>
         </scene>
     </scenes>
     <resources>
