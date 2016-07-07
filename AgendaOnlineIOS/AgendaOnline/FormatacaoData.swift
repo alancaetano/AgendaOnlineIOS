@@ -12,6 +12,7 @@ class FormatacaoData {
     
     static let DIAS_DA_SEMANA = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sab", "Dom"]
     static let FORMATO_API = "yyyy-MM-dd'T'HH:mm:ss.SSS"
+    static let FORMATO_API_COM_MILISSEGUNDOS = "yyyy-MM-dd'T'HH:mm:ss"
     static let FORMATO_APENAS_HORAS = "hh:mm"
     static let FORMATO_DATA_E_HORA = "yyyy-MM-dd hh:mm"
     
@@ -41,8 +42,16 @@ class FormatacaoData {
     }
     
     static func StringParaData(dataStr:String!)->NSDate{
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = FORMATO_API
-        return dateFormatter.dateFromString(dataStr)!
+        let formatacaoComMilissegundos = NSDateFormatter()
+        formatacaoComMilissegundos.dateFormat = FORMATO_API
+        
+        let formatacaoSemMilissegundos = NSDateFormatter()
+        formatacaoSemMilissegundos.dateFormat = FORMATO_API_COM_MILISSEGUNDOS
+        
+        if let data = formatacaoComMilissegundos.dateFromString(dataStr){
+            return data
+        }else{
+            return formatacaoSemMilissegundos.dateFromString(dataStr)!
+        }
     }
 }
