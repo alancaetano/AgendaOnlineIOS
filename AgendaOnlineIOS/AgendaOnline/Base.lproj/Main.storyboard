@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Selecionar Aluno View Controller-->
+        <!--Selecionar Aluno-->
         <scene sceneID="e3e-rS-m5q">
             <objects>
-                <tableViewController id="BSF-qc-S6n" customClass="SelecionarAlunoViewController" customModule="AgendaOnline" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="BSF-qc-S6n" userLabel="Selecionar Aluno" customClass="SelecionarAlunoViewController" customModule="AgendaOnline" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="iak-ah-nbV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -47,10 +47,10 @@
             </objects>
             <point key="canvasLocation" x="100" y="-538"/>
         </scene>
-        <!--Contatos View Controller-->
+        <!--Selecionar Contato-->
         <scene sceneID="K3z-0V-8zf">
             <objects>
-                <viewController id="LQB-rX-Nis" customClass="ContatosViewController" customModule="AgendaOnline" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="LQB-rX-Nis" userLabel="Selecionar Contato" customClass="ContatosViewController" customModule="AgendaOnline" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bXE-qd-U5W"/>
                         <viewControllerLayoutGuide type="bottom" id="lnx-2w-bgH"/>
@@ -128,10 +128,10 @@
             </objects>
             <point key="canvasLocation" x="474" y="-538"/>
         </scene>
-        <!--Lista de Mensagens-->
+        <!--Conversas-->
         <scene sceneID="jU0-ee-AJu">
             <objects>
-                <tableViewController title="Lista de Mensagens" id="2g7-Wn-p3e" customClass="ConversaViewController" customModule="AgendaOnline" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Lista de Mensagens" id="2g7-Wn-p3e" userLabel="Conversas" customClass="ConversaViewController" customModule="AgendaOnline" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="71" sectionHeaderHeight="28" sectionFooterHeight="28" id="vdZ-hL-kxR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -207,16 +207,17 @@
                         <segue destination="rdb-rQ-5Ld" kind="push" identifier="mensagemSegue" id="CK9-6J-4yP"/>
                         <segue destination="LQB-rX-Nis" kind="presentation" identifier="contatosmodal" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="DJy-i5-3Ep"/>
                         <segue destination="IFa-Xx-ioH" kind="push" identifier="comunicadoSimplesSegue" id="L29-7g-p5d"/>
+                        <segue destination="k7q-3I-ev0" kind="push" identifier="comunicadoConfirmacaoSegue" id="IdA-OB-aH8"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cxx-Uk-F4S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="540" y="78"/>
         </scene>
-        <!--NomePessoa-->
+        <!--Mensagens-->
         <scene sceneID="z9i-Ew-fwp">
             <objects>
-                <viewController id="rdb-rQ-5Ld" customClass="MensagemViewController" customModule="AgendaOnline" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="rdb-rQ-5Ld" userLabel="Mensagens" customClass="MensagemViewController" customModule="AgendaOnline" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="a8h-Op-5en"/>
                         <viewControllerLayoutGuide type="bottom" id="SLY-93-D72"/>
@@ -319,10 +320,10 @@
             </objects>
             <point key="canvasLocation" x="75" y="78"/>
         </scene>
-        <!--Login View Controller-->
+        <!--Login-->
         <scene sceneID="ULG-fo-uD5">
             <objects>
-                <viewController storyboardIdentifier="LoginView" id="0wC-jN-0lT" customClass="LoginViewController" customModule="AgendaOnline" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginView" id="0wC-jN-0lT" userLabel="Login" customClass="LoginViewController" customModule="AgendaOnline" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y6Z-nU-zrt"/>
                         <viewControllerLayoutGuide type="bottom" id="ZpK-Rb-czs"/>
@@ -383,10 +384,10 @@
             </objects>
             <point key="canvasLocation" x="75" y="830"/>
         </scene>
-        <!--NomePessoa-->
+        <!--Comunicado Simples-->
         <scene sceneID="xIE-6j-kui">
             <objects>
-                <viewController id="IFa-Xx-ioH" customClass="ComunicadoSimplesViewController" customModule="AgendaOnline" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="IFa-Xx-ioH" userLabel="Comunicado Simples" customClass="ComunicadoSimplesViewController" customModule="AgendaOnline" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DMk-dW-shy"/>
                         <viewControllerLayoutGuide type="bottom" id="YQz-0H-RWq"/>
@@ -396,7 +397,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zsI-cP-8ee">
-                                <rect key="frame" x="0.0" y="64" width="414" height="620"/>
+                                <rect key="frame" x="0.0" y="10" width="414" height="674"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="620" id="aCr-6W-odf"/>
@@ -444,6 +445,68 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Acv-wD-FdP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="974" y="914"/>
+        </scene>
+        <!--Comunicado com Confirmacao-->
+        <scene sceneID="sBr-XG-nXr">
+            <objects>
+                <viewController id="k7q-3I-ev0" userLabel="Comunicado com Confirmacao" customClass="ComunicadoComConfirmacaoViewController" customModule="AgendaOnline" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XtX-5R-Ufv"/>
+                        <viewControllerLayoutGuide type="bottom" id="kOf-aQ-SnI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UNq-XG-tZu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dzg-wq-w5G">
+                                <rect key="frame" x="0.0" y="10" width="414" height="674"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="620" id="MeO-y5-lue"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="msgcell" rowHeight="64" id="2C8-TM-e6e" customClass="MensagemCell" customModule="AgendaOnline" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="414" height="64"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2C8-TM-e6e" id="LML-y4-Hdb">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label identifier="TextoDestinatario" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TextoDestinatario" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZL-4C-RFY" userLabel="TextoDestinatario">
+                                                    <rect key="frame" x="48" y="12" width="270" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="270" id="iUn-vt-xK4"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="cZL-4C-RFY" secondAttribute="bottom" constant="4" id="Lbk-Mf-N7Q"/>
+                                                <constraint firstItem="cZL-4C-RFY" firstAttribute="leading" secondItem="LML-y4-Hdb" secondAttribute="leadingMargin" constant="40" id="Ubx-8f-wCx"/>
+                                                <constraint firstItem="cZL-4C-RFY" firstAttribute="top" secondItem="LML-y4-Hdb" secondAttribute="topMargin" constant="4" id="sfR-mL-Tdl"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
+                                        <connections>
+                                            <outlet property="TextoDestinatario" destination="cZL-4C-RFY" id="iHk-ZB-cgu"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="NomePessoa" id="903-mj-Sed"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="tvMensagens" destination="Dzg-wq-w5G" id="a5s-yG-xwo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kwx-7f-Hct" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1425" y="914"/>
         </scene>
     </scenes>
     <resources>
