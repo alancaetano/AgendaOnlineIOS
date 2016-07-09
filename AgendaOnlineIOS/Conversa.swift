@@ -15,6 +15,10 @@ class Conversa: NSObject {
     static var TIPOCONVERSA_COMUNICADO_CONFIRMACAO = "L"
     static var TIPOCONVERSA_COMUNICADO_SIMOUNAO = "R"
     
+    static var RESPOSTA_COMUNICADO_SIM = "S"
+    static var RESPOSTA_COMUNICADO_NAO = "N"
+    static var RESPOSTA_COMUNICADO_LIDO = "L"
+    
 	var Id:String = ""
 	var Tipo:String = ""
     var NomeProfessor:String = ""
@@ -23,5 +27,6 @@ class Conversa: NSObject {
     var TextoUltimaMensagem:String = ""
     var IdProfessor:String = ""
     var IdAluno:String = ""
+    var RespostaComunicado:String = ""
 	
 }

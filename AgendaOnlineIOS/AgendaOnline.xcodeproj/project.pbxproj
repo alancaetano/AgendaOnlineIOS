@@ -11,8 +11,8 @@
 		C72DA19B1CAA421800F50407 /* ContatosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72DA19A1CAA421800F50407 /* ContatosViewController.swift */; };
 		C761E2BB1CA7CE070035C0E5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C761E2BA1CA7CE070035C0E5 /* LoginViewController.swift */; };
 		C7736BBC1CE9597F00B11517 /* ComunicadoSimplesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7736BBB1CE9597F00B11517 /* ComunicadoSimplesViewController.swift */; };
-		C7736BBE1CE9610200B11517 /* ComunicadoComConfirmacao.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7736BBD1CE9610200B11517 /* ComunicadoComConfirmacao.swift */; };
-		C7736BC01CE9614B00B11517 /* ComunicadoComSimOuNao.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7736BBF1CE9614B00B11517 /* ComunicadoComSimOuNao.swift */; };
+		C7736BBE1CE9610200B11517 /* ComunicadoComConfirmacaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7736BBD1CE9610200B11517 /* ComunicadoComConfirmacaoViewController.swift */; };
+		C7736BC01CE9614B00B11517 /* ComunicadoComSimOuNaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7736BBF1CE9614B00B11517 /* ComunicadoComSimOuNaoViewController.swift */; };
 		C7736BC21CEBF10D00B11517 /* DetalheConversaBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7736BC11CEBF10D00B11517 /* DetalheConversaBaseViewController.swift */; };
 		C7736BC41CF747D800B11517 /* Contexto.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7736BC31CF747D700B11517 /* Contexto.swift */; };
 		C7736BC71CF76D1700B11517 /* Alerta.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7736BC61CF76D1700B11517 /* Alerta.swift */; };
@@ -43,8 +43,8 @@
 		C72DA19A1CAA421800F50407 /* ContatosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContatosViewController.swift; sourceTree = "<group>"; };
 		C761E2BA1CA7CE070035C0E5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C7736BBB1CE9597F00B11517 /* ComunicadoSimplesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComunicadoSimplesViewController.swift; sourceTree = "<group>"; };
-		C7736BBD1CE9610200B11517 /* ComunicadoComConfirmacao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComunicadoComConfirmacao.swift; sourceTree = "<group>"; };
-		C7736BBF1CE9614B00B11517 /* ComunicadoComSimOuNao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComunicadoComSimOuNao.swift; sourceTree = "<group>"; };
+		C7736BBD1CE9610200B11517 /* ComunicadoComConfirmacaoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComunicadoComConfirmacaoViewController.swift; sourceTree = "<group>"; };
+		C7736BBF1CE9614B00B11517 /* ComunicadoComSimOuNaoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComunicadoComSimOuNaoViewController.swift; sourceTree = "<group>"; };
 		C7736BC11CEBF10D00B11517 /* DetalheConversaBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetalheConversaBaseViewController.swift; sourceTree = "<group>"; };
 		C7736BC31CF747D700B11517 /* Contexto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Contexto.swift; path = ../Contexto.swift; sourceTree = "<group>"; };
 		C7736BC61CF76D1700B11517 /* Alerta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerta.swift; sourceTree = "<group>"; };
@@ -178,8 +178,8 @@
 				C761E2BA1CA7CE070035C0E5 /* LoginViewController.swift */,
 				C72DA19A1CAA421800F50407 /* ContatosViewController.swift */,
 				C7736BBB1CE9597F00B11517 /* ComunicadoSimplesViewController.swift */,
-				C7736BBD1CE9610200B11517 /* ComunicadoComConfirmacao.swift */,
-				C7736BBF1CE9614B00B11517 /* ComunicadoComSimOuNao.swift */,
+				C7736BBD1CE9610200B11517 /* ComunicadoComConfirmacaoViewController.swift */,
+				C7736BBF1CE9614B00B11517 /* ComunicadoComSimOuNaoViewController.swift */,
 				C7736BC11CEBF10D00B11517 /* DetalheConversaBaseViewController.swift */,
 				C7803C6B1D0DA4EF00CB1D47 /* SelecionarAlunoViewController.swift */,
 			);
@@ -278,10 +278,10 @@
 				E573D6E11C66E1220092E95D /* AppDelegate.swift in Sources */,
 				E573D6FE1C66E8C50092E95D /* UsuarioConversa.swift in Sources */,
 				C761E2BB1CA7CE070035C0E5 /* LoginViewController.swift in Sources */,
-				C7736BC01CE9614B00B11517 /* ComunicadoComSimOuNao.swift in Sources */,
+				C7736BC01CE9614B00B11517 /* ComunicadoComSimOuNaoViewController.swift in Sources */,
 				E573D6E31C66E1220092E95D /* ConversaViewController.swift in Sources */,
 				C7803C6C1D0DA4EF00CB1D47 /* SelecionarAlunoViewController.swift in Sources */,
-				C7736BBE1CE9610200B11517 /* ComunicadoComConfirmacao.swift in Sources */,
+				C7736BBE1CE9610200B11517 /* ComunicadoComConfirmacaoViewController.swift in Sources */,
 				C7736BC71CF76D1700B11517 /* Alerta.swift in Sources */,
 				C7736BBC1CE9597F00B11517 /* ComunicadoSimplesViewController.swift in Sources */,
 				C792A9E01CFE62C80062D7D0 /* Recursos.swift in Sources */,

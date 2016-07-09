@@ -154,6 +154,7 @@ class ConversaViewController: UITableViewController, UIPopoverPresentationContro
                 
                 let conv:Conversa = Conversa()
                 conv.Id = obj["IdConversa"] as! String
+                conv.IdAluno = obj["IdAluno"] as! String
                 conv.NomeProfessor = obj["NomeProfessor"] as! String
                 conv.NomeAluno = obj["NomeAluno"] as! String
                 
@@ -168,7 +169,10 @@ class ConversaViewController: UITableViewController, UIPopoverPresentationContro
                 }
                 
                 conv.Tipo = obj["Tipo"] as! String
-                
+                if let resp = obj["RespostaComunicado"] as? String?{
+                    conv.RespostaComunicado = resp!
+                }
+
                 self.conversas.addObject(conv)
             }
             

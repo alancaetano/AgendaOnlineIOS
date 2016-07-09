@@ -6,7 +6,9 @@ class ComunicadoComConfirmacaoViewController: DetalheConversaBaseViewController,
     
     @IBOutlet weak var tvMensagens: UITableView!
     
-    var comunicado:Conversa!
+    @IBOutlet weak var botaoConfirmar: UIButton!
+    
+    @IBOutlet weak var labelLeituraConfirmada: UILabel!
     
     var mensagens: NSMutableArray! = []
     
@@ -25,7 +27,42 @@ class ComunicadoComConfirmacaoViewController: DetalheConversaBaseViewController,
         
         self.title = self.conversa.NomeProfessor
         
+        tratarRespostaComunicado()
+        
         carregarMensagens()
+    }
+    
+    @IBAction func confirmarLeitura(sender: AnyObject) {
+        let url:String! = "\(Servico.API_RESPONDERCOMUNICADO)?IdConversa=\(conversa.Id)&IdAluno=\(conversa.IdAluno)&resposta=\(Conversa.RESPOSTA_COMUNICADO_LIDO)"
+        
+        self.indicadorCarregamento.Iniciar()
+        
+        Servico.ChamarServico(url, httpMethod: Servico.HTTPMethod_GET, json:nil, callback: confirmarLeituraCallback)
+    }
+    
+    func confirmarLeituraCallback(response:NSURLResponse?, data: NSData?, error: NSError?){
+        if(error != nil){
+            self.indicadorCarregamento.Parar()
+            Alerta.MostrarAlerta("Erro", mensagem: "Ocorreu um problema ao enviar a confirmação de leitura.", estilo: UIAlertControllerStyle.Alert, tituloAcao: "Ok", callback: {}, viewController: self)
+            return
+        }
+        
+        self.conversa.RespostaComunicado = Conversa.RESPOSTA_COMUNICADO_LIDO
+        
+        dispatch_async(dispatch_get_main_queue(), {
+            self.tratarRespostaComunicado()
+            self.indicadorCarregamento.Parar()
+        })
+    }
+    
+    func tratarRespostaComunicado(){
+        if(conversa.RespostaComunicado == Conversa.RESPOSTA_COMUNICADO_LIDO){
+            self.botaoConfirmar.hidden = true
+            self.labelLeituraConfirmada.hidden = false
+        }else{
+            self.botaoConfirmar.hidden = false
+            self.labelLeituraConfirmada.hidden = true
+        }
     }
     
     func carregarMensagens(){
