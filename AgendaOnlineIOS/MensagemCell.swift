@@ -11,6 +11,8 @@ import UIKit
 class MensagemCell: UITableViewCell {
     @IBOutlet weak var TextoUsuario:UILabel! = UILabel()
     @IBOutlet weak var TextoDestinatario:UILabel! = UILabel()
-    @IBOutlet weak var Data:UILabel! = UILabel()
+    
+    @IBOutlet weak var DataUsuario: UILabel! = UILabel()
+    @IBOutlet weak var DataDestinatario: UILabel! = UILabel()
     
 }

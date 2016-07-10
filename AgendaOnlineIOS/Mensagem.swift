@@ -14,5 +14,5 @@ class Mensagem {
 	var IdUsuario:String = ""
 	var IdConversa:String = ""
 	var Texto:String = ""
-	var DtEnvio:String = ""
+    var DtEnvio:NSDate = NSDate()
 }

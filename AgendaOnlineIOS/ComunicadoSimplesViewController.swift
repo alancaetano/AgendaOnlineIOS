@@ -48,6 +48,11 @@ class ComunicadoSimplesViewController: DetalheConversaBaseViewController,UITextF
                 msg.Id = obj["id"] as! String
                 msg.IdUsuario = obj["id_usuario"] as! String
                 msg.Texto = obj["texto"] as! String
+                
+                if let data = obj["dt_envio"] as? String{
+                    msg.DtEnvio = FormatacaoData.StringParaData(data)
+                }
+                
                 self.mensagens.addObject(msg)
             }
         }
@@ -80,8 +85,11 @@ class ComunicadoSimplesViewController: DetalheConversaBaseViewController,UITextF
         msgCell.TextoDestinatario.text = msg.Texto
         msgCell.TextoDestinatario.numberOfLines = 0
         msgCell.TextoDestinatario.sizeToFit()
-        msgCell.sizeToFit()
         
+        msgCell.DataDestinatario.text = FormatacaoData.Formatar(msg.DtEnvio)
+        msgCell.DataDestinatario.sizeToFit()
+        
+        msgCell.sizeToFit()
         
         return msgCell
     }

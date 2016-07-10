@@ -117,6 +117,10 @@ class ComunicadoComConfirmacaoViewController: DetalheConversaBaseViewController,
         msgCell.TextoDestinatario.text = msg.Texto
         msgCell.TextoDestinatario.numberOfLines = 0
         msgCell.TextoDestinatario.sizeToFit()
+        
+        msgCell.DataDestinatario.text = FormatacaoData.Formatar(msg.DtEnvio)
+        msgCell.DataDestinatario.sizeToFit()
+        
         msgCell.sizeToFit()
         
         

@@ -137,6 +137,11 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
                 msg.Id = obj["id"] as! String
                 msg.IdUsuario = obj["id_usuario"] as! String
                 msg.Texto = obj["texto"] as! String
+                
+                if let data = obj["dt_envio"] as? String{
+                    msg.DtEnvio = FormatacaoData.StringParaData(data)
+                }
+                
                 self.mensagens.addObject(msg)
             }
         }
@@ -170,7 +175,7 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
             msgCell = cell as! MensagemCell
         }
         
-        formatarMensagem(msgCell, msgDoUsuario: idUsuarioLogado == msg.IdUsuario, texto: msg.Texto)
+        formatarMensagem(msgCell, msgDoUsuario: idUsuarioLogado == msg.IdUsuario, texto: msg.Texto, data: msg.DtEnvio)
 
         if(!fezScroll){
             posicionarNaUltimaMensagem(tvMensagens.contentSize.height - tvMensagens.frame.size.height)
@@ -184,7 +189,7 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
         tvMensagens.setContentOffset(CGPoint(x: 0, y: y), animated: false)
     }
     
-    func formatarMensagem(cell:MensagemCell, msgDoUsuario:Bool, texto:String!){
+    func formatarMensagem(cell:MensagemCell, msgDoUsuario:Bool, texto:String!, data:NSDate!){
         if(msgDoUsuario){
             let imageView:UIImageView = UIImageView(image: UIImage(named: Recursos.IMAGEM_BALAO_USUARIO)!)
             cell.backgroundView = imageView
@@ -192,6 +197,10 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
             cell.TextoUsuario.numberOfLines = 0
             cell.TextoUsuario.sizeToFit()
             
+            cell.DataUsuario.text = FormatacaoData.Formatar(data)
+            cell.DataUsuario.sizeToFit()
+            
+            cell.DataDestinatario.text = ""
             cell.TextoDestinatario.text = ""
         }else{
             let imageView:UIImageView = UIImageView(image: UIImage(named: Recursos.IMAGEM_BALAO_DESTINATARIO)!)
@@ -200,6 +209,10 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
             cell.TextoDestinatario.numberOfLines = 0
             cell.TextoDestinatario.sizeToFit()
             
+            cell.DataDestinatario.text = FormatacaoData.Formatar(data)
+            cell.DataDestinatario.sizeToFit()
+            
+            cell.DataUsuario.text = ""
             cell.TextoUsuario.text = ""
         }
         
