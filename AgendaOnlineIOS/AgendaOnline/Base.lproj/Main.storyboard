@@ -208,6 +208,7 @@
                         <segue destination="LQB-rX-Nis" kind="presentation" identifier="contatosmodal" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="DJy-i5-3Ep"/>
                         <segue destination="IFa-Xx-ioH" kind="push" identifier="comunicadoSimplesSegue" id="L29-7g-p5d"/>
                         <segue destination="k7q-3I-ev0" kind="push" identifier="comunicadoConfirmacaoSegue" id="IdA-OB-aH8"/>
+                        <segue destination="Liu-me-4cr" kind="push" identifier="comunicadoComSimOuNaoSegue" id="4Qz-qi-RWL"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cxx-Uk-F4S" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -566,7 +567,119 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kwx-7f-Hct" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1425" y="914"/>
+            <point key="canvasLocation" x="1444" y="914"/>
+        </scene>
+        <!--Comunicado com Resposta Sim/Nao-->
+        <scene sceneID="3YB-Q5-cHN">
+            <objects>
+                <viewController id="Liu-me-4cr" userLabel="Comunicado com Resposta Sim/Nao" customClass="ComunicadoComSimOuNaoViewController" customModule="AgendaOnline" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Iob-pN-DK9"/>
+                        <viewControllerLayoutGuide type="bottom" id="ggb-Bj-ab6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="C4J-ML-a0J">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="79" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d3b-pP-Pdz">
+                                <rect key="frame" x="0.0" y="10" width="414" height="674"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="620" id="guz-kU-n4d"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="msgcell" rowHeight="79" id="tKS-AB-FLa" customClass="MensagemCell" customModule="AgendaOnline" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="414" height="79"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tKS-AB-FLa" id="DVQ-ij-FfJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="79"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label identifier="TextoDestinatario" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="TextoDestinatario" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfx-Uk-gSk" userLabel="TextoDestinatario">
+                                                    <rect key="frame" x="49" y="8" width="270" height="31"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="DataUsuario" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YbT-Z4-cus">
+                                                    <rect key="frame" x="49" y="47" width="270" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="YbT-Z4-cus" firstAttribute="top" secondItem="gfx-Uk-gSk" secondAttribute="bottom" constant="8" id="KnN-Uj-YsH"/>
+                                                <constraint firstItem="YbT-Z4-cus" firstAttribute="leading" secondItem="DVQ-ij-FfJ" secondAttribute="leadingMargin" constant="41" id="MDz-fk-Dpp"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="YbT-Z4-cus" secondAttribute="bottom" constant="3" id="TND-6q-58a"/>
+                                                <constraint firstItem="gfx-Uk-gSk" firstAttribute="leading" secondItem="DVQ-ij-FfJ" secondAttribute="leadingMargin" constant="41" id="f9G-VL-SBz"/>
+                                                <constraint firstAttribute="topMargin" secondItem="gfx-Uk-gSk" secondAttribute="top" id="mhx-lD-LBj"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
+                                        <connections>
+                                            <outlet property="DataDestinatario" destination="YbT-Z4-cus" id="412-b5-Aai"/>
+                                            <outlet property="TextoDestinatario" destination="gfx-Uk-gSk" id="oOz-Dn-FoK"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Resposta enviada!" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="slf-5W-hCZ" userLabel="Resposta enviada">
+                                <rect key="frame" x="20" y="673" width="374" height="55"/>
+                                <color key="tintColor" red="0.086274509799999996" green="0.62745098040000002" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.086274509799999996" green="0.62745098040000002" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AnG-a0-gcA">
+                                <rect key="frame" x="20" y="656" width="165" height="55"/>
+                                <color key="backgroundColor" red="0.086274509799999996" green="0.62745098040000002" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Sim">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.086274509799999996" green="0.62745098040000002" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="botaoSimPressionado:" destination="Liu-me-4cr" eventType="touchUpInside" id="ovD-eb-0kN"/>
+                                    <action selector="confirmarLeitura:" destination="k7q-3I-ev0" eventType="touchUpInside" id="Mc8-FZ-c6z"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3an-KX-cfi">
+                                <rect key="frame" x="229" y="656" width="165" height="55"/>
+                                <color key="backgroundColor" red="0.086274509799999996" green="0.62745098040000002" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Não">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.086274509799999996" green="0.62745098040000002" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="botaoNaoPressionado:" destination="Liu-me-4cr" eventType="touchUpInside" id="GcQ-A0-8Fc"/>
+                                    <action selector="confirmarLeitura:" destination="k7q-3I-ev0" eventType="touchUpInside" id="bkN-Be-SbQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="AnG-a0-gcA" firstAttribute="top" secondItem="d3b-pP-Pdz" secondAttribute="bottom" constant="-28" id="DU8-dM-fM2"/>
+                            <constraint firstItem="d3b-pP-Pdz" firstAttribute="leading" secondItem="AnG-a0-gcA" secondAttribute="trailing" constant="-185" id="EcM-Ye-rE2"/>
+                            <constraint firstItem="3an-KX-cfi" firstAttribute="top" secondItem="d3b-pP-Pdz" secondAttribute="bottom" constant="-28" id="b1q-u8-GUU"/>
+                            <constraint firstItem="3an-KX-cfi" firstAttribute="leading" secondItem="d3b-pP-Pdz" secondAttribute="trailing" constant="-185" id="vCM-Ld-PwU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="NomePessoa" id="vBo-9O-lgu"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="botaoNao" destination="3an-KX-cfi" id="yEU-bh-9O0"/>
+                        <outlet property="botaoSim" destination="AnG-a0-gcA" id="BvB-fQ-fxE"/>
+                        <outlet property="labelRespostaEnviada" destination="slf-5W-hCZ" id="dwt-v1-rkc"/>
+                        <outlet property="tvMensagens" destination="d3b-pP-Pdz" id="RFq-DO-BOA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zMg-5a-svz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1894" y="914"/>
         </scene>
     </scenes>
     <resources>
