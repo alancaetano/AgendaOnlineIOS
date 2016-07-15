@@ -56,4 +56,8 @@ class SelecionarAlunoViewController:UITableViewController{
             self.viewControllerPai?.abrirContatosModal(self.alunos[indexPath.row] as! Aluno)
         })
     }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 70
+    }
 }

@@ -16,12 +16,15 @@ class ConversaViewController: UITableViewController, UIPopoverPresentationContro
         }
     }
     
+    @IBAction func abrirPerfis(sender: AnyObject) {
+        self.performSegueWithIdentifier("perfisModal", sender: nil)
+    }
+
     var dropdown:SelecionarAlunoViewController!
     var indicadorCarregamento:IndicadorCarregamento!
     var conversas: NSMutableArray! = []
     
     override func viewDidAppear(animated: Bool) {
-        
         if(Contexto.Recuperar(Contexto.CHAVE_ID_USUARIO) != nil){
             iniciarTableView()
         }
@@ -108,6 +111,10 @@ class ConversaViewController: UITableViewController, UIPopoverPresentationContro
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if(segue.identifier == "loginmodal"){
+            return
+        }
+        
+        if(segue.identifier == "perfilsegue"){
             return
         }
         

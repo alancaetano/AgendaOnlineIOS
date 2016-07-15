@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C72A51DE1C8FC37C00CAF507 /* MensagemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72A51DD1C8FC37C00CAF507 /* MensagemCell.swift */; };
 		C72DA19B1CAA421800F50407 /* ContatosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72DA19A1CAA421800F50407 /* ContatosViewController.swift */; };
+		C73537F01D359225005D0B78 /* PerfisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73537EF1D359225005D0B78 /* PerfisViewController.swift */; };
 		C761E2BB1CA7CE070035C0E5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C761E2BA1CA7CE070035C0E5 /* LoginViewController.swift */; };
 		C7736BBC1CE9597F00B11517 /* ComunicadoSimplesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7736BBB1CE9597F00B11517 /* ComunicadoSimplesViewController.swift */; };
 		C7736BBE1CE9610200B11517 /* ComunicadoComConfirmacaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7736BBD1CE9610200B11517 /* ComunicadoComConfirmacaoViewController.swift */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		C72A51DD1C8FC37C00CAF507 /* MensagemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MensagemCell.swift; sourceTree = "<group>"; };
 		C72DA19A1CAA421800F50407 /* ContatosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContatosViewController.swift; sourceTree = "<group>"; };
+		C73537EF1D359225005D0B78 /* PerfisViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerfisViewController.swift; sourceTree = "<group>"; };
 		C761E2BA1CA7CE070035C0E5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C7736BBB1CE9597F00B11517 /* ComunicadoSimplesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComunicadoSimplesViewController.swift; sourceTree = "<group>"; };
 		C7736BBD1CE9610200B11517 /* ComunicadoComConfirmacaoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComunicadoComConfirmacaoViewController.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				C7736BBF1CE9614B00B11517 /* ComunicadoComSimOuNaoViewController.swift */,
 				C7736BC11CEBF10D00B11517 /* DetalheConversaBaseViewController.swift */,
 				C7803C6B1D0DA4EF00CB1D47 /* SelecionarAlunoViewController.swift */,
+				C73537EF1D359225005D0B78 /* PerfisViewController.swift */,
 			);
 			name = controllers;
 			path = ..;
@@ -273,6 +276,7 @@
 				C7736BCB1CF76FA000B11517 /* Base64.swift in Sources */,
 				C7736BC41CF747D800B11517 /* Contexto.swift in Sources */,
 				E573D6FC1C66E8AF0092E95D /* Aluno.swift in Sources */,
+				C73537F01D359225005D0B78 /* PerfisViewController.swift in Sources */,
 				C792A9DA1CF956790062D7D0 /* ConversaCell.swift in Sources */,
 				C7736BC91CF76F3A00B11517 /* Servico.swift in Sources */,
 				E573D6E11C66E1220092E95D /* AppDelegate.swift in Sources */,

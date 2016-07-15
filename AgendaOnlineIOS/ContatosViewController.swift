@@ -126,4 +126,8 @@ class ContatosViewController: UIViewController, UITableViewDataSource, UITableVi
         })
     }
     
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 80
+    }
+    
 }
