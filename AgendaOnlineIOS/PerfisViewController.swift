@@ -2,117 +2,86 @@
 //  PerfisViewController.swift
 //  AgendaOnline
 //
-//  Created by Alan Caetano on 7/12/16.
+//  Created by Alan Caetano on 7/15/16.
 //  Copyright © 2016 Agenda Online. All rights reserved.
 //
 
 import UIKit
 
-class PerfisViewController: UIViewController, UITabBarDelegate{
-    
-    @IBOutlet weak var viewCabecalho: UIView!
-    
-    @IBOutlet weak var labelTitulo: UILabel!
-    
-    @IBOutlet weak var tabBar: UITabBar!
-    
-    @IBOutlet weak var textFieldNome: UITextField!
-    
-    @IBOutlet weak var textFieldTurma: UITextField!
-    
-    @IBOutlet weak var textFieldPeriodo: UITextField!
-    
-    @IBOutlet weak var textViewObservacao: UITextView!
-    
-    @IBAction func fechar(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    @IBAction func salvar(sender: AnyObject) {
-        
-    }
-    
-    var indicadorCarregamento:IndicadorCarregamento!
+class PerfisViewController:UIViewController, UITableViewDataSource, UITableViewDelegate{
+
+    @IBOutlet weak var tvAlunos: UITableView!
     
     var alunos:NSArray! = []
     
-    var viewControllerPai: ConversaViewController?
+    @IBOutlet weak var viewCabecalho: UIView!
+    
+    @IBAction func voltar(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tvAlunos.delegate = self
+        tvAlunos.dataSource = self
+        
         configurarEstilo()
         
-        self.indicadorCarregamento = IndicadorCarregamento(view: self.view)
-        
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
-        view.addGestureRecognizer(tap)
-        
-        tabBar.delegate = self
-        
         carregarAlunos()
-        
-        carregarAbas()
-    }
-    
-    func carregarAbas(){
-        let itens = NSMutableArray()
-        
-        for i in 0...(alunos.count-1){
-            let aluno:Aluno = alunos[i] as! Aluno
-            
-            let tabItem = UITabBarItem()
-            tabItem.title = String(aluno.Nome.characters.split(" ").first!)
-            tabItem.tag = i
-            
-            itens.addObject(tabItem)
-        }
-        
-        self.tabBar.items = itens as? [UITabBarItem]
-    }
-    
-    func configurarEstiloTab(){
-        let titleFontAll : UIFont = UIFont.systemFontOfSize(17.0)
-        
-        let attributesNormal = [
-            NSForegroundColorAttributeName : UIColor.lightGrayColor(),
-            NSFontAttributeName : titleFontAll
-        ]
-        
-        let attributesSelected = [
-            NSForegroundColorAttributeName : UIColor.blueColor(),
-            NSFontAttributeName : titleFontAll
-        ]
-        
-        UITabBarItem.appearance().setTitleTextAttributes(attributesNormal, forState: .Normal)
-        UITabBarItem.appearance().setTitleTextAttributes(attributesSelected, forState: .Selected)
-    }
-    
-    func preencherCampos(){
-        let aluno:Aluno = alunos[(tabBar.selectedItem?.tag)!] as! Aluno
-        
-        self.textFieldNome.text = aluno.Nome
-        self.textFieldPeriodo.text = aluno.Periodo
-        self.textFieldTurma.text = aluno.Turma
-        self.textViewObservacao.text = aluno.Observacao
     }
     
     func carregarAlunos(){
         alunos = Contexto.RecuperarAlunos()
     }
-        
+    
     func configurarEstilo(){
         viewCabecalho.backgroundColor = Cor.COR_BARRA_DE_TITULO
-        
-        configurarEstiloTab()
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
     
-    func dismissKeyboard() {
-        view.endEditing(true)
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if(alunos == nil || alunos.count==0){
+            return UITableViewCell()
+        }
+        
+        let aluno:Aluno = alunos[indexPath.row] as! Aluno
+        
+        var cell:UITableViewCell? = self.tvAlunos.dequeueReusableCellWithIdentifier("cell") as UITableViewCell?
+        
+        if(cell == nil){
+            cell = UITableViewCell()
+        }
+        
+        cell!.textLabel?.text = aluno.Nome
+        cell!.detailTextLabel?.text = aluno.Turma
+        
+        return cell!
     }
     
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if(self.alunos == nil){
+            return 0
+        }
+        
+        return self.alunos.count
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let alunoSelecionado = alunos[indexPath.row]
+        
+        performSegueWithIdentifier("perfildetalhesegue", sender: alunoSelecionado)
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 70
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let viewController: PerfilDetalheViewController = segue.destinationViewController as! PerfilDetalheViewController
+        viewController.aluno = sender as! Aluno
+    }
 }

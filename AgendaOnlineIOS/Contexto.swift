@@ -46,6 +46,30 @@ class Contexto{
         defaults.setObject(array , forKey: Contexto.CHAVE_ALUNOS)
     }
     
+    static func AlterarAluno(aluno:Aluno!){
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        var temp:NSMutableArray! = NSMutableArray()
+        
+        let objeto = defaults.valueForKey(Contexto.CHAVE_ALUNOS)
+        if(objeto == nil){
+            return
+        }
+        
+        temp = NSMutableArray(array: (objeto as! NSArray!))
+        
+        for i in 0...(temp.count-1){
+            let alunoTemp = Aluno(dic: temp[i] as! NSDictionary)
+            if(alunoTemp.Id == aluno.Id){
+                temp.replaceObjectAtIndex(i, withObject: aluno.toDictionary())
+            }
+        }
+        
+        let array:NSArray! = NSArray(array: temp)
+        
+        defaults.setObject(array , forKey: Contexto.CHAVE_ALUNOS)
+    }
+    
     static func RecuperarAlunos()->NSArray{
         let defaults = NSUserDefaults.standardUserDefaults()
         let array:NSArray! = defaults.valueForKey(Contexto.CHAVE_ALUNOS) as! NSArray!

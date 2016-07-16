@@ -22,6 +22,7 @@ class Servico{
     static let API_GETMENSAGENS = "\(API_HOST)api/Mensagens/GetMensagens/"
     static let API_ENVIARMENSAGEM = "\(WEBAPP_HOST)services/MensagemService.ashx"
     static let API_RESPONDERCOMUNICADO = "\(API_HOST)api/Conversas/ResponderComunicado/"
+    static let API_ALTERAROBSERVACAO = "\(API_HOST)api/Alunos/AlterarObservacao/"
     static let API_LOGIN = "\(API_HOST)api/Usuarios/LoginApp/"
     static let API_ENVIARNOVACONVERSA = "\(WEBAPP_HOST)services/ConversaService.ashx"
     static let API_TOKEN = "\(API_HOST)Token"
@@ -31,6 +32,7 @@ class Servico{
         let request = NSMutableURLRequest(URL: nsurl!)
         request.HTTPMethod = httpMethod
         
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         if(httpMethod == HTTPMethod_POST && json != nil){
             let jsonData = try? NSJSONSerialization.dataWithJSONObject(json!, options: .PrettyPrinted)

@@ -14,10 +14,24 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "static Servico.ChamarServico(String, httpMethod : String, json : AnyObject?, callback : (response : NSURLResponse?, data : NSData?, error : NSError?) -&gt; ()) -&gt; ():Servico.swift">
+         contextName = "static Servico.Autenticar() -&gt; ():Servico.swift">
          <PersistentStrings>
             <PersistentString
-               value = "Contexto.Recuperar(Contexto.CHAVE_ACCESS_TOKEN) as! String!">
+               value = "request.HTTPBody!.valueForKey(forKey:&quot;grant_type&quot;)">
+            </PersistentString>
+            <PersistentString
+               value = "request.allHTTPHeaderFields">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PerfisViewController.carregarAbas() -&gt; ():PerfisViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "PerfilDetalheViewController.enviarObservacaoAlunoCallback(NSURLResponse?, data : NSData?, error : NSError?) -&gt; ():PerfilDetalheViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "(response as? NSHTTPURLResponse)!.statusCode">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -30,13 +44,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "static Servico.Autenticar() -&gt; ():Servico.swift">
+         contextName = "static Servico.ChamarServico(String, httpMethod : String, json : AnyObject?, callback : (response : NSURLResponse?, data : NSData?, error : NSError?) -&gt; ()) -&gt; ():Servico.swift">
          <PersistentStrings>
             <PersistentString
-               value = "request.HTTPBody!.valueForKey(forKey:&quot;grant_type&quot;)">
-            </PersistentString>
-            <PersistentString
-               value = "request.allHTTPHeaderFields">
+               value = "String(data: jsonData!, encoding: NSUTF8StringEncoding)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

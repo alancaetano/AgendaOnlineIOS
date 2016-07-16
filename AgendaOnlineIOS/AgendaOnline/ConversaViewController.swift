@@ -15,10 +15,6 @@ class ConversaViewController: UITableViewController, UIPopoverPresentationContro
             abrirDropdown()
         }
     }
-    
-    @IBAction func abrirPerfis(sender: AnyObject) {
-        self.performSegueWithIdentifier("perfisModal", sender: nil)
-    }
 
     var dropdown:SelecionarAlunoViewController!
     var indicadorCarregamento:IndicadorCarregamento!
@@ -114,7 +110,7 @@ class ConversaViewController: UITableViewController, UIPopoverPresentationContro
             return
         }
         
-        if(segue.identifier == "perfilsegue"){
+        if(segue.identifier == "perfissegue"){
             return
         }
         
