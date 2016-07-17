@@ -85,9 +85,8 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
         self.mensagens.addObject(msg)
         self.tvMensagens.reloadData()
         
-        self.textViewDigitarMensagem.text = ""
-        
         dispatch_async(dispatch_get_main_queue(), {
+            self.textViewDigitarMensagem.text = ""
             self.posicionarNaUltimaMensagem(self.tvMensagens.contentSize.height - self.tvMensagens.frame.size.height)
         })
         
