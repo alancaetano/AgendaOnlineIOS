@@ -23,15 +23,16 @@ class ComunicadoSimplesViewController: DetalheConversaBaseViewController,UITextF
         
         self.indicadorCarregamento = IndicadorCarregamento(view: self.view)
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "notificationReceived:", name: "mensagem", object: nil)
+        
         self.title = self.conversa.NomeProfessor
+        
+        self.indicadorCarregamento.Iniciar()
         
         carregarMensagens()
     }
     
     func carregarMensagens(){
-        
-        self.indicadorCarregamento.Iniciar()
-        
         let url:String = "\(Servico.API_GETMENSAGENS)\(conversa.Id)"
         
         Servico.ChamarServico(url, httpMethod: Servico.HTTPMethod_GET, json: nil, callback: carregarMensagensCallback)
@@ -42,6 +43,8 @@ class ComunicadoSimplesViewController: DetalheConversaBaseViewController,UITextF
         let jsonResult: NSArray? = try! NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as? NSArray
         
         if jsonResult != nil && jsonResult!.count > 0{
+            self.mensagens = []
+            
             for item in jsonResult! {
                 let obj = item as! NSDictionary
                 let msg:Mensagem = Mensagem()
@@ -95,6 +98,13 @@ class ComunicadoSimplesViewController: DetalheConversaBaseViewController,UITextF
     }
     
     func posicionarNaUltimaMensagem(y:CGFloat){
-        tvMensagens.setContentOffset(CGPoint(x: 0, y: y), animated: false)
+        dispatch_async(dispatch_get_main_queue(), {
+            self.tvMensagens.setContentOffset(CGPoint(x: 0, y: y), animated: false)
+        })
+    }
+    
+    func notificationReceived(sender: NSNotification) {
+        fezScroll = false
+        carregarMensagens()
     }
 }

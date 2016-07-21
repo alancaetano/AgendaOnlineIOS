@@ -15,8 +15,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 		// Override point for customization after application launch.
+        
+        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [UIUserNotificationType.Badge, UIUserNotificationType.Sound, UIUserNotificationType.Alert], categories: nil))
+        
+        //application.registerForRemoteNotifications()
+        
+        AgendarNotificacoes()
+        
 		return true
 	}
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        var data = deviceToken
+    }
+    
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        var erro = error
+    }
 
 	func applicationWillResignActive(application: UIApplication) {
 		// Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -39,7 +54,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func applicationWillTerminate(application: UIApplication) {
 		// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 	}
-
+    
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        if(notification.category == Notificacao.CATEGORIA_MENSAGEM){
+            NSNotificationCenter.defaultCenter().postNotificationName("mensagem", object: nil)
+        }
+    }
+    
+    //TESTE -------------------------------//------------------------------------//------------------------------------------//------
+    func AgendarNotificacoes(){
+        let timer = NSTimer.scheduledTimerWithTimeInterval(20.0, target: self, selector: "Notificar", userInfo: nil, repeats: true)
+        timer.fire()
+    }
+    
+    func Notificar(){
+        print("notificando...")
+        
+        let notificacao = UILocalNotification()
+        notificacao.alertBody = "mensagem do professor enviada por push"
+        notificacao.category = Notificacao.CATEGORIA_MENSAGEM
+        
+        let data = NSDate(timeIntervalSinceNow: 0)
+        notificacao.fireDate = data
+        
+        UIApplication.sharedApplication().scheduleLocalNotification(notificacao)
+    }
+    
+/*    func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void) {
+        if(notification.category == Notificacao.CATEGORIA_MENSAGEM){
+            
+        }
+    }*/
 
 }
 

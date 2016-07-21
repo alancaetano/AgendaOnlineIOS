@@ -3,35 +3,10 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "SecondViewController.tableView(UITableView, willDisplayCell : UITableViewCell, forRowAtIndexPath : NSIndexPath) -&gt; ():SecondViewController.swift">
+         contextName = "MensagemViewController.tableView(UITableView, cellForRowAtIndexPath : NSIndexPath) -&gt; UITableViewCell:MensagemViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "indexPath.row">
-            </PersistentString>
-            <PersistentString
-               value = "self.tvMensagens.visibleCells.count">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "static Servico.Autenticar() -&gt; ():Servico.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "request.HTTPBody!.valueForKey(forKey:&quot;grant_type&quot;)">
-            </PersistentString>
-            <PersistentString
-               value = "request.allHTTPHeaderFields">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PerfisViewController.carregarAbas() -&gt; ():PerfisViewController.swift">
-      </ContextState>
-      <ContextState
-         contextName = "PerfilDetalheViewController.enviarObservacaoAlunoCallback(NSURLResponse?, data : NSData?, error : NSError?) -&gt; ():PerfilDetalheViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "(response as? NSHTTPURLResponse)!.statusCode">
+               value = "tvMensagens.contentSize.height - tvMensagens.frame.size.height">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -48,6 +23,39 @@
          <PersistentStrings>
             <PersistentString
                value = "String(data: jsonData!, encoding: NSUTF8StringEncoding)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static Servico.Autenticar() -&gt; ():Servico.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "request.HTTPBody!.valueForKey(forKey:&quot;grant_type&quot;)">
+            </PersistentString>
+            <PersistentString
+               value = "request.allHTTPHeaderFields">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PerfilDetalheViewController.enviarObservacaoAlunoCallback(NSURLResponse?, data : NSData?, error : NSError?) -&gt; ():PerfilDetalheViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "(response as? NSHTTPURLResponse)!.statusCode">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PerfisViewController.carregarAbas() -&gt; ():PerfisViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "SecondViewController.tableView(UITableView, willDisplayCell : UITableViewCell, forRowAtIndexPath : NSIndexPath) -&gt; ():SecondViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "indexPath.row">
+            </PersistentString>
+            <PersistentString
+               value = "self.tvMensagens.visibleCells.count">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

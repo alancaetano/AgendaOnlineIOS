@@ -25,9 +25,13 @@ class ComunicadoComConfirmacaoViewController: DetalheConversaBaseViewController,
         
         self.indicadorCarregamento = IndicadorCarregamento(view: self.view)
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "notificationReceived:", name: "mensagem", object: nil)
+        
         self.title = self.conversa.NomeProfessor
         
         tratarRespostaComunicado()
+        
+        self.indicadorCarregamento.Iniciar()
         
         carregarMensagens()
     }
@@ -65,10 +69,7 @@ class ComunicadoComConfirmacaoViewController: DetalheConversaBaseViewController,
         }
     }
     
-    func carregarMensagens(){
-        
-        self.indicadorCarregamento.Iniciar()
-        
+    func carregarMensagens(){        
         let url:String = "\(Servico.API_GETMENSAGENS)\(conversa.Id)"
         
         Servico.ChamarServico(url, httpMethod: Servico.HTTPMethod_GET, json: nil, callback: carregarMensagensCallback)
@@ -128,6 +129,13 @@ class ComunicadoComConfirmacaoViewController: DetalheConversaBaseViewController,
     }
     
     func posicionarNaUltimaMensagem(y:CGFloat){
-        tvMensagens.setContentOffset(CGPoint(x: 0, y: y), animated: false)
+        dispatch_async(dispatch_get_main_queue(), {
+            self.tvMensagens.setContentOffset(CGPoint(x: 0, y: y), animated: false)
+        })
+    }
+    
+    func notificationReceived(sender: NSNotification) {
+        fezScroll = false
+        carregarMensagens()
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C70268D41D3FF74500F94C9D /* Notificacao.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70268D31D3FF74500F94C9D /* Notificacao.swift */; };
 		C72A51DE1C8FC37C00CAF507 /* MensagemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72A51DD1C8FC37C00CAF507 /* MensagemCell.swift */; };
 		C72DA19B1CAA421800F50407 /* ContatosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72DA19A1CAA421800F50407 /* ContatosViewController.swift */; };
 		C73537F01D359225005D0B78 /* PerfilDetalheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73537EF1D359225005D0B78 /* PerfilDetalheViewController.swift */; };
@@ -41,10 +42,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C70268D31D3FF74500F94C9D /* Notificacao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notificacao.swift; sourceTree = "<group>"; };
 		C72A51DD1C8FC37C00CAF507 /* MensagemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MensagemCell.swift; sourceTree = "<group>"; };
 		C72DA19A1CAA421800F50407 /* ContatosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContatosViewController.swift; sourceTree = "<group>"; };
 		C73537EF1D359225005D0B78 /* PerfilDetalheViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerfilDetalheViewController.swift; sourceTree = "<group>"; };
 		C73537F31D396D9D005D0B78 /* PerfisViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerfisViewController.swift; sourceTree = "<group>"; };
+		C73537F51D3C8B2E005D0B78 /* PushKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PushKit.framework; path = System/Library/Frameworks/PushKit.framework; sourceTree = SDKROOT; };
 		C761E2BA1CA7CE070035C0E5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C7736BBB1CE9597F00B11517 /* ComunicadoSimplesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComunicadoSimplesViewController.swift; sourceTree = "<group>"; };
 		C7736BBD1CE9610200B11517 /* ComunicadoComConfirmacaoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComunicadoComConfirmacaoViewController.swift; sourceTree = "<group>"; };
@@ -62,7 +65,7 @@
 		C792A9DD1CFB78020062D7D0 /* Cor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cor.swift; sourceTree = "<group>"; };
 		C792A9DF1CFE62C80062D7D0 /* Recursos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recursos.swift; sourceTree = "<group>"; };
 		E573D6DD1C66E1220092E95D /* AgendaOnline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AgendaOnline.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E573D6E01C66E1220092E95D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = AgendaOnline/AppDelegate.swift; sourceTree = "<group>"; };
+		E573D6E01C66E1220092E95D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E573D6E21C66E1220092E95D /* ConversaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConversaViewController.swift; path = AgendaOnline/ConversaViewController.swift; sourceTree = "<group>"; };
 		E573D6E41C66E1220092E95D /* MensagemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MensagemViewController.swift; path = AgendaOnline/MensagemViewController.swift; sourceTree = "<group>"; };
 		E573D6E71C66E1220092E95D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -98,6 +101,7 @@
 				C792A9DB1CFAB8DF0062D7D0 /* FormatacaoData.swift */,
 				C792A9DD1CFB78020062D7D0 /* Cor.swift */,
 				C792A9DF1CFE62C80062D7D0 /* Recursos.swift */,
+				C70268D31D3FF74500F94C9D /* Notificacao.swift */,
 			);
 			name = util;
 			sourceTree = "<group>";
@@ -106,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				C7803C721D0EC4AF00CB1D47 /* DropdownDelegate.swift */,
+				E573D6E01C66E1220092E95D /* AppDelegate.swift */,
 			);
 			name = delegates;
 			sourceTree = "<group>";
@@ -122,6 +127,7 @@
 		E573D6D41C66E1220092E95D = {
 			isa = PBXGroup;
 			children = (
+				C73537F51D3C8B2E005D0B78 /* PushKit.framework */,
 				E573D6DF1C66E1220092E95D /* AgendaOnline */,
 				E573D6DE1C66E1220092E95D /* Products */,
 			);
@@ -178,7 +184,6 @@
 			children = (
 				E573D6E41C66E1220092E95D /* MensagemViewController.swift */,
 				E573D6E21C66E1220092E95D /* ConversaViewController.swift */,
-				E573D6E01C66E1220092E95D /* AppDelegate.swift */,
 				C761E2BA1CA7CE070035C0E5 /* LoginViewController.swift */,
 				C72DA19A1CAA421800F50407 /* ContatosViewController.swift */,
 				C7736BBB1CE9597F00B11517 /* ComunicadoSimplesViewController.swift */,
@@ -282,6 +287,7 @@
 				E573D6FC1C66E8AF0092E95D /* Aluno.swift in Sources */,
 				C73537F01D359225005D0B78 /* PerfilDetalheViewController.swift in Sources */,
 				C792A9DA1CF956790062D7D0 /* ConversaCell.swift in Sources */,
+				C70268D41D3FF74500F94C9D /* Notificacao.swift in Sources */,
 				C7736BC91CF76F3A00B11517 /* Servico.swift in Sources */,
 				E573D6E11C66E1220092E95D /* AppDelegate.swift in Sources */,
 				E573D6FE1C66E8C50092E95D /* UsuarioConversa.swift in Sources */,
@@ -408,6 +414,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AgendaOnline/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.edu.up.AgendaOnline;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -420,6 +427,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AgendaOnline/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.edu.up.AgendaOnline;
 				PRODUCT_NAME = "$(TARGET_NAME)";

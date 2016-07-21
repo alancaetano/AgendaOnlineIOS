@@ -20,6 +20,10 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
     var indicadorCarregamento:IndicadorCarregamento!
     
     var fezScroll:Bool = false
+    
+    var tecladoEstaAberto = false
+    
+    var alturaTeclado = 0.0
 
 	override func viewDidLoad() {
         
@@ -37,11 +41,14 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardDidShow:", name: UIKeyboardDidShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "notificationReceived:", name: "mensagem", object: nil)
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
         
         self.indicadorCarregamento = IndicadorCarregamento(view: self.view)
+        
+        self.indicadorCarregamento.Iniciar()
         
         carregarMensagens()
     }
@@ -85,6 +92,8 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
         self.mensagens.addObject(msg)
         self.tvMensagens.reloadData()
         
+        fezScroll = false
+        
         dispatch_async(dispatch_get_main_queue(), {
             self.textViewDigitarMensagem.text = ""
             self.posicionarNaUltimaMensagem(self.tvMensagens.contentSize.height - self.tvMensagens.frame.size.height)
@@ -118,8 +127,6 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
     
     func carregarMensagens(){
         
-        self.indicadorCarregamento.Iniciar()
-        
         let url:String = "\(Servico.API_GETMENSAGENS)\(conversa.Id)"
         
         Servico.ChamarServico(url, httpMethod: Servico.HTTPMethod_GET, json: nil, callback: carregarMensagensCallback)
@@ -128,6 +135,9 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
     func carregarMensagensCallback(response:NSURLResponse?, data: NSData?, error: NSError?){
         
         let jsonResult: NSArray? = try! NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as? NSArray
+        
+        //limpar o array de mensagens para nao duplicar abaixo
+        self.mensagens = []
         
         if jsonResult != nil && jsonResult!.count > 0{
             for item in jsonResult! {
@@ -185,7 +195,9 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
     }
     
     func posicionarNaUltimaMensagem(y:CGFloat){
-        tvMensagens.setContentOffset(CGPoint(x: 0, y: y), animated: false)
+        dispatch_async(dispatch_get_main_queue(), {
+            self.tvMensagens.setContentOffset(CGPoint(x: 0, y: y), animated: false)
+        })
     }
     
     func formatarMensagem(cell:MensagemCell, msgDoUsuario:Bool, texto:String!, data:NSDate!){
@@ -235,7 +247,11 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
         
         tecladoBaseConstraint.constant = 10
         alturaTabela.constant = alturaTabela.constant + tamTeclado
-
+    }
+    
+    func notificationReceived(sender: NSNotification) {
+        fezScroll = false
+        carregarMensagens()
     }
 }
 
