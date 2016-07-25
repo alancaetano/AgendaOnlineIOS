@@ -256,7 +256,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="msgcell" rowHeight="82" id="EXC-gC-Lv7" customClass="MensagemCell" customModule="AgendaOnline" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="414" height="82"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="82"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EXC-gC-Lv7" id="mTy-qM-gkt">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="82"/>
@@ -724,6 +724,16 @@
                                     <action selector="confirmarLeitura:" destination="k7q-3I-ev0" eventType="touchUpInside" id="Fu5-R9-YVe"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leitura confirmada!" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EtA-gl-xOc">
+                                <rect key="frame" x="20" y="628" width="374" height="55"/>
+                                <color key="tintColor" red="0.086274509799999996" green="0.62745098040000002" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="EtA-gl-xOc" secondAttribute="height" multiplier="34:5" id="xo5-vx-yHB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.086274509803921567" green="0.62745098039215685" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="79" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dzg-wq-w5G">
                                 <rect key="frame" x="0.0" y="72" width="414" height="548"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -766,16 +776,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leitura confirmada!" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EtA-gl-xOc">
-                                <rect key="frame" x="20" y="628" width="374" height="55"/>
-                                <color key="tintColor" red="0.086274509799999996" green="0.62745098040000002" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="EtA-gl-xOc" secondAttribute="height" multiplier="34:5" id="xo5-vx-yHB"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.086274509803921567" green="0.62745098039215685" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -815,16 +815,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Resposta enviada!" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="slf-5W-hCZ" userLabel="Resposta enviada">
-                                <rect key="frame" x="20" y="673" width="374" height="55"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Resposta enviada!" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="slf-5W-hCZ" userLabel="Resposta enviada">
+                                <rect key="frame" x="20" y="629" width="374" height="55"/>
                                 <color key="tintColor" red="0.086274509799999996" green="0.62745098040000002" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.086274509799999996" green="0.62745098040000002" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AnG-a0-gcA">
-                                <rect key="frame" x="20" y="656" width="165" height="55"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AnG-a0-gcA">
+                                <rect key="frame" x="20" y="629" width="165" height="55"/>
                                 <color key="backgroundColor" red="0.086274509799999996" green="0.62745098040000002" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="AnG-a0-gcA" secondAttribute="height" multiplier="3:1" id="LnN-aM-F4Q"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Sim">
@@ -836,26 +839,9 @@
                                     <action selector="confirmarLeitura:" destination="k7q-3I-ev0" eventType="touchUpInside" id="Mc8-FZ-c6z"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3an-KX-cfi">
-                                <rect key="frame" x="229" y="656" width="165" height="55"/>
-                                <color key="backgroundColor" red="0.086274509799999996" green="0.62745098040000002" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Não">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" red="0.086274509799999996" green="0.62745098040000002" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="botaoNaoPressionado:" destination="Liu-me-4cr" eventType="touchUpInside" id="GcQ-A0-8Fc"/>
-                                    <action selector="confirmarLeitura:" destination="k7q-3I-ev0" eventType="touchUpInside" id="bkN-Be-SbQ"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="79" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d3b-pP-Pdz">
-                                <rect key="frame" x="0.0" y="10" width="414" height="674"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="548"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="620" id="guz-kU-n4d"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="msgcell" rowHeight="79" id="tKS-AB-FLa" customClass="MensagemCell" customModule="AgendaOnline" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="79"/>
@@ -895,14 +881,36 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3an-KX-cfi">
+                                <rect key="frame" x="229" y="629" width="165" height="55"/>
+                                <color key="backgroundColor" red="0.086274509799999996" green="0.62745098040000002" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="3an-KX-cfi" secondAttribute="height" multiplier="3:1" id="Ia7-ue-94V"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Não">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.086274509799999996" green="0.62745098040000002" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="botaoNaoPressionado:" destination="Liu-me-4cr" eventType="touchUpInside" id="GcQ-A0-8Fc"/>
+                                    <action selector="confirmarLeitura:" destination="k7q-3I-ev0" eventType="touchUpInside" id="bkN-Be-SbQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="ggb-Bj-ab6" firstAttribute="top" secondItem="AnG-a0-gcA" secondAttribute="bottom" constant="8" id="1IF-rk-sLG"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="AnG-a0-gcA" secondAttribute="leading" id="2GF-NG-nl4"/>
                             <constraint firstItem="d3b-pP-Pdz" firstAttribute="width" secondItem="C4J-ML-a0J" secondAttribute="width" id="7U8-9H-u8Y"/>
-                            <constraint firstItem="AnG-a0-gcA" firstAttribute="top" secondItem="d3b-pP-Pdz" secondAttribute="bottom" constant="-28" id="DU8-dM-fM2"/>
-                            <constraint firstItem="d3b-pP-Pdz" firstAttribute="leading" secondItem="AnG-a0-gcA" secondAttribute="trailing" constant="-185" id="EcM-Ye-rE2"/>
-                            <constraint firstItem="3an-KX-cfi" firstAttribute="top" secondItem="d3b-pP-Pdz" secondAttribute="bottom" constant="-28" id="b1q-u8-GUU"/>
-                            <constraint firstItem="3an-KX-cfi" firstAttribute="leading" secondItem="d3b-pP-Pdz" secondAttribute="trailing" constant="-185" id="vCM-Ld-PwU"/>
+                            <constraint firstItem="slf-5W-hCZ" firstAttribute="centerX" secondItem="C4J-ML-a0J" secondAttribute="centerX" id="GpP-1c-ND2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3an-KX-cfi" secondAttribute="trailing" id="SYr-sk-PbH"/>
+                            <constraint firstItem="ggb-Bj-ab6" firstAttribute="top" secondItem="3an-KX-cfi" secondAttribute="bottom" constant="8" id="TVf-fD-t2f"/>
+                            <constraint firstItem="3an-KX-cfi" firstAttribute="top" secondItem="d3b-pP-Pdz" secondAttribute="bottom" constant="17" id="VwP-Tu-mWa"/>
+                            <constraint firstItem="ggb-Bj-ab6" firstAttribute="top" secondItem="slf-5W-hCZ" secondAttribute="bottom" constant="8" id="f0O-qi-anh"/>
+                            <constraint firstItem="AnG-a0-gcA" firstAttribute="top" secondItem="d3b-pP-Pdz" secondAttribute="bottom" constant="17" id="oNN-Vs-nnW"/>
+                            <constraint firstItem="slf-5W-hCZ" firstAttribute="top" secondItem="d3b-pP-Pdz" secondAttribute="bottom" constant="17" id="zrY-X4-iwd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="NomePessoa" id="vBo-9O-lgu"/>
