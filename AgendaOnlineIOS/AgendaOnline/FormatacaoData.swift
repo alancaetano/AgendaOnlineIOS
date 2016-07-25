@@ -14,7 +14,7 @@ class FormatacaoData {
     static let FORMATO_API = "yyyy-MM-dd'T'HH:mm:ss.SSS"
     static let FORMATO_API_COM_MILISSEGUNDOS = "yyyy-MM-dd'T'HH:mm:ss"
     static let FORMATO_APENAS_HORAS = "hh:mm"
-    static let FORMATO_DATA_E_HORA = "yyyy-MM-dd hh:mm"
+    static let FORMATO_DATA_E_HORA = "dd/MM/yyyy hh:mm"
     
     static func Formatar(data:NSDate)->String{
         let dateFormatter = NSDateFormatter()
@@ -37,7 +37,7 @@ class FormatacaoData {
             return "\(DIAS_DA_SEMANA[(component?.weekdayOrdinal)!]), \(dateFormatter.stringFromDate(data))"
         }
         
-        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm"
+        dateFormatter.dateFormat = FORMATO_DATA_E_HORA
         return dateFormatter.stringFromDate(data)
     }
     
