@@ -49,6 +49,22 @@
          contextName = "PerfisViewController.carregarAbas() -&gt; ():PerfisViewController.swift">
       </ContextState>
       <ContextState
+         contextName = "MensagemViewController.keyboardDidShow(NSNotification) -&gt; ():MensagemViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "tecladoBaseConstraint">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MensagemViewController.configurarAlturaDaTableView() -&gt; ():MensagemViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.alturaTabela.constant">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "SecondViewController.tableView(UITableView, willDisplayCell : UITableViewCell, forRowAtIndexPath : NSIndexPath) -&gt; ():SecondViewController.swift">
          <PersistentStrings>
             <PersistentString

@@ -246,17 +246,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" highlighted="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Digite uma mensagem aqui..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XTU-l9-eIh">
-                                <rect key="frame" x="20" y="692" width="374" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="webSearch" returnKeyType="send" enablesReturnKeyAutomatically="YES"/>
-                            </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="82" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="agg-nv-I6L">
-                                <rect key="frame" x="0.0" y="64" width="414" height="620"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="82" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="agg-nv-I6L">
+                                <rect key="frame" x="0.0" y="64" width="414" height="582"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="620" id="YfF-1G-L8F"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="msgcell" rowHeight="82" id="EXC-gC-Lv7" customClass="MensagemCell" customModule="AgendaOnline" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="82"/>
@@ -313,20 +305,26 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Digite uma mensagem aqui..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XTU-l9-eIh">
+                                <rect key="frame" x="20" y="654" width="374" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="webSearch" returnKeyType="send" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="leadingMargin" secondItem="XTU-l9-eIh" secondAttribute="leading" id="0gr-I8-vee"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="XTU-l9-eIh" secondAttribute="bottom" constant="11" id="476-DT-cpg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="XTU-l9-eIh" secondAttribute="trailing" id="CBs-0W-heQ"/>
+                            <constraint firstItem="agg-nv-I6L" firstAttribute="top" secondItem="a8h-Op-5en" secondAttribute="bottom" id="HTx-zp-wqa"/>
                             <constraint firstItem="agg-nv-I6L" firstAttribute="width" secondItem="qfO-ed-jgL" secondAttribute="width" id="KnD-MH-Jgh"/>
+                            <constraint firstItem="XTU-l9-eIh" firstAttribute="top" secondItem="agg-nv-I6L" secondAttribute="bottom" constant="8" id="Vzf-Pi-aJJ"/>
+                            <constraint firstItem="SLY-93-D72" firstAttribute="top" secondItem="XTU-l9-eIh" secondAttribute="bottom" constant="8" id="mrL-oY-HkA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="NomePessoa" id="QtZ-KN-xqN"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <outlet property="alturaTabela" destination="YfF-1G-L8F" id="W0U-yi-uCd"/>
-                        <outlet property="tecladoBaseConstraint" destination="476-DT-cpg" id="s86-Er-CiP"/>
+                        <outlet property="tecladoBaseConstraint" destination="mrL-oY-HkA" id="siC-Ux-abS"/>
                         <outlet property="textViewDigitarMensagem" destination="XTU-l9-eIh" id="e5g-Mh-KEW"/>
                         <outlet property="tvMensagens" destination="agg-nv-I6L" id="v9I-7c-Xsp"/>
                         <outlet property="viewBase" destination="qfO-ed-jgL" id="TSM-WB-lMR"/>
