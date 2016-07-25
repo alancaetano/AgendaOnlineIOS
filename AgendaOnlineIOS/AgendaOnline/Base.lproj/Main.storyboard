@@ -265,31 +265,31 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="82"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label identifier="TextoUsuario" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="TextoUsuario" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3a-ZQ-7nj" userLabel="TextoUsuario">
-                                                    <rect key="frame" x="96" y="12" width="270" height="31"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="270" id="fHz-JD-kcm"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="DataDestinatario" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j3x-nq-f2o">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="DataDestinatario" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j3x-nq-f2o">
                                                     <rect key="frame" x="48" y="43" width="270" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="DataUsuario" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMv-iy-0gq">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="DataUsuario" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMv-iy-0gq">
                                                     <rect key="frame" x="96" y="43" width="270" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label identifier="TextoDestinatario" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="TextoDestinatario" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MpX-Xz-6bj" userLabel="TextoDestinatario">
+                                                <label identifier="TextoDestinatario" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="TextoDestinatario" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MpX-Xz-6bj" userLabel="TextoDestinatario">
                                                     <rect key="frame" x="48" y="12" width="270" height="31"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="270" id="rl7-r0-qpE"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label identifier="TextoUsuario" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="TextoUsuario" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3a-ZQ-7nj" userLabel="TextoUsuario">
+                                                    <rect key="frame" x="96" y="12" width="270" height="31"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="270" id="fHz-JD-kcm"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -301,11 +301,9 @@
                                                 <constraint firstItem="j3x-nq-f2o" firstAttribute="top" secondItem="MpX-Xz-6bj" secondAttribute="bottom" id="BbF-xf-5v8"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="lMv-iy-0gq" secondAttribute="trailing" constant="40" id="KkU-8x-a56"/>
                                                 <constraint firstItem="j3x-nq-f2o" firstAttribute="leading" secondItem="mTy-qM-gkt" secondAttribute="leadingMargin" constant="40" id="di1-ld-RqN"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="j3x-nq-f2o" secondAttribute="bottom" constant="10" id="fC0-dN-RAR"/>
                                                 <constraint firstItem="lMv-iy-0gq" firstAttribute="top" secondItem="f3a-ZQ-7nj" secondAttribute="bottom" id="g7Y-L1-Ll8"/>
                                                 <constraint firstItem="j3x-nq-f2o" firstAttribute="top" secondItem="MpX-Xz-6bj" secondAttribute="bottom" id="gSt-93-2vK"/>
                                                 <constraint firstItem="f3a-ZQ-7nj" firstAttribute="top" secondItem="mTy-qM-gkt" secondAttribute="topMargin" constant="4" id="glq-6J-IwY"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="lMv-iy-0gq" secondAttribute="bottom" constant="10" id="kuH-sE-buV"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="f3a-ZQ-7nj" secondAttribute="trailing" constant="40" id="qkn-8W-5bT"/>
                                                 <constraint firstItem="MpX-Xz-6bj" firstAttribute="top" secondItem="mTy-qM-gkt" secondAttribute="topMargin" constant="4" id="zCt-6k-o3Q"/>
                                             </constraints>
