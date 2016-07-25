@@ -255,7 +255,7 @@
                                 <rect key="frame" x="0.0" y="64" width="414" height="620"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="620" id="YfF-1G-L8F"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="620" id="YfF-1G-L8F"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="msgcell" rowHeight="82" id="EXC-gC-Lv7" customClass="MensagemCell" customModule="AgendaOnline" customModuleProvider="target">
@@ -265,15 +265,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="82"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="DataDestinatario" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j3x-nq-f2o">
-                                                    <rect key="frame" x="48" y="43" width="270" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="DataUsuario" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMv-iy-0gq">
                                                     <rect key="frame" x="96" y="43" width="270" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -295,11 +289,19 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="DataDestinatario" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j3x-nq-f2o">
+                                                    <rect key="frame" x="48" y="43" width="270" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="f3a-ZQ-7nj" firstAttribute="leading" secondItem="mTy-qM-gkt" secondAttribute="leadingMargin" constant="88" id="7G6-Af-QpQ"/>
                                                 <constraint firstItem="MpX-Xz-6bj" firstAttribute="leading" secondItem="mTy-qM-gkt" secondAttribute="leadingMargin" constant="40" id="ADO-SV-Deo"/>
                                                 <constraint firstItem="j3x-nq-f2o" firstAttribute="top" secondItem="MpX-Xz-6bj" secondAttribute="bottom" id="BbF-xf-5v8"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="lMv-iy-0gq" secondAttribute="trailing" constant="40" id="KkU-8x-a56"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="j3x-nq-f2o" secondAttribute="trailing" constant="88" id="NVe-qk-YrI"/>
                                                 <constraint firstItem="j3x-nq-f2o" firstAttribute="leading" secondItem="mTy-qM-gkt" secondAttribute="leadingMargin" constant="40" id="di1-ld-RqN"/>
                                                 <constraint firstItem="lMv-iy-0gq" firstAttribute="top" secondItem="f3a-ZQ-7nj" secondAttribute="bottom" id="g7Y-L1-Ll8"/>
                                                 <constraint firstItem="j3x-nq-f2o" firstAttribute="top" secondItem="MpX-Xz-6bj" secondAttribute="bottom" id="gSt-93-2vK"/>
@@ -324,6 +326,7 @@
                             <constraint firstAttribute="leadingMargin" secondItem="XTU-l9-eIh" secondAttribute="leading" id="0gr-I8-vee"/>
                             <constraint firstAttribute="bottomMargin" secondItem="XTU-l9-eIh" secondAttribute="bottom" constant="11" id="476-DT-cpg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="XTU-l9-eIh" secondAttribute="trailing" id="CBs-0W-heQ"/>
+                            <constraint firstItem="agg-nv-I6L" firstAttribute="width" secondItem="qfO-ed-jgL" secondAttribute="width" id="KnD-MH-Jgh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="NomePessoa" id="QtZ-KN-xqN"/>
