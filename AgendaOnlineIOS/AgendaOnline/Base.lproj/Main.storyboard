@@ -649,13 +649,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="78"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label identifier="TextoDestinatario" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="TextoDestinatario" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Els-1l-itK" userLabel="TextoDestinatario">
+                                                <label identifier="TextoDestinatario" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="TextoDestinatario" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Els-1l-itK" userLabel="TextoDestinatario">
                                                     <rect key="frame" x="49" y="8" width="270" height="31"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="DataUsuario" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzG-5K-7Mw">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="DataUsuario" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzG-5K-7Mw">
                                                     <rect key="frame" x="49" y="47" width="270" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -664,6 +664,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Els-1l-itK" firstAttribute="leading" secondItem="YiI-ox-TMg" secondAttribute="leadingMargin" constant="41" id="1sl-H9-OF3"/>
+                                                <constraint firstItem="bzG-5K-7Mw" firstAttribute="top" secondItem="Els-1l-itK" secondAttribute="bottom" constant="8" id="81E-oB-4rz"/>
                                                 <constraint firstItem="bzG-5K-7Mw" firstAttribute="leading" secondItem="YiI-ox-TMg" secondAttribute="leadingMargin" constant="41" id="DuA-kH-rpa"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="bzG-5K-7Mw" secondAttribute="bottom" constant="2" id="IDK-fu-0rW"/>
                                                 <constraint firstAttribute="topMargin" secondItem="Els-1l-itK" secondAttribute="top" id="Vgh-1t-WlV"/>

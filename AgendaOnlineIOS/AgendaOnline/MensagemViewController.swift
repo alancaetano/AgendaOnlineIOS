@@ -232,9 +232,6 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
         let info = sender.userInfo!
         let tamTeclado = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue().height
         
-        //tecladoBaseConstraint.constant = tamTeclado - bottomLayoutGuide.length + 10
-        //alturaTabela.constant = alturaTabela.constant - tamTeclado
-        
         tecladoBaseConstraint.constant = tecladoBaseConstraint.constant + tamTeclado
         
         self.posicionarNaUltimaMensagem(tvMensagens.contentSize.height - tvMensagens.frame.size.height + tamTeclado)
@@ -248,15 +245,6 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
         
         self.posicionarNaUltimaMensagem(tvMensagens.contentSize.height - tvMensagens.frame.size.height)
     }
-    
-    /*func keyboardWillHide(sender: NSNotification) {
-        let info = sender.userInfo!
-    
-        let tamTeclado = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue().height
-        
-        tecladoBaseConstraint.constant = 10
-        alturaTabela.constant = alturaTabela.constant + tamTeclado
-    }*/
     
     func notificationReceived(sender: NSNotification) {
         fezScroll = false

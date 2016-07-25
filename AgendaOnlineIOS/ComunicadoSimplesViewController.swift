@@ -20,6 +20,8 @@ class ComunicadoSimplesViewController: DetalheConversaBaseViewController,UITextF
         
         self.tvMensagens.delegate = self
         self.tvMensagens.dataSource = self
+        self.tvMensagens.estimatedRowHeight = 78
+        self.tvMensagens.rowHeight = UITableViewAutomaticDimension
         
         self.indicadorCarregamento = IndicadorCarregamento(view: self.view)
         

@@ -24,12 +24,14 @@ class ComunicadoComSimOuNaoViewController: DetalheConversaBaseViewController,UIT
         
         self.tvMensagens.delegate = self
         self.tvMensagens.dataSource = self
+        self.tvMensagens.estimatedRowHeight = 78
+        self.tvMensagens.rowHeight = UITableViewAutomaticDimension
         
         self.indicadorCarregamento = IndicadorCarregamento(view: self.view)
         
         self.title = self.conversa.NomeProfessor
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "notificationReceived:", name: "mensagem", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ComunicadoComSimOuNaoViewController.notificationReceived(_:)), name: "mensagem", object: nil)
         
         tratarRespostaComunicado()
         
