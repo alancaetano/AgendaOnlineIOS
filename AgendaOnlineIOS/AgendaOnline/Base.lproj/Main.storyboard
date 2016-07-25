@@ -265,7 +265,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="82"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="DataUsuario" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMv-iy-0gq">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="DataUsuario" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMv-iy-0gq">
                                                     <rect key="frame" x="96" y="43" width="270" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -273,38 +273,31 @@
                                                 </label>
                                                 <label identifier="TextoDestinatario" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="TextoDestinatario" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MpX-Xz-6bj" userLabel="TextoDestinatario">
                                                     <rect key="frame" x="48" y="12" width="270" height="31"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="270" id="rl7-r0-qpE"/>
-                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="DataDestinatario" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j3x-nq-f2o">
-                                                    <rect key="frame" x="48" y="43" width="270" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label identifier="TextoUsuario" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="TextoUsuario" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3a-ZQ-7nj" userLabel="TextoUsuario">
                                                     <rect key="frame" x="96" y="12" width="270" height="31"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="270" id="fHz-JD-kcm"/>
-                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="DataDestinatario" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j3x-nq-f2o">
+                                                    <rect key="frame" x="48" y="43" width="270" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="f3a-ZQ-7nj" firstAttribute="leading" secondItem="mTy-qM-gkt" secondAttribute="leadingMargin" constant="88" id="7G6-Af-QpQ"/>
                                                 <constraint firstItem="MpX-Xz-6bj" firstAttribute="leading" secondItem="mTy-qM-gkt" secondAttribute="leadingMargin" constant="40" id="ADO-SV-Deo"/>
-                                                <constraint firstItem="j3x-nq-f2o" firstAttribute="top" secondItem="MpX-Xz-6bj" secondAttribute="bottom" id="BbF-xf-5v8"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="lMv-iy-0gq" secondAttribute="trailing" constant="40" id="KkU-8x-a56"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="j3x-nq-f2o" secondAttribute="trailing" constant="88" id="NVe-qk-YrI"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="MpX-Xz-6bj" secondAttribute="trailing" constant="88" id="bNR-SK-IfO"/>
+                                                <constraint firstItem="lMv-iy-0gq" firstAttribute="leading" secondItem="mTy-qM-gkt" secondAttribute="leadingMargin" constant="88" id="d8y-vf-Pdb"/>
                                                 <constraint firstItem="j3x-nq-f2o" firstAttribute="leading" secondItem="mTy-qM-gkt" secondAttribute="leadingMargin" constant="40" id="di1-ld-RqN"/>
-                                                <constraint firstItem="lMv-iy-0gq" firstAttribute="top" secondItem="f3a-ZQ-7nj" secondAttribute="bottom" id="g7Y-L1-Ll8"/>
-                                                <constraint firstItem="j3x-nq-f2o" firstAttribute="top" secondItem="MpX-Xz-6bj" secondAttribute="bottom" id="gSt-93-2vK"/>
                                                 <constraint firstItem="f3a-ZQ-7nj" firstAttribute="top" secondItem="mTy-qM-gkt" secondAttribute="topMargin" constant="4" id="glq-6J-IwY"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="f3a-ZQ-7nj" secondAttribute="trailing" constant="40" id="qkn-8W-5bT"/>
                                                 <constraint firstItem="MpX-Xz-6bj" firstAttribute="top" secondItem="mTy-qM-gkt" secondAttribute="topMargin" constant="4" id="zCt-6k-o3Q"/>
@@ -665,19 +658,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="78"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <label identifier="TextoDestinatario" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="TextoDestinatario" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Els-1l-itK" userLabel="TextoDestinatario">
+                                                    <rect key="frame" x="49" y="8" width="270" height="31"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="DataUsuario" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzG-5K-7Mw">
                                                     <rect key="frame" x="49" y="47" width="270" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label identifier="TextoDestinatario" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="TextoDestinatario" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Els-1l-itK" userLabel="TextoDestinatario">
-                                                    <rect key="frame" x="49" y="8" width="270" height="31"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="270" id="VRu-XV-RzM"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -747,14 +737,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="79" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dzg-wq-w5G">
-                                <rect key="frame" x="0.0" y="10" width="414" height="674"/>
+                                <rect key="frame" x="0.0" y="72" width="414" height="612"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="620" id="MeO-y5-lue"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="msgcell" rowHeight="79" id="2C8-TM-e6e" customClass="MensagemCell" customModule="AgendaOnline" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="414" height="79"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="79"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2C8-TM-e6e" id="LML-y4-Hdb">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="79"/>
@@ -866,7 +856,7 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="msgcell" rowHeight="79" id="tKS-AB-FLa" customClass="MensagemCell" customModule="AgendaOnline" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="414" height="79"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="79"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tKS-AB-FLa" id="DVQ-ij-FfJ">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="79"/>
