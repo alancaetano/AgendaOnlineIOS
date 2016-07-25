@@ -10,5 +10,5 @@ import Foundation
 
 class Notificacao{
     static let CATEGORIA_MENSAGEM = "CategoriaMensagem"
-    static let CATEGORIA_ALUNO = "CategoriaMensagem"
+    static let CATEGORIA_ALUNO = "CategoriaAluno"
 }

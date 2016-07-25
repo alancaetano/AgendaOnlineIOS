@@ -68,7 +68,7 @@ class ConversaViewController: UITableViewController, UIPopoverPresentationContro
         
         let conv:Conversa = conversas![indexPath.row] as! Conversa
         cell.NomeProfessor.text = conv.NomeProfessor
-        cell.NomeAluno.text = conv.NomeAluno
+        cell.NomeAluno.text = StringUtil.RecuperarPrimeiroNome(conv.NomeAluno)
         cell.DataUltimaMensagem.text = FormatacaoData.Formatar(conv.DataUltimaMensagem)
         cell.TextoUltimaMensagem.text = conv.TextoUltimaMensagem
         

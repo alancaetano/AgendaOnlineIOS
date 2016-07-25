@@ -22,6 +22,7 @@
 		C7736BC91CF76F3A00B11517 /* Servico.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7736BC81CF76F3A00B11517 /* Servico.swift */; };
 		C7736BCB1CF76FA000B11517 /* Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7736BCA1CF76FA000B11517 /* Base64.swift */; };
 		C7736BCD1CF7814900B11517 /* IndicadorCarregamento.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7736BCC1CF7814900B11517 /* IndicadorCarregamento.swift */; };
+		C77B760C1D458F4900FEA5C0 /* StringUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77B760B1D458F4900FEA5C0 /* StringUtil.swift */; };
 		C7803C6C1D0DA4EF00CB1D47 /* SelecionarAlunoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7803C6B1D0DA4EF00CB1D47 /* SelecionarAlunoViewController.swift */; };
 		C7803C731D0EC4AF00CB1D47 /* DropdownDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7803C721D0EC4AF00CB1D47 /* DropdownDelegate.swift */; };
 		C792A9DA1CF956790062D7D0 /* ConversaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C792A9D91CF956790062D7D0 /* ConversaCell.swift */; };
@@ -47,7 +48,6 @@
 		C72DA19A1CAA421800F50407 /* ContatosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContatosViewController.swift; sourceTree = "<group>"; };
 		C73537EF1D359225005D0B78 /* PerfilDetalheViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerfilDetalheViewController.swift; sourceTree = "<group>"; };
 		C73537F31D396D9D005D0B78 /* PerfisViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerfisViewController.swift; sourceTree = "<group>"; };
-		C73537F51D3C8B2E005D0B78 /* PushKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PushKit.framework; path = System/Library/Frameworks/PushKit.framework; sourceTree = SDKROOT; };
 		C761E2BA1CA7CE070035C0E5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C7736BBB1CE9597F00B11517 /* ComunicadoSimplesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComunicadoSimplesViewController.swift; sourceTree = "<group>"; };
 		C7736BBD1CE9610200B11517 /* ComunicadoComConfirmacaoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComunicadoComConfirmacaoViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +58,7 @@
 		C7736BC81CF76F3A00B11517 /* Servico.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Servico.swift; sourceTree = "<group>"; };
 		C7736BCA1CF76FA000B11517 /* Base64.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base64.swift; sourceTree = "<group>"; };
 		C7736BCC1CF7814900B11517 /* IndicadorCarregamento.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicadorCarregamento.swift; sourceTree = "<group>"; };
+		C77B760B1D458F4900FEA5C0 /* StringUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtil.swift; sourceTree = "<group>"; };
 		C7803C6B1D0DA4EF00CB1D47 /* SelecionarAlunoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelecionarAlunoViewController.swift; sourceTree = "<group>"; };
 		C7803C721D0EC4AF00CB1D47 /* DropdownDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropdownDelegate.swift; sourceTree = "<group>"; };
 		C792A9D91CF956790062D7D0 /* ConversaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversaCell.swift; sourceTree = "<group>"; };
@@ -102,6 +103,7 @@
 				C792A9DD1CFB78020062D7D0 /* Cor.swift */,
 				C792A9DF1CFE62C80062D7D0 /* Recursos.swift */,
 				C70268D31D3FF74500F94C9D /* Notificacao.swift */,
+				C77B760B1D458F4900FEA5C0 /* StringUtil.swift */,
 			);
 			name = util;
 			sourceTree = "<group>";
@@ -127,7 +129,6 @@
 		E573D6D41C66E1220092E95D = {
 			isa = PBXGroup;
 			children = (
-				C73537F51D3C8B2E005D0B78 /* PushKit.framework */,
 				E573D6DF1C66E1220092E95D /* AgendaOnline */,
 				E573D6DE1C66E1220092E95D /* Products */,
 			);
@@ -230,7 +231,7 @@
 				TargetAttributes = {
 					E573D6DC1C66E1220092E95D = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 96P52QSAPK;
+						DevelopmentTeam = 3WZ8VXWJQ7;
 					};
 				};
 			};
@@ -272,6 +273,7 @@
 			files = (
 				C72DA19B1CAA421800F50407 /* ContatosViewController.swift in Sources */,
 				E573D6FA1C66E8960092E95D /* Mensagem.swift in Sources */,
+				C77B760C1D458F4900FEA5C0 /* StringUtil.swift in Sources */,
 				E573D6F81C66E2670092E95D /* Usuario.swift in Sources */,
 				C7736BCD1CF7814900B11517 /* IndicadorCarregamento.swift in Sources */,
 				C792A9DC1CFAB8DF0062D7D0 /* FormatacaoData.swift in Sources */,
@@ -413,11 +415,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = AgendaOnline/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.edu.up.AgendaOnline;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -426,11 +431,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = AgendaOnline/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.edu.up.AgendaOnline;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
