@@ -31,7 +31,7 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
         self.tvMensagens.dataSource = self
         self.tvMensagens.delegate = self
         self.tvMensagens.estimatedRowHeight = 78
-        self.tvMensagens.rowHeight = 78
+        self.tvMensagens.rowHeight = UITableViewAutomaticDimension
         
         self.textViewDigitarMensagem.delegate = self;
         
