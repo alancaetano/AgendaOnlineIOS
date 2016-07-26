@@ -126,6 +126,13 @@ class ComunicadoComConfirmacaoViewController: DetalheConversaBaseViewController,
         
         msgCell.sizeToFit()
         
+        if(!fezScroll){
+            posicionarNaUltimaMensagem(tvMensagens.contentSize.height - tvMensagens.frame.size.height)
+            
+            if(indexPath.row == mensagens.count-1){
+                fezScroll = true
+            }
+        }
         
         return msgCell
     }

@@ -183,16 +183,21 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
         }
         
         formatarMensagem(msgCell, msgDoUsuario: idUsuarioLogado == msg.IdUsuario, texto: msg.Texto, data: msg.DtEnvio)
-
+        
         if(!fezScroll){
             posicionarNaUltimaMensagem(tvMensagens.contentSize.height - tvMensagens.frame.size.height)
-            fezScroll = true
+            
+            if(indexPath.row == mensagens.count-1){
+                fezScroll = true
+            }
         }
         
         return msgCell
     }
     
     func posicionarNaUltimaMensagem(y:CGFloat){
+        print(y)
+        
         dispatch_async(dispatch_get_main_queue(), {
             self.tvMensagens.setContentOffset(CGPoint(x: 0, y: y), animated: false)
         })
@@ -233,7 +238,7 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
         let tamTeclado = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue().height
         
         tecladoBaseConstraint.constant = tecladoBaseConstraint.constant + tamTeclado
-        
+    
         self.posicionarNaUltimaMensagem(tvMensagens.contentSize.height - tvMensagens.frame.size.height + tamTeclado)
     }
     
@@ -242,7 +247,7 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
         let tamTeclado = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue().height
         
         tecladoBaseConstraint.constant = tecladoBaseConstraint.constant - tamTeclado
-        
+
         self.posicionarNaUltimaMensagem(tvMensagens.contentSize.height - tvMensagens.frame.size.height)
     }
     
