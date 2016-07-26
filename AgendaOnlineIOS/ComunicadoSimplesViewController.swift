@@ -25,7 +25,7 @@ class ComunicadoSimplesViewController: DetalheConversaBaseViewController,UITextF
         
         self.indicadorCarregamento = IndicadorCarregamento(view: self.view)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "notificationReceived:", name: "mensagem", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MensagemViewController.notificacaoRecebida(_:)), name: "mensagem", object: nil)
         
         self.title = self.conversa.NomeProfessor
         
@@ -113,7 +113,7 @@ class ComunicadoSimplesViewController: DetalheConversaBaseViewController,UITextF
         })
     }
     
-    func notificationReceived(sender: NSNotification) {
+    func notificacaoRecebida(sender: NSNotification) {
         fezScroll = false
         carregarMensagens()
     }
