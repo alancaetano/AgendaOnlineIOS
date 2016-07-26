@@ -40,6 +40,8 @@ class ConversaViewController: UITableViewController, UIPopoverPresentationContro
         
         self.indicadorCarregamento = IndicadorCarregamento(view: self.view)
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MensagemViewController.notificacaoRecebida(_:)), name: "mensagem", object: nil)
+        
         if((Contexto.Recuperar(Contexto.CHAVE_ID_USUARIO)) == nil){
             performSegueWithIdentifier("loginmodal", sender: self)
         }
@@ -211,6 +213,10 @@ class ConversaViewController: UITableViewController, UIPopoverPresentationContro
     
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return .None
+    }
+    
+    func notificacaoRecebida(sender: NSNotification) {
+        carregarConversas()
     }
 }
     

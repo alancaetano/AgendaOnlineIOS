@@ -31,7 +31,7 @@ class ComunicadoComSimOuNaoViewController: DetalheConversaBaseViewController,UIT
         
         self.title = self.conversa.NomeProfessor
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ComunicadoComSimOuNaoViewController.notificationReceived(_:)), name: "mensagem", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ComunicadoComSimOuNaoViewController.notificacaoRecebida(_:)), name: "mensagem", object: nil)
         
         tratarRespostaComunicado()
         
@@ -156,7 +156,7 @@ class ComunicadoComSimOuNaoViewController: DetalheConversaBaseViewController,UIT
         })
     }
     
-    func notificationReceived(sender: NSNotification) {
+    func notificacaoRecebida(sender: NSNotification) {
         fezScroll = false
         carregarMensagens()
     }

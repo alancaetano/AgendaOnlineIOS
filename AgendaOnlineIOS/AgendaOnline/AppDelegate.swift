@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //application.registerForRemoteNotifications()
         
-        //AgendarNotificacoes()
+        AgendarNotificacoes()
         
 		return true
 	}
@@ -62,8 +62,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     //TESTE -------------------------------//------------------------------------//------------------------------------------//------
-/*    func AgendarNotificacoes(){
-        let timer = NSTimer.scheduledTimerWithTimeInterval(20.0, target: self, selector: "Notificar", userInfo: nil, repeats: true)
+    func AgendarNotificacoes(){
+        let timer = NSTimer.scheduledTimerWithTimeInterval(20.0, target: self, selector: #selector(AppDelegate.Notificar), userInfo: nil, repeats: true)
         timer.fire()
     }
     
@@ -80,11 +80,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().scheduleLocalNotification(notificacao)
     }
     
-   func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void) {
+   /*func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void) {
         if(notification.category == Notificacao.CATEGORIA_MENSAGEM){
             
         }
     }*/
-
 }
 

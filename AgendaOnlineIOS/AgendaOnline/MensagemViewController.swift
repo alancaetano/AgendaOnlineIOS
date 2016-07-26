@@ -39,7 +39,7 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MensagemViewController.keyboardDidShow(_:)), name: UIKeyboardDidShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MensagemViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MensagemViewController.notificationReceived(_:)), name: "mensagem", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MensagemViewController.notificacaoRecebida(_:)), name: "mensagem", object: nil)
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MensagemViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -251,7 +251,7 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
         self.posicionarNaUltimaMensagem(tvMensagens.contentSize.height - tvMensagens.frame.size.height)
     }
     
-    func notificationReceived(sender: NSNotification) {
+    func notificacaoRecebida(sender: NSNotification) {
         fezScroll = false
         carregarMensagens()
     }
