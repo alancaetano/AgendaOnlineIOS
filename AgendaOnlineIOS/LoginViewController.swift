@@ -13,6 +13,10 @@ class LoginViewController: UIViewController{
     
     @IBOutlet weak var TextSenha: UITextField!
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
     @IBAction func Entrar(sender: AnyObject) {
 
         TextLogin.text = "pedrosouza@email.com"
