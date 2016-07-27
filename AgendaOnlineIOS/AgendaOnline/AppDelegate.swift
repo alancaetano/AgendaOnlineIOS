@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //application.registerForRemoteNotifications()
         
-        AgendarNotificacoes()
+        //AgendarNotificacoes()
         
 		return true
 	}
@@ -80,10 +80,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().scheduleLocalNotification(notificacao)
     }
     
-   /*func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void) {
-        if(notification.category == Notificacao.CATEGORIA_MENSAGEM){
-            
+   static func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void) {
+        if(notification.category == Notificacao.CATEGORIA_ALUNO){
+            Aluno.CarregarAlunos()
         }
-    }*/
+    }
 }
 

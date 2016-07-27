@@ -43,7 +43,7 @@ class PerfilDetalheViewController: UIViewController{
         
         self.indicadorCarregamento = IndicadorCarregamento(view: self.view)
         
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PerfilDetalheViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
         preencherCampos()
