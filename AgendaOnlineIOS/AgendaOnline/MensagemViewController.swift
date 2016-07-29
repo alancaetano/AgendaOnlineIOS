@@ -39,7 +39,7 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MensagemViewController.keyboardDidShow(_:)), name: UIKeyboardDidShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MensagemViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MensagemViewController.notificacaoRecebida(_:)), name: "mensagem", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MensagemViewController.notificacaoRecebida(_:)), name: self.conversa.Id, object: nil)
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MensagemViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -168,6 +168,10 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if(mensagens == nil){
+            return UITableViewCell()
+        }
+        
         let cell:UITableViewCell? = self.tvMensagens.dequeueReusableCellWithIdentifier("msgcell") as UITableViewCell?
         
         let msg:Mensagem = mensagens![indexPath.row] as! Mensagem
@@ -196,8 +200,6 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
     }
     
     func posicionarNaUltimaMensagem(y:CGFloat){
-        print(y)
-        
         dispatch_async(dispatch_get_main_queue(), {
             self.tvMensagens.setContentOffset(CGPoint(x: 0, y: y), animated: false)
         })
@@ -252,8 +254,10 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
     }
     
     func notificacaoRecebida(sender: NSNotification) {
+        print("tela de mensagens...notificacao recebida ")
         fezScroll = false
         carregarMensagens()
+        
     }
 }
 

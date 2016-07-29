@@ -216,6 +216,7 @@ class ConversaViewController: UITableViewController, UIPopoverPresentationContro
     }
     
     func notificacaoRecebida(sender: NSNotification) {
+        print("tela de conversas...notificacao recebida")
         carregarConversas()
     }
 }

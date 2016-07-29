@@ -34,7 +34,7 @@ class Aluno	: NSObject {
     }
     
     static func CarregarAlunos(){
-        let idUsuario = Contexto.Recuperar(Contexto.CHAVE_ID_USUARIO)
+        let idUsuario = Contexto.Recuperar(Contexto.CHAVE_ID_USUARIO)!
         let url: String =  "\(Servico.API_GETALUNOS)\(idUsuario)/"
         
         Servico.ChamarServico(url, httpMethod: Servico.HTTPMethod_GET, json:nil, callback: carregarAlunosCallback)

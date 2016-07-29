@@ -116,6 +116,10 @@ class ComunicadoComSimOuNaoViewController: DetalheConversaBaseViewController,UIT
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if(mensagens == nil){
+            return UITableViewCell()
+        }
+        
         let cell:UITableViewCell? = self.tvMensagens.dequeueReusableCellWithIdentifier("msgcell") as UITableViewCell?
         
         let msg:Mensagem = mensagens![indexPath.row] as! Mensagem
