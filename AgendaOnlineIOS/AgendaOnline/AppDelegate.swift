@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [UIUserNotificationType.Badge, UIUserNotificationType.Sound, UIUserNotificationType.Alert], categories: nil))
         
-        //application.registerForRemoteNotifications()
+        application.registerForRemoteNotifications()
         
         AgendarNotificacoes()
         
@@ -26,8 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-        print("didRegisterForRemoteNotificationsWithDeviceToken")
-        var data = deviceToken
+        print("didRegisterForRemoteNotificationsWithDeviceToken  \(deviceToken)")
         
     }
     
