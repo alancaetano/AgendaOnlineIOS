@@ -27,4 +27,10 @@ class Notificacao{
         
         UIApplication.sharedApplication().scheduleLocalNotification(notificacao)
     }
+    
+    static func enviarDeviceToken(idUsuario:String, deviceToken:String){
+        let json:NSDictionary = [ "Id":idUsuario, "DeviceToken": deviceToken]
+        
+        Servico.ChamarServico(Servico.API_ALTERARDEVICETOKEN, httpMethod: Servico.HTTPMethod_POST, json: json, callback: {_,_,_ in })
+    }
 }

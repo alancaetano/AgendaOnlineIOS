@@ -20,19 +20,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         application.registerForRemoteNotifications()
         
-        AgendarNotificacoes()
+        //AgendarNotificacoes()
         
 		return true
 	}
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-        print("didRegisterForRemoteNotificationsWithDeviceToken  \(deviceToken)")
+        let idUsuario:String? = Contexto.Recuperar(Contexto.CHAVE_ID_USUARIO) as? String
+        var deviceTokenStr:String = String(deviceToken)
+        deviceTokenStr = deviceTokenStr.stringByReplacingOccurrencesOfString("<", withString: "").stringByReplacingOccurrencesOfString(">", withString: "")
         
+        print("didRegisterForRemoteNotificationsWithDeviceToken  \(deviceTokenStr)")
+        
+        if(idUsuario != nil){
+            Notificacao.enviarDeviceToken(idUsuario!, deviceToken: deviceTokenStr)
+        }
     }
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
         print("didFailToRegisterForRemoteNotificationsWithError")
-        var erro = error
     }
     
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {

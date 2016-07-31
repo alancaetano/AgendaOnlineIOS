@@ -57,6 +57,20 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "AppDelegate.application(UIApplication, didRegisterForRemoteNotificationsWithDeviceToken : NSData) -&gt; ():AppDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "&quot;\(deviceToken)&quot;.characters.count">
+            </PersistentString>
+            <PersistentString
+               value = "idUsuario!">
+            </PersistentString>
+            <PersistentString
+               value = "&quot;\(deviceToken)&quot;">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "MensagemViewController.configurarAlturaDaTableView() -&gt; ():MensagemViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -72,6 +86,17 @@
             </PersistentString>
             <PersistentString
                value = "self.tvMensagens.visibleCells.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static Notificacao.enviarDeviceTokenCallback(NSURLResponse?, data : NSData?, error : NSError?) -&gt; ():Notificacao.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "error">
+            </PersistentString>
+            <PersistentString
+               value = "(response as? NSHTTPURLResponse)!.statusCode">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

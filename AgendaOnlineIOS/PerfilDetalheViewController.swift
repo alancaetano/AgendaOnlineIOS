@@ -47,7 +47,6 @@ class PerfilDetalheViewController: UIViewController{
         view.addGestureRecognizer(tap)
         
         preencherCampos()
-        
     }
     
     func preencherCampos(){
