@@ -26,9 +26,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        
         let idUsuario:String? = Contexto.Recuperar(Contexto.CHAVE_ID_USUARIO) as? String
         var deviceTokenStr:String = String(deviceToken)
-        deviceTokenStr = deviceTokenStr.stringByReplacingOccurrencesOfString("<", withString: "").stringByReplacingOccurrencesOfString(">", withString: "")
+        
+        print("didRegisterForRemoteNotificationsWithDeviceToken  \(deviceTokenStr)")
+        
+        deviceTokenStr = deviceTokenStr.stringByReplacingOccurrencesOfString("<", withString: "").stringByReplacingOccurrencesOfString(">", withString: "").stringByReplacingOccurrencesOfString(" ", withString:"")
         
         print("didRegisterForRemoteNotificationsWithDeviceToken  \(deviceTokenStr)")
         
@@ -45,6 +49,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("didReceiveLocalNotification - \(notification.category)")
         
         Notificacao.tratarNotificacaoRemota(notification)
+    }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]){
+        print("didReceiveRemoteNotification")
+        
+        if let info = userInfo["aps"] as? Dictionary<String, AnyObject>
+        {
+            let notificacao:UILocalNotification = UILocalNotification()
+            notificacao.category = info["category"] as! String
+            notificacao.alertBody = info["alert"] as! String
+            
+            Notificacao.tratarNotificacaoRemota(notificacao)
+        }
     }
     
     //TESTE -------------------------------//------------------------------------//------------------------------------------//------

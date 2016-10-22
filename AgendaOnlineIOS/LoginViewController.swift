@@ -18,9 +18,6 @@ class LoginViewController: UIViewController{
     }
     
     @IBAction func Entrar(sender: AnyObject) {
-
-        TextLogin.text = "pedrosouza@email.com"
-        TextSenha.text = "admin123"
         
         let str = "\(TextLogin.text!);\(TextSenha.text!)"
         let base64 = Base64.Codificar(str)
@@ -51,6 +48,7 @@ class LoginViewController: UIViewController{
                 
                 Contexto.Salvar(Contexto.CHAVE_ID_USUARIO, valor: idUsuario)
 
+                UIApplication.sharedApplication().registerForRemoteNotifications()
                 
                 self.CarregarAlunos(idUsuario)
                 
