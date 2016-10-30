@@ -200,6 +200,10 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
     }
     
     func posicionarNaUltimaMensagem(y:CGFloat){
+        if(y < 0){
+            return
+        }
+        
         dispatch_async(dispatch_get_main_queue(), {
             self.tvMensagens.setContentOffset(CGPoint(x: 0, y: y), animated: false)
         })
