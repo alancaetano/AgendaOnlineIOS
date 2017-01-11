@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Aluno.swift"
-            timestampString = "491347287.858735"
+            filePath = "AgendaOnline/Notificacao.swift"
+            timestampString = "501351292.398252"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "carregarAlunosCallback(_:data:error:)"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "tratarNotificacaoRemota(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

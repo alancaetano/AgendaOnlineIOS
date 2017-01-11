@@ -39,7 +39,7 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MensagemViewController.keyboardDidShow(_:)), name: UIKeyboardDidShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MensagemViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MensagemViewController.notificacaoRecebida(_:)), name: self.conversa.Id, object: nil)
+        registrarConversaParaReceberNotificacao();
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MensagemViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -51,6 +51,11 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
         carregarMensagens()
     }
     
+    func registrarConversaParaReceberNotificacao()
+    {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MensagemViewController.notificacaoRecebida(_:)), name: self.conversa.Id, object: nil)
+    }
+
     func enviarNovaConversa(){
             
         let idUsuario:String! = Contexto.Recuperar(Contexto.CHAVE_ID_USUARIO) as! String
@@ -72,6 +77,8 @@ class MensagemViewController: DetalheConversaBaseViewController,UITextFieldDeleg
         self.conversa = Conversa()
         self.conversa.Id = IdConversa
         self.conversa.Tipo = Conversa.TIPOCONVERSA_CONVERSA
+        
+        registrarConversaParaReceberNotificacao()
         
         self.enviarMensagem()
     }
